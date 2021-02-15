@@ -1,10 +1,10 @@
 {
-  "name": "MERN-proshop",
+  "name": "speedQuiz",
   "version": "1.0.0",
-  "description": "MERN shopping cart app",
+  "description": "speed quiz game",
   "main": "server.js",
   "type": "module",
-  "repository": "https://github.com/booklvr/MERN-ProShop.git",
+  "repository": "https://github.com/booklvr/speedQuiz.git",
   "author": "Nicholas de Waal <nick.a.dewaal@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -16,7 +16,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.8",
     "morgan": "^1.10.0",
-    "socket.io": "^3.1.0"
+    "parcel-bundler": "^1.12.4",
+    "react-hot-loader": "^4.13.0",
+    "sass": "^1.32.7"
   },
   "scripts": {
     "server": "nodemon backend/server.js",

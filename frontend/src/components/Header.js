@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
@@ -26,20 +26,34 @@ const Header = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id='username'>
-                  <LinkContainer to='/profile'>
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                <Fragment>
+                  <LinkContainer to='/saved'>
+                    <Nav.Link href='/saved'>
+                      <i className='fas fa-list'></i> Saved Lists
+                    </Nav.Link>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  <NavDropdown title={userInfo.name} id='username'>
+                    <LinkContainer to='/profile'>
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Fragment>
               ) : (
-                <LinkContainer to='/login'>
-                  <Nav.Link href='/login'>
-                    <i className='fas fa-user'></i> Sign In
-                  </Nav.Link>
-                </LinkContainer>
+                <Fragment>
+                  <LinkContainer to='/login'>
+                    <Nav.Link href='/login'>
+                      <i className='fas fa-user'></i> Sign In
+                    </Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/register'>
+                    <Nav.Link href='/register'>
+                      <i className='fas fa-user'></i> Register
+                    </Nav.Link>
+                  </LinkContainer>
+                </Fragment>
               )}
             </Nav>
           </Navbar.Collapse>
