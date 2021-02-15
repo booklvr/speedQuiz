@@ -12,7 +12,6 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-paypal-button-v2": "^2.6.2",
     "react-redux": "^7.2.2",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0",
@@ -22,11 +21,25 @@
     "redux-thunk": "^2.3.0",
     "web-vitals": "^0.2.4"
   },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/eslint": "^10.1.0",
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.22.0",
+    "parcel-bundler": "^1.12.4",
+    "react-hot-loader": "^4.13.0",
+    "sass": "^1.32.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "parcel public/index.html --open",
+    "build": "parcel build public/index.html --public-url ./",
+    "precommit": "lint-staged",
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build",
+    "test-react": "react-scripts test",
+    "eject-react": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +57,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,scss,css,md}": [
+      "prettier --write",
+      "git add"
     ]
   }
 }

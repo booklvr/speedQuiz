@@ -1,40 +1,26 @@
 import React, { Fragment } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container, Row, Col } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-
+import Categories from '../components/Categories'
+import WordList from '../components/WordList'
+import Settings from '../components/Settings'
 // import Meta from '../components/Meta'
 
 const HomeScreen = ({ match }) => {
   return (
-    <Fragment>
-      <h1>Your new project</h1>
-      <div
-        className='mb-2'
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '10px',
-        }}
-      >
-        <LinkContainer to='/login'>
-          <Button
-            className='homescreen-button'
-            variant='primary'
-            size='lg'
-            width='100px'
-          >
-            Login
-          </Button>
-        </LinkContainer>
-        <LinkContainer to='/register'>
-          <Button className='homescreen-button' variant='secondary' size='lg'>
-            Register
-          </Button>
-        </LinkContainer>
-      </div>
-    </Fragment>
+    <Container fluid>
+      <Row>
+        <Col md='4'>
+          <Categories />
+        </Col>
+        <Col md='4'>
+          <WordList />
+        </Col>
+        <Col md='4'>
+          <Settings />
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
