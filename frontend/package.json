@@ -23,9 +23,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.16",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
-    "@babel/eslint": "^10.1.0",
     "eslint": "^7.16.0",
     "eslint-plugin-react": "^7.22.0",
     "parcel-bundler": "^1.12.4",
@@ -45,18 +45,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
     ]
   },
   "lint-staged": {
