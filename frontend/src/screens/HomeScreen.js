@@ -6,10 +6,10 @@ import WordList from '../components/WordList'
 import Settings from '../components/Settings'
 // import Meta from '../components/Meta'
 
-const HomeScreen = ({ match }) => {
+const HomeScreen = () => {
   return (
-    <Container fluid>
-      <Row>
+    <Container fluid={true}>
+      <Row className='d-flex justify-content-around'>
         <Col md='4'>
           <Categories />
         </Col>

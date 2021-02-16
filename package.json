@@ -14,11 +14,8 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.8",
-    "morgan": "^1.10.0",
-    "parcel-bundler": "^1.12.4",
-    "react-hot-loader": "^4.13.0",
-    "sass": "^1.32.7"
+    "mongoose": "^5.11.16",
+    "morgan": "^1.10.0"
   },
   "scripts": {
     "server": "nodemon backend/server.js",

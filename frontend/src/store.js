@@ -12,6 +12,8 @@ import {
   userUpdateReducer,
 } from './reducers/userReducers'
 
+import { categoryListReducer } from './reducers/categoryListReducer'
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -20,6 +22,7 @@ const reducer = combineReducers({
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
+  categoryList: categoryListReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
@@ -32,10 +35,14 @@ const initialState = {
 
 const middleware = [thunk]
 
+const composeEnhancers = composeWithDevTools({
+  trace: true,
+  traceLimit: 25,
+})
 const store = createStore(
   reducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancers(applyMiddleware(...middleware))
 )
 
 export default store

@@ -1,0 +1,30 @@
+// abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// vendors
+@import 'vendors/bootstrap';
+
+// base
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+//layout
+@import 'layout/formContainer.scss';
+@import 'layout/main';
+
+//components
+@import 'components/categories';
+@import 'components/footer';
+@import 'components/header';
+@import 'components/loader';
+@import 'components/message';
+@import 'components/settings';
+@import 'components/wordList';
+
+// pages
+@import 'pages/homeScreen.scss';
+@import 'pages/loginScreen.scss';
+@import 'pages/profileScreen.scss';
+@import 'pages/registerScreen.scss';
