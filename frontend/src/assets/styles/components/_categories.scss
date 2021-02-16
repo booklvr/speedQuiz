@@ -1,0 +1,30 @@
+.categories-container {
+  background-color: pink;
+}
+
+.collapse-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  background-color: inherit;
+  font-weight: flutter;
+
+  &:hover {
+    background-color: black;
+
+    i {
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+
+  i {
+    font-size: 15px;
+    color: black;
+  }
+}
