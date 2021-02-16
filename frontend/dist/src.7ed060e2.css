@@ -10233,4 +10233,32 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+.categories-container {
+  background-color: pink;
+}
+
+.collapse-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  background-color: inherit;
+  font-weight: flutter;
+}
+.collapse-category-btn:hover {
+  background-color: black;
+}
+.collapse-category-btn:hover i {
+  color: white;
+  transform: scale(1.1);
+}
+.collapse-category-btn i {
+  font-size: 15px;
+  color: black;
+}
+
 /*# sourceMappingURL=/src.7ed060e2.css.map */
