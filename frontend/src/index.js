@@ -1,14 +1,37 @@
+/* global module */
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
-import './bootstrap.min.css'
-import './index.css'
+// import './assets/bootstrap.min.css'
+import './assets/styles/index.scss'
 import App from './App'
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+const root = document.getElementById('root')
+
+function renderApp() {
+  // const App = require('./App').default
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    root
+  )
+}
+
+renderApp()
+
+if (module.hot) {
+  module.hot.accept(renderApp)
+}
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   root
+// )
+
+// if (module.hot) {
+//   module.hot.accept(renderApp)
+// }

@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react'
-import { ListGroup } from 'react-bootstrap'
+import React from 'react'
+import { Container, ListGroup } from 'react-bootstrap'
 
 const WordList = () => {
   return (
-    <Fragment>
+    <Container>
       <h1 className='list-title'>WordList</h1>
-      <ListGroup></ListGroup>
-    </Fragment>
+    </Container>
   )
 }
 

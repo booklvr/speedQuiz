@@ -33316,57 +33316,57 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.USER_UPDATE_RESET = exports.USER_UPDATE_FAIL = exports.USER_UPDATE_SUCCESS = exports.USER_UPDATE_REQUEST = exports.USER_DELETE_FAIL = exports.USER_DELETE_SUCCESS = exports.USER_DELETE_REQUEST = exports.USER_LIST_RESET = exports.USER_LIST_FAIL = exports.USER_LIST_SUCCESS = exports.USER_LIST_REQUEST = exports.USER_UPDATE_PROFILE_RESET = exports.USER_UPDATE_PROFILE_FAIL = exports.USER_UPDATE_PROFILE_SUCCESS = exports.USER_UPDATE_PROFILE_REQUEST = exports.USER_DETAILS_RESET = exports.USER_DETAILS_FAIL = exports.USER_DETAILS_SUCCESS = exports.USER_DETAILS_REQUEST = exports.USER_REGISTER_FAIL = exports.USER_REGISTER_SUCCESS = exports.USER_REGISTER_REQUEST = exports.USER_LOGOUT = exports.USER_LOGIN_FAIL = exports.USER_LOGIN_SUCCESS = exports.USER_LOGIN_REQUEST = void 0;
-const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
+var USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 exports.USER_LOGIN_REQUEST = USER_LOGIN_REQUEST;
-const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
+var USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 exports.USER_LOGIN_SUCCESS = USER_LOGIN_SUCCESS;
-const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
+var USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
 exports.USER_LOGIN_FAIL = USER_LOGIN_FAIL;
-const USER_LOGOUT = 'USER_LOGOUT';
+var USER_LOGOUT = 'USER_LOGOUT';
 exports.USER_LOGOUT = USER_LOGOUT;
-const USER_REGISTER_REQUEST = 'USER_REGISTER_REQUEST';
+var USER_REGISTER_REQUEST = 'USER_REGISTER_REQUEST';
 exports.USER_REGISTER_REQUEST = USER_REGISTER_REQUEST;
-const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS';
+var USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS';
 exports.USER_REGISTER_SUCCESS = USER_REGISTER_SUCCESS;
-const USER_REGISTER_FAIL = 'USER_REGISTER_FAIL';
+var USER_REGISTER_FAIL = 'USER_REGISTER_FAIL';
 exports.USER_REGISTER_FAIL = USER_REGISTER_FAIL;
-const USER_DETAILS_REQUEST = 'USER_DETAILS_REQUEST';
+var USER_DETAILS_REQUEST = 'USER_DETAILS_REQUEST';
 exports.USER_DETAILS_REQUEST = USER_DETAILS_REQUEST;
-const USER_DETAILS_SUCCESS = 'USER_DETAILS_SUCCESS';
+var USER_DETAILS_SUCCESS = 'USER_DETAILS_SUCCESS';
 exports.USER_DETAILS_SUCCESS = USER_DETAILS_SUCCESS;
-const USER_DETAILS_FAIL = 'USER_DETAILS_FAIL';
+var USER_DETAILS_FAIL = 'USER_DETAILS_FAIL';
 exports.USER_DETAILS_FAIL = USER_DETAILS_FAIL;
-const USER_DETAILS_RESET = 'USER_DETAILS_RESET';
+var USER_DETAILS_RESET = 'USER_DETAILS_RESET';
 exports.USER_DETAILS_RESET = USER_DETAILS_RESET;
-const USER_UPDATE_PROFILE_REQUEST = 'USER_UPDATE_PROFILE_REQUEST';
+var USER_UPDATE_PROFILE_REQUEST = 'USER_UPDATE_PROFILE_REQUEST';
 exports.USER_UPDATE_PROFILE_REQUEST = USER_UPDATE_PROFILE_REQUEST;
-const USER_UPDATE_PROFILE_SUCCESS = 'USER_UPDATE_PROFILE_SUCCESS';
+var USER_UPDATE_PROFILE_SUCCESS = 'USER_UPDATE_PROFILE_SUCCESS';
 exports.USER_UPDATE_PROFILE_SUCCESS = USER_UPDATE_PROFILE_SUCCESS;
-const USER_UPDATE_PROFILE_FAIL = 'USER_UPDATE_PROFILE_FAIL';
+var USER_UPDATE_PROFILE_FAIL = 'USER_UPDATE_PROFILE_FAIL';
 exports.USER_UPDATE_PROFILE_FAIL = USER_UPDATE_PROFILE_FAIL;
-const USER_UPDATE_PROFILE_RESET = 'USER_UPDATE_PROFILE_RESET';
+var USER_UPDATE_PROFILE_RESET = 'USER_UPDATE_PROFILE_RESET';
 exports.USER_UPDATE_PROFILE_RESET = USER_UPDATE_PROFILE_RESET;
-const USER_LIST_REQUEST = 'USER_LIST_REQUEST';
+var USER_LIST_REQUEST = 'USER_LIST_REQUEST';
 exports.USER_LIST_REQUEST = USER_LIST_REQUEST;
-const USER_LIST_SUCCESS = 'USER_LIST_SUCCESS';
+var USER_LIST_SUCCESS = 'USER_LIST_SUCCESS';
 exports.USER_LIST_SUCCESS = USER_LIST_SUCCESS;
-const USER_LIST_FAIL = 'USER_LIST_FAIL';
+var USER_LIST_FAIL = 'USER_LIST_FAIL';
 exports.USER_LIST_FAIL = USER_LIST_FAIL;
-const USER_LIST_RESET = 'USER_LIST_RESET';
+var USER_LIST_RESET = 'USER_LIST_RESET';
 exports.USER_LIST_RESET = USER_LIST_RESET;
-const USER_DELETE_REQUEST = 'USER_DELETE_REQUEST';
+var USER_DELETE_REQUEST = 'USER_DELETE_REQUEST';
 exports.USER_DELETE_REQUEST = USER_DELETE_REQUEST;
-const USER_DELETE_SUCCESS = 'USER_DELETE_SUCCESS';
+var USER_DELETE_SUCCESS = 'USER_DELETE_SUCCESS';
 exports.USER_DELETE_SUCCESS = USER_DELETE_SUCCESS;
-const USER_DELETE_FAIL = 'USER_DELETE_FAIL';
+var USER_DELETE_FAIL = 'USER_DELETE_FAIL';
 exports.USER_DELETE_FAIL = USER_DELETE_FAIL;
-const USER_UPDATE_REQUEST = 'USER_UPDATE_REQUEST';
+var USER_UPDATE_REQUEST = 'USER_UPDATE_REQUEST';
 exports.USER_UPDATE_REQUEST = USER_UPDATE_REQUEST;
-const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
+var USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
 exports.USER_UPDATE_SUCCESS = USER_UPDATE_SUCCESS;
-const USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
+var USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
 exports.USER_UPDATE_FAIL = USER_UPDATE_FAIL;
-const USER_UPDATE_RESET = 'USER_UPDATE_RESET';
+var USER_UPDATE_RESET = 'USER_UPDATE_RESET';
 exports.USER_UPDATE_RESET = USER_UPDATE_RESET;
 },{}],"../src/reducers/userReducers.js":[function(require,module,exports) {
 "use strict";
@@ -33378,11 +33378,17 @@ exports.userUpdateReducer = exports.userDeleteReducer = exports.userListReducer 
 
 var _userConstants = require("../constants/userConstants");
 
-const userLoginReducer = (state = {}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var userLoginReducer = function userLoginReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_LOGIN_REQUEST:
@@ -33415,11 +33421,11 @@ const userLoginReducer = (state = {}, action) => {
 
 exports.userLoginReducer = userLoginReducer;
 
-const userRegisterReducer = (state = {}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userRegisterReducer = function userRegisterReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_REGISTER_REQUEST:
@@ -33446,19 +33452,19 @@ const userRegisterReducer = (state = {}, action) => {
 
 exports.userRegisterReducer = userRegisterReducer;
 
-const userDetailsReducer = (state = {
-  user: {}
-}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userDetailsReducer = function userDetailsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    user: {}
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_DETAILS_REQUEST:
-      return { ...state,
+      return _objectSpread(_objectSpread({}, state), {}, {
         loading: true
-      };
+      });
 
     case _userConstants.USER_DETAILS_SUCCESS:
       return {
@@ -33484,11 +33490,11 @@ const userDetailsReducer = (state = {
 
 exports.userDetailsReducer = userDetailsReducer;
 
-const userUpdateProfileReducer = (state = {}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userUpdateProfileReducer = function userUpdateProfileReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_UPDATE_PROFILE_REQUEST:
@@ -33519,13 +33525,13 @@ const userUpdateProfileReducer = (state = {}, action) => {
 
 exports.userUpdateProfileReducer = userUpdateProfileReducer;
 
-const userListReducer = (state = {
-  users: []
-}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userListReducer = function userListReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    users: []
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_LIST_REQUEST:
@@ -33557,11 +33563,11 @@ const userListReducer = (state = {
 
 exports.userListReducer = userListReducer;
 
-const userDeleteReducer = (state = {}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userDeleteReducer = function userDeleteReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_DELETE_REQUEST:
@@ -33588,13 +33594,13 @@ const userDeleteReducer = (state = {}, action) => {
 
 exports.userDeleteReducer = userDeleteReducer;
 
-const userUpdateReducer = (state = {
-  user: {}
-}, action) => {
-  const {
-    type,
-    payload
-  } = action;
+var userUpdateReducer = function userUpdateReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    user: {}
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
 
   switch (type) {
     case _userConstants.USER_UPDATE_REQUEST:
@@ -33625,7 +33631,164 @@ const userUpdateReducer = (state = {
 };
 
 exports.userUpdateReducer = userUpdateReducer;
-},{"../constants/userConstants":"../src/constants/userConstants.js"}],"../src/store.js":[function(require,module,exports) {
+},{"../constants/userConstants":"../src/constants/userConstants.js"}],"../node_modules/react-uuid/uuid.js":[function(require,module,exports) {
+/**
+A function that returns a universally unique identifier (uuid).  
+example: 1b83fd69-abe7-468c-bea1-306a8aa1c81d
+@returns `string` : 32 character uuid (see example)
+*/
+function uuid() {
+  const hashTable = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9'
+  ]
+  let uuid = []
+  for (let i = 0; i < 35; i++) {
+    if (i === 7 || i === 12 || i === 17 || i === 22) {
+      uuid[i] = '-'
+    } else {
+      uuid[i] = hashTable[Math.floor(Math.random() * hashTable.length - 1)]
+    }
+  }
+  return uuid.join('')
+}
+
+module.exports = uuid
+
+},{}],"../src/data/categoryList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [{
+  category: 'animals',
+  subcategories: [{
+    subcategory: 'pets',
+    list: ['dog', 'puppy', 'turtle', 'rabbit', 'parrot', 'cat', 'kitten', 'goldfish', 'mouse', 'tropical', 'fish', 'hamster']
+  }, {
+    subcategory: 'farm animals',
+    list: ['cow', 'rabbit', 'ducks', 'shrimp', 'pig', 'goat', 'crab', 'deer', 'bee', 'sheep', 'fish', 'turkey', 'dove', 'chicken', 'horse']
+  }, {
+    subcategory: 'birds',
+    list: ['crow', 'peacock', 'dove', 'sparrow', 'goose', 'stork', 'pigeon', 'turkey', 'hawk', 'bald eagle', 'raven', 'parrot', 'flamingo', 'seagull', 'ostrich', 'swallow', 'black bird', 'penguin', 'robin', 'swan', 'owl', 'woodpecker']
+  }]
+}, {
+  category: 'verbs',
+  subcategories: [{
+    subcategory: 'a',
+    list: ['accept', 'add', 'admire', 'admit', 'advise', 'afford', 'agree', 'alert', 'allow', 'amuse', 'analyse', 'announce', 'annoy', 'answer', 'apologize', 'appear', 'applaud', 'appreciate', 'approve', 'argue', 'arrange', 'arrest', 'arrive', 'ask', 'attach', 'attack', 'attempt', 'attend', 'attract', 'avoid']
+  }, {
+    subcategory: 'b',
+    list: ['bake', 'balance', 'ban', 'bang', 'bare', 'bat', 'bathe', 'battle', 'beam', 'beg', 'behave', 'belong', 'bleach', 'bless', 'blind', 'blink', 'blot', 'blush', 'boast', 'boil', 'bolt', 'bomb', 'book', 'bore', 'borrow', 'bounce', 'bow', 'box', 'break', 'branch', 'breathe', 'bruise', 'brush', 'bubble', 'bump', 'burn', 'bury', 'buzz']
+  }, {
+    subcategory: 'c',
+    list: ['calculate', 'camp', 'care', 'carry', 'carve', 'cause', 'challenge', 'change', 'charge', 'chase', 'cheat', 'check', 'cheer', 'chew', 'choke', 'chop', 'claim', 'clap', 'clean', 'clear', 'clip', 'close', 'coach', 'coil', 'collect', 'colour', 'comb', 'command', 'communicate', 'compare', 'compete', 'complain', 'complete', 'concern', 'confess', 'confuse', 'connect', 'consider', 'consist', 'contain', 'continue', 'copy', 'correct', 'cough', 'count', 'cover', 'crack', 'crash', 'crawl', 'cross', 'crush', 'cry', 'cure', 'curl', 'curve', 'cycle']
+  }]
+}, {
+  category: 'weather',
+  list: ['clear', 'cold', 'dry', 'freezing', 'hail', 'heat', 'humidity', 'ice', 'lightning', 'rain', 'slippery', 'snow', 'storm', 'cloudy', 'cool', 'foggy', 'frozen', 'hailing', 'hot', 'hurricane', 'iced', 'mist', 'slip', 'smoggy', 'snowy']
+}];
+exports.default = _default;
+},{}],"../src/reducers/categoryListReducer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.categoryListReducer = void 0;
+
+var _reactUuid = _interopRequireDefault(require("react-uuid"));
+
+var _categoryList = _interopRequireDefault(require("../data/categoryList"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log('start'); // categoryList.forEach((category) => {
+//   console.log('category:', category.category)
+//   if (category.subcategories) {
+//     category.subcategories.forEach((subcategory) => {
+//       console.log('subcategory:', subcategory.subcategory)
+//       console.log('LIST')
+//       subcategory.list.forEach((listItem) => {
+//         console.log(listItem)
+//       })
+//     })
+//   } else {
+//     console.log('LIST')
+//     category.list.forEach((listItem) => {
+//       console.log(listItem)
+//     })
+//   }
+// })
+
+var categoryWordList = _categoryList.default.map(function (category) {
+  if (category.subcategories) {
+    return {
+      category: category.category,
+      checked: false,
+      id: (0, _reactUuid.default)(),
+      subcategories: category.subcategories.map(function (subcategory) {
+        return {
+          subcategory: subcategory.subcategory,
+          checked: false,
+          id: (0, _reactUuid.default)(),
+          list: subcategory.list.map(function (listItem) {
+            return {
+              word: listItem,
+              checked: false,
+              id: (0, _reactUuid.default)()
+            };
+          })
+        };
+      })
+    };
+  } else {
+    return {
+      category: category.category,
+      checked: false,
+      id: (0, _reactUuid.default)(),
+      list: category.list.forEach(function (listItem) {
+        return {
+          word: listItem,
+          checked: false,
+          id: (0, _reactUuid.default)()
+        };
+      })
+    };
+  }
+}); // console.log(categoryWordList)
+
+
+var categoryListReducer = function categoryListReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : categoryWordList;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
+
+  switch (type) {
+    default:
+      return state;
+  }
+};
+
+exports.categoryListReducer = categoryListReducer;
+},{"react-uuid":"../node_modules/react-uuid/uuid.js","../data/categoryList":"../src/data/categoryList.js"}],"../src/store.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33641,28 +33804,35 @@ var _reduxDevtoolsExtension = require("redux-devtools-extension");
 
 var _userReducers = require("./reducers/userReducers");
 
+var _categoryListReducer = require("./reducers/categoryListReducer");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const reducer = (0, _redux.combineReducers)({
+var reducer = (0, _redux.combineReducers)({
   userLogin: _userReducers.userLoginReducer,
   userRegister: _userReducers.userRegisterReducer,
   userDetails: _userReducers.userDetailsReducer,
   userUpdateProfile: _userReducers.userUpdateProfileReducer,
   userList: _userReducers.userListReducer,
   userDelete: _userReducers.userDeleteReducer,
-  userUpdate: _userReducers.userUpdateReducer
+  userUpdate: _userReducers.userUpdateReducer,
+  categoryList: _categoryListReducer.categoryListReducer
 });
-const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
-const initialState = {
+var userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
+var initialState = {
   userLogin: {
     userInfo: userInfoFromStorage
   }
 };
-const middleware = [_reduxThunk.default];
-const store = (0, _redux.createStore)(reducer, initialState, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(...middleware)));
+var middleware = [_reduxThunk.default];
+var composeEnhancers = (0, _reduxDevtoolsExtension.composeWithDevTools)({
+  trace: true,
+  traceLimit: 25
+});
+var store = (0, _redux.createStore)(reducer, initialState, composeEnhancers(_redux.applyMiddleware.apply(void 0, middleware)));
 var _default = store;
 exports.default = _default;
-},{"redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./reducers/userReducers":"../src/reducers/userReducers.js"}],"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./reducers/userReducers":"../src/reducers/userReducers.js","./reducers/categoryListReducer":"../src/reducers/categoryListReducer.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -33694,7 +33864,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -33729,17 +33899,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../src/bootstrap.min.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../src/assets/styles/index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/index.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37324,7 +37489,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ThemeContext = _react.default.createContext({});
+var ThemeContext = /*#__PURE__*/_react.default.createContext({});
 
 var Consumer = ThemeContext.Consumer,
     Provider = ThemeContext.Provider;
@@ -37357,7 +37522,7 @@ function createBootstrapComponent(Component, opts) {
       _opts$forwardRefAs = _opts.forwardRefAs,
       forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
 
-  var Wrapped = _react.default.forwardRef(function (_ref2, ref) {
+  var Wrapped = /*#__PURE__*/_react.default.forwardRef(function (_ref2, ref) {
     var props = (0, _extends2.default)({}, _ref2);
     props[forwardRefAs] = ref;
     var bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
@@ -37385,7 +37550,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO (apparently this is a bare "onSelect"?)
-var SelectableContext = _react.default.createContext(null);
+var SelectableContext = /*#__PURE__*/_react.default.createContext(null);
 
 var makeEventKey = function makeEventKey(eventKey, href) {
   if (href === void 0) {
@@ -37411,7 +37576,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var context = _react.default.createContext(null);
+var context = /*#__PURE__*/_react.default.createContext(null);
 
 context.displayName = 'AccordionContext';
 var _default = context;
@@ -37455,7 +37620,7 @@ function useAccordionToggle(eventKey, onClick) {
   };
 }
 
-var AccordionToggle = _react.default.forwardRef(function (_ref, ref) {
+var AccordionToggle = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'button' : _ref$as,
       children = _ref.children,
@@ -38594,7 +38759,7 @@ var defaultProps = {
   getDimensionValue: getDefaultDimensionValue
 };
 
-var Collapse = _react.default.forwardRef(function (_ref, ref) {
+var Collapse = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var onEnter = _ref.onEnter,
       onEntering = _ref.onEntering,
       onEntered = _ref.onEntered,
@@ -38653,7 +38818,7 @@ var Collapse = _react.default.forwardRef(function (_ref, ref) {
     onExit: handleExit,
     onExiting: handleExiting
   }), function (state, innerProps) {
-    return _react.default.cloneElement(children, (0, _extends2.default)({}, innerProps, {
+    return /*#__PURE__*/_react.default.cloneElement(children, (0, _extends2.default)({}, innerProps, {
       className: (0, _classnames.default)(className, children.props.className, collapseStyles[state], computedDimension === 'width' && 'width')
     }));
   });
@@ -38690,7 +38855,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AccordionCollapse = _react.default.forwardRef(function (_ref, ref) {
+var AccordionCollapse = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var children = _ref.children,
       eventKey = _ref.eventKey,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["children", "eventKey"]);
@@ -38738,7 +38903,7 @@ var _AccordionContext = _interopRequireDefault(require("./AccordionContext"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Accordion = _react.default.forwardRef(function (props, ref) {
+var Accordion = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(props, {
     activeKey: 'onSelect'
   }),
@@ -38856,7 +39021,7 @@ var defaultProps = {
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[_Transition.ENTERING] = 'show', _fadeStyles[_Transition.ENTERED] = 'show', _fadeStyles);
 
-var Fade = _react.default.forwardRef(function (_ref, ref) {
+var Fade = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       children = _ref.children,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["className", "children"]);
@@ -38870,7 +39035,7 @@ var Fade = _react.default.forwardRef(function (_ref, ref) {
   }, props, {
     onEnter: handleEnter
   }), function (status, innerProps) {
-    return _react.default.cloneElement(children, (0, _extends2.default)({}, innerProps, {
+    return /*#__PURE__*/_react.default.cloneElement(children, (0, _extends2.default)({}, innerProps, {
       className: (0, _classnames.default)('fade', className, children.props.className, fadeStyles[status])
     }));
   });
@@ -38908,7 +39073,7 @@ var defaultProps = {
   label: 'Close'
 };
 
-var CloseButton = _react.default.forwardRef(function (_ref, ref) {
+var CloseButton = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var label = _ref.label,
       onClick = _ref.onClick,
       className = _ref.className,
@@ -38947,7 +39112,7 @@ var _classnames = _interopRequireDefault(require("classnames"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(className) {
-  return _react.default.forwardRef(function (p, ref) {
+  return /*#__PURE__*/_react.default.forwardRef(function (p, ref) {
     return /*#__PURE__*/_react.default.createElement("div", (0, _extends2.default)({}, p, {
       ref: ref,
       className: (0, _classnames.default)(p.className, className)
@@ -39004,7 +39169,7 @@ function createWithBsPrefix(prefix, _temp) {
       Component = _ref.Component,
       defaultProps = _ref.defaultProps;
 
-  var BsComponent = _react.default.forwardRef(function (_ref2, ref) {
+  var BsComponent = /*#__PURE__*/_react.default.forwardRef(function (_ref2, ref) {
     var className = _ref2.className,
         bsPrefix = _ref2.bsPrefix,
         _ref2$as = _ref2.as,
@@ -39051,7 +39216,7 @@ function isTrivialHref(href) {
  */
 
 
-var SafeAnchor = _react.default.forwardRef(function (_ref, ref) {
+var SafeAnchor = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'a' : _ref$as,
       disabled = _ref.disabled,
@@ -39154,7 +39319,7 @@ var defaultProps = {
   closeLabel: 'Close alert'
 };
 
-var Alert = _react.default.forwardRef(function (uncontrolledProps, ref) {
+var Alert = /*#__PURE__*/_react.default.forwardRef(function (uncontrolledProps, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
     show: 'onClose'
   }),
@@ -39179,7 +39344,7 @@ var Alert = _react.default.forwardRef(function (uncontrolledProps, ref) {
 
   var alert = /*#__PURE__*/_react.default.createElement("div", (0, _extends2.default)({
     role: "alert"
-  }, Transition ? props : undefined, {
+  }, !Transition ? props : undefined, {
     ref: ref,
     className: (0, _classnames.default)(className, prefix, variant && prefix + "-" + variant, dismissible && prefix + "-dismissible")
   }), dismissible && /*#__PURE__*/_react.default.createElement(_CloseButton.default, {
@@ -39226,7 +39391,7 @@ var defaultProps = {
   pill: false
 };
 
-var Badge = _react.default.forwardRef(function (_ref, ref) {
+var Badge = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       variant = _ref.variant,
       pill = _ref.pill,
@@ -39273,7 +39438,7 @@ var defaultProps = {
   linkProps: {}
 };
 
-var BreadcrumbItem = _react.default.forwardRef(function (_ref, ref) {
+var BreadcrumbItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       active = _ref.active,
       children = _ref.children,
@@ -39333,7 +39498,7 @@ var defaultProps = {
   listProps: {}
 };
 
-var Breadcrumb = _react.default.forwardRef(function (_ref, ref) {
+var Breadcrumb = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       listProps = _ref.listProps,
@@ -39385,7 +39550,7 @@ var defaultProps = {
   disabled: false
 };
 
-var Button = _react.default.forwardRef(function (_ref, ref) {
+var Button = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       variant = _ref.variant,
       size = _ref.size,
@@ -39452,7 +39617,7 @@ var defaultProps = {
   role: 'group'
 };
 
-var ButtonGroup = _react.default.forwardRef(function (_ref, ref) {
+var ButtonGroup = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       size = _ref.size,
       toggle = _ref.toggle,
@@ -39498,7 +39663,7 @@ var defaultProps = {
   role: 'toolbar'
 };
 
-var ButtonToolbar = _react.default.forwardRef(function (_ref, ref) {
+var ButtonToolbar = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "className"]);
@@ -39525,7 +39690,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var context = _react.default.createContext(null);
+var context = /*#__PURE__*/_react.default.createContext(null);
 
 context.displayName = 'CardContext';
 var _default = context;
@@ -39554,7 +39719,7 @@ var defaultProps = {
   variant: null
 };
 
-var CardImg = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var CardImg = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -39627,7 +39792,7 @@ var defaultProps = {
   body: false
 };
 
-var Card = _react.default.forwardRef(function (_ref, ref) {
+var Card = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       bg = _ref.bg,
@@ -39956,7 +40121,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CarouselItem = _react.default.forwardRef(function (_ref, ref) {
+var CarouselItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
       bsPrefix = _ref.bsPrefix,
@@ -39998,7 +40163,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function map(children, func) {
   var index = 0;
   return _react.default.Children.map(children, function (child) {
-    return _react.default.isValidElement(child) ? func(child, index++) : child;
+    return /*#__PURE__*/_react.default.isValidElement(child) ? func(child, index++) : child;
   });
 }
 /**
@@ -40013,7 +40178,7 @@ function forEach(children, func) {
   var index = 0;
 
   _react.default.Children.forEach(children, function (child) {
-    if (_react.default.isValidElement(child)) func(child, index++);
+    if ( /*#__PURE__*/_react.default.isValidElement(child)) func(child, index++);
   });
 }
 },{"react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/esm/Carousel.js":[function(require,module,exports) {
@@ -40243,12 +40408,16 @@ function CarouselFunc(uncontrolledProps, ref) {
       setDirection = _useState[1];
 
   var _useState2 = (0, _react.useState)(false),
-      isSliding = _useState2[0],
-      setIsSliding = _useState2[1];
+      paused = _useState2[0],
+      setPaused = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(activeIndex || 0),
-      renderedActiveIndex = _useState3[0],
-      setRenderedActiveIndex = _useState3[1];
+  var _useState3 = (0, _react.useState)(false),
+      isSliding = _useState3[0],
+      setIsSliding = _useState3[1];
+
+  var _useState4 = (0, _react.useState)(activeIndex || 0),
+      renderedActiveIndex = _useState4[0],
+      setRenderedActiveIndex = _useState4[1];
 
   if (!isSliding && activeIndex !== renderedActiveIndex) {
     if (nextDirectionRef.current) {
@@ -40390,14 +40559,9 @@ function CarouselFunc(uncontrolledProps, ref) {
       onKeyDown(event);
     }
   }, [keyboard, onKeyDown, prev, next]);
-
-  var _useState4 = (0, _react.useState)(false),
-      pausedOnHover = _useState4[0],
-      setPausedOnHover = _useState4[1];
-
   var handleMouseOver = (0, _react.useCallback)(function (event) {
     if (pause === 'hover') {
-      setPausedOnHover(true);
+      setPaused(true);
     }
 
     if (onMouseOver) {
@@ -40405,7 +40569,7 @@ function CarouselFunc(uncontrolledProps, ref) {
     }
   }, [pause, onMouseOver]);
   var handleMouseOut = (0, _react.useCallback)(function (event) {
-    setPausedOnHover(false);
+    setPaused(false);
 
     if (onMouseOut) {
       onMouseOut(event);
@@ -40413,24 +40577,19 @@ function CarouselFunc(uncontrolledProps, ref) {
   }, [onMouseOut]);
   var touchStartXRef = (0, _react.useRef)(0);
   var touchDeltaXRef = (0, _react.useRef)(0);
-
-  var _useState5 = (0, _react.useState)(false),
-      pausedOnTouch = _useState5[0],
-      setPausedOnTouch = _useState5[1];
-
   var touchUnpauseTimeout = (0, _useTimeout.default)();
   var handleTouchStart = (0, _react.useCallback)(function (event) {
     touchStartXRef.current = event.touches[0].clientX;
     touchDeltaXRef.current = 0;
 
-    if (touch) {
-      setPausedOnTouch(true);
+    if (pause === 'hover') {
+      setPaused(true);
     }
 
     if (onTouchStart) {
       onTouchStart(event);
     }
-  }, [touch, onTouchStart]);
+  }, [pause, onTouchStart]);
   var handleTouchMove = (0, _react.useCallback)(function (event) {
     if (event.touches && event.touches.length > 1) {
       touchDeltaXRef.current = 0;
@@ -40446,26 +40605,26 @@ function CarouselFunc(uncontrolledProps, ref) {
     if (touch) {
       var touchDeltaX = touchDeltaXRef.current;
 
-      if (Math.abs(touchDeltaX) <= SWIPE_THRESHOLD) {
-        return;
-      }
-
-      if (touchDeltaX > 0) {
-        prev(event);
-      } else {
-        next(event);
+      if (Math.abs(touchDeltaX) > SWIPE_THRESHOLD) {
+        if (touchDeltaX > 0) {
+          prev(event);
+        } else {
+          next(event);
+        }
       }
     }
 
-    touchUnpauseTimeout.set(function () {
-      setPausedOnTouch(false);
-    }, interval || undefined);
+    if (pause === 'hover') {
+      touchUnpauseTimeout.set(function () {
+        setPaused(false);
+      }, interval || undefined);
+    }
 
     if (onTouchEnd) {
       onTouchEnd(event);
     }
-  }, [touch, prev, next, touchUnpauseTimeout, interval, onTouchEnd]);
-  var shouldPlay = interval != null && !pausedOnHover && !pausedOnTouch && !isSliding;
+  }, [touch, pause, prev, next, touchUnpauseTimeout, interval, onTouchEnd]);
+  var shouldPlay = interval != null && !paused && !isSliding;
   var intervalHandleRef = (0, _react.useRef)();
   (0, _react.useEffect)(function () {
     var _ref, _activeChildIntervalR;
@@ -40520,10 +40679,10 @@ function CarouselFunc(uncontrolledProps, ref) {
       onEntered: isActive ? handleEntered : undefined,
       addEndListener: _transitionEnd.default
     }, function (status) {
-      return _react.default.cloneElement(child, {
+      return /*#__PURE__*/_react.default.cloneElement(child, {
         className: (0, _classnames.default)(child.props.className, isActive && status !== 'entered' && orderClassName, (status === 'entered' || status === 'exiting') && 'active', (status === 'entering' || status === 'exiting') && directionalClassName)
       });
-    }) : _react.default.cloneElement(child, {
+    }) : /*#__PURE__*/_react.default.cloneElement(child, {
       className: (0, _classnames.default)(child.props.className, isActive && 'active')
     });
   })), controls && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (wrap || activeIndex !== 0) && /*#__PURE__*/_react.default.createElement(_SafeAnchor.default, {
@@ -40539,7 +40698,7 @@ function CarouselFunc(uncontrolledProps, ref) {
   }, nextLabel))));
 }
 
-var Carousel = _react.default.forwardRef(CarouselFunc);
+var Carousel = /*#__PURE__*/_react.default.forwardRef(CarouselFunc);
 
 Carousel.displayName = 'Carousel';
 Carousel.propTypes = propTypes;
@@ -40570,7 +40729,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var DEVICE_SIZES = ['xl', 'lg', 'md', 'sm', 'xs'];
 
-var Col = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var Col = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -44466,7 +44625,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO: check this
-var NavContext = _react.default.createContext(null);
+var NavContext = /*#__PURE__*/_react.default.createContext(null);
 
 NavContext.displayName = 'NavContext';
 var _default = NavContext;
@@ -44508,7 +44667,7 @@ var defaultProps = {
   disabled: false
 };
 
-var DropdownItem = _react.default.forwardRef(function (_ref, ref) {
+var DropdownItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -44620,7 +44779,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO: check
-var context = _react.default.createContext(null);
+var context = /*#__PURE__*/_react.default.createContext(null);
 
 context.displayName = 'NavbarContext';
 var _default = context;
@@ -44828,7 +44987,7 @@ var defaultProps = {
   flip: true
 }; // TODO: remove this hack
 
-var DropdownMenu = _react.default.forwardRef(function (_ref, ref) {
+var DropdownMenu = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       align = _ref.align,
@@ -44895,14 +45054,17 @@ var DropdownMenu = _react.default.forwardRef(function (_ref, ref) {
     menuProps.alignRight = alignEnd;
   }
 
+  var style = props.style;
+
   if (placement) {
     // we don't need the default popper style,
     // menus are display: none when not shown.
-    props.style = (0, _extends2.default)({}, props.style, {}, menuProps.style);
+    style = (0, _extends2.default)({}, props.style, menuProps.style);
     props['x-placement'] = placement;
   }
 
   return /*#__PURE__*/_react.default.createElement(Component, (0, _extends2.default)({}, props, menuProps, {
+    style: style,
     className: _classnames.default.apply(void 0, [className, prefix, show && 'show', alignEnd && prefix + "-right"].concat(alignClasses))
   }));
 });
@@ -44965,7 +45127,7 @@ var _useWrappedRefWithWarning = _interopRequireDefault(require("./useWrappedRefW
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DropdownToggle = _react.default.forwardRef(function (_ref, ref) {
+var DropdownToggle = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       split = _ref.split,
       className = _ref.className,
@@ -45052,7 +45214,7 @@ var defaultProps = {
   navbar: false
 };
 
-var Dropdown = _react.default.forwardRef(function (pProps, ref) {
+var Dropdown = /*#__PURE__*/_react.default.forwardRef(function (pProps, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(pProps, {
     show: 'onToggle'
   }),
@@ -45198,14 +45360,15 @@ var propTypes = {
 };
 /**
  * A convenience component for simple or general use dropdowns. Renders a `Button` toggle and all `children`
- * are passed directly to the default `Dropdown.Menu`.
+ * are passed directly to the default `Dropdown.Menu`. This component accepts all of
+ * [`Dropdown`'s props](#dropdown-props).
  *
  * _All unknown props are passed through to the `Dropdown` component._ Only
  * the Button `variant`, `size` and `bsPrefix` props are passed to the toggle,
- * along with menu related props are passed to the `Dropdown.Menu`
+ * along with menu-related props are passed to the `Dropdown.Menu`
  */
 
-var DropdownButton = _react.default.forwardRef(function (_ref, ref) {
+var DropdownButton = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var title = _ref.title,
       children = _ref.children,
       bsPrefix = _ref.bsPrefix,
@@ -45360,7 +45523,7 @@ var propTypes = {
   as: _propTypes.default.elementType
 };
 
-var Feedback = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var Feedback = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
@@ -45393,7 +45556,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO
-var FormContext = _react.default.createContext({
+var FormContext = /*#__PURE__*/_react.default.createContext({
   controlId: undefined
 });
 
@@ -45425,7 +45588,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormCheckInput = _react.default.forwardRef(function (_ref, ref) {
+var FormCheckInput = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -45487,7 +45650,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormCheckLabel = _react.default.forwardRef(function (_ref, ref) {
+var FormCheckLabel = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       className = _ref.className,
@@ -45547,7 +45710,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormCheck = _react.default.forwardRef(function (_ref, ref) {
+var FormCheck = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -45647,7 +45810,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormFileInput = _react.default.forwardRef(function (_ref, ref) {
+var FormFileInput = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -45708,7 +45871,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormFileLabel = _react.default.forwardRef(function (_ref, ref) {
+var FormFileLabel = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       className = _ref.className,
@@ -45769,7 +45932,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormFile = _react.default.forwardRef(function (_ref, ref) {
+var FormFile = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -45872,7 +46035,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormControl = _react.default.forwardRef(function (_ref, ref) {
+var FormControl = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       type = _ref.type,
@@ -45967,7 +46130,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormGroup = _react.default.forwardRef(function (_ref, ref) {
+var FormGroup = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -46027,7 +46190,7 @@ var defaultProps = {
   srOnly: false
 };
 
-var FormLabel = _react.default.forwardRef(function (_ref, ref) {
+var FormLabel = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'label' : _ref$as,
       bsPrefix = _ref.bsPrefix,
@@ -46086,7 +46249,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FormText = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var FormText = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -46120,7 +46283,7 @@ var _FormCheck = _interopRequireDefault(require("./FormCheck"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Switch = _react.default.forwardRef(function (props, ref) {
+var Switch = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   return /*#__PURE__*/_react.default.createElement(_FormCheck.default, (0, _extends2.default)({}, props, {
     ref: ref,
     type: "switch"
@@ -46173,7 +46336,7 @@ var defaultProps = {
   inline: false
 };
 
-var FormImpl = _react.default.forwardRef(function (_ref, ref) {
+var FormImpl = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       inline = _ref.inline,
       className = _ref.className,
@@ -46224,7 +46387,7 @@ var defaultProps = {
   fluid: false
 };
 
-var Container = _react.default.forwardRef(function (_ref, ref) {
+var Container = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       fluid = _ref.fluid,
       _ref$as = _ref.as,
@@ -46300,7 +46463,7 @@ var defaultProps = {
   thumbnail: false
 };
 
-var Image = _react.default.forwardRef(function (_ref, ref) {
+var Image = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       fluid = _ref.fluid,
@@ -46350,7 +46513,7 @@ var defaultProps = {
   fluid: true
 };
 
-var FigureImage = _react.default.forwardRef(function (_ref, ref) {
+var FigureImage = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["className"]);
   return /*#__PURE__*/_react.default.createElement(_Image.default, (0, _extends2.default)({
@@ -46454,7 +46617,7 @@ var InputGroupRadio = function InputGroupRadio(props) {
  */
 
 
-var InputGroup = _react.default.forwardRef(function (_ref, ref) {
+var InputGroup = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       size = _ref.size,
       className = _ref.className,
@@ -46503,7 +46666,7 @@ var defaultProps = {
   fluid: false
 };
 
-var Jumbotron = _react.default.forwardRef(function (_ref, ref) {
+var Jumbotron = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _classes;
 
   var _ref$as = _ref.as,
@@ -46537,7 +46700,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TabContext = _react.default.createContext(null);
+var TabContext = /*#__PURE__*/_react.default.createContext(null);
 
 var _default = TabContext;
 exports.default = _default;
@@ -46576,7 +46739,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 var noop = function noop() {};
 
-var AbstractNav = _react.default.forwardRef(function (_ref, ref) {
+var AbstractNav = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'ul' : _ref$as,
       onSelect = _ref.onSelect,
@@ -46709,7 +46872,7 @@ var defaultProps = {
   disabled: false
 };
 
-var AbstractNavItem = _react.default.forwardRef(function (_ref, ref) {
+var AbstractNavItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var active = _ref.active,
       className = _ref.className,
       eventKey = _ref.eventKey,
@@ -46735,7 +46898,11 @@ var AbstractNavItem = _react.default.forwardRef(function (_ref, ref) {
   }
 
   if (props.role === 'tab') {
-    props.tabIndex = isActive ? props.tabIndex : -1;
+    if (props.disabled) {
+      props.tabIndex = -1;
+      props['aria-disabled'] = true;
+    }
+
     props['aria-selected'] = isActive;
   }
 
@@ -46789,7 +46956,7 @@ var defaultProps = {
   disabled: false
 };
 
-var ListGroupItem = _react.default.forwardRef(function (_ref, ref) {
+var ListGroupItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       active = _ref.active,
       disabled = _ref.disabled,
@@ -46810,6 +46977,12 @@ var ListGroupItem = _react.default.forwardRef(function (_ref, ref) {
 
     if (onClick) onClick(event);
   }, [disabled, onClick]);
+
+  if (disabled && props.tabIndex === undefined) {
+    props.tabIndex = -1;
+    props['aria-disabled'] = true;
+  }
+
   return /*#__PURE__*/_react.default.createElement(_AbstractNavItem.default, (0, _extends2.default)({
     ref: ref
   }, props, {
@@ -46859,7 +47032,7 @@ var defaultProps = {
   horizontal: undefined
 };
 
-var ListGroup = _react.default.forwardRef(function (props, ref) {
+var ListGroup = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(props, {
     activeKey: 'onSelect'
   }),
@@ -46918,7 +47091,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var MediaBody = (0, _createWithBsPrefix.default)('media-body');
 
-var Media = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var Media = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -47963,7 +48136,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ModalContext = _react.default.createContext({
+var ModalContext = /*#__PURE__*/_react.default.createContext({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onHide: function onHide() {}
 });
@@ -47990,7 +48163,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ModalDialog = _react.default.forwardRef(function (_ref, ref) {
+var ModalDialog = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       contentClassName = _ref.contentClassName,
@@ -48062,7 +48235,7 @@ var defaultProps = {
   closeButton: false
 };
 
-var ModalHeader = _react.default.forwardRef(function (_ref, ref) {
+var ModalHeader = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       closeLabel = _ref.closeLabel,
       closeButton = _ref.closeButton,
@@ -48196,7 +48369,7 @@ function BackdropTransition(props) {
 /* eslint-enable no-use-before-define */
 
 
-var Modal = _react.default.forwardRef(function (_ref, ref) {
+var Modal = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       style = _ref.style,
@@ -48395,7 +48568,7 @@ var Modal = _react.default.forwardRef(function (_ref, ref) {
       className: (0, _classnames.default)(bsPrefix + "-backdrop", backdropClassName, !animation && 'show')
     }));
   }, [animation, backdropClassName, bsPrefix]);
-  var baseModalStyle = (0, _extends2.default)({}, style, {}, modalStyle); // Sets `display` always block when `animation` is false
+  var baseModalStyle = (0, _extends2.default)({}, style, modalStyle); // Sets `display` always block when `animation` is false
 
   if (!animation) {
     baseModalStyle.display = 'block';
@@ -48411,7 +48584,6 @@ var Modal = _react.default.forwardRef(function (_ref, ref) {
       onMouseUp: handleMouseUp,
       "aria-labelledby": ariaLabelledby
     }), /*#__PURE__*/_react.default.createElement(Dialog, (0, _extends2.default)({}, props, {
-      role: "document",
       onMouseDown: handleDialogMouseDown,
       className: dialogClassName,
       contentClassName: contentClassName
@@ -48480,7 +48652,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NavItem = _react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var NavItem = /*#__PURE__*/_react.default.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -48527,7 +48699,7 @@ var defaultProps = {
   as: _SafeAnchor.default
 };
 
-var NavLink = _react.default.forwardRef(function (_ref, ref) {
+var NavLink = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       disabled = _ref.disabled,
       className = _ref.className,
@@ -48595,7 +48767,7 @@ var defaultProps = {
   fill: false
 };
 
-var Nav = _react.default.forwardRef(function (uncontrolledProps, ref) {
+var Nav = /*#__PURE__*/_react.default.forwardRef(function (uncontrolledProps, ref) {
   var _classNames;
 
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
@@ -48661,7 +48833,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NavbarBrand = _react.default.forwardRef(function (_ref, ref) {
+var NavbarBrand = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       as = _ref.as,
@@ -48699,7 +48871,7 @@ var _NavbarContext = _interopRequireDefault(require("./NavbarContext"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NavbarCollapse = _react.default.forwardRef(function (_ref, ref) {
+var NavbarCollapse = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var children = _ref.children,
       bsPrefix = _ref.bsPrefix,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["children", "bsPrefix"]);
@@ -48749,7 +48921,7 @@ var defaultProps = {
   label: 'Toggle navigation'
 };
 
-var NavbarToggle = _react.default.forwardRef(function (_ref, ref) {
+var NavbarToggle = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -48834,7 +49006,7 @@ var defaultProps = {
   collapseOnSelect: false
 };
 
-var Navbar = _react.default.forwardRef(function (props, ref) {
+var Navbar = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(props, {
     expanded: 'onToggle'
   }),
@@ -48962,7 +49134,7 @@ var propTypes = {
   bsPrefix: _propTypes.default.string
 };
 
-var NavDropdown = _react.default.forwardRef(function (_ref, ref) {
+var NavDropdown = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       title = _ref.title,
       children = _ref.children,
@@ -49365,18 +49537,18 @@ function Overlay(_ref) {
       placement: placement,
       outOfBoundaries: (state == null ? void 0 : (_state$modifiersData$ = state.modifiersData.hide) == null ? void 0 : _state$modifiersData$.isReferenceHidden) || false
     });
-    if (typeof overlay === 'function') return overlay((0, _extends2.default)({}, props, {}, overlayProps, {
+    if (typeof overlay === 'function') return overlay((0, _extends2.default)({}, props, overlayProps, {
       placement: placement,
       show: show,
       popper: popper,
       arrowProps: arrowProps
     }));
-    return _react.default.cloneElement(overlay, (0, _extends2.default)({}, props, {}, overlayProps, {
+    return /*#__PURE__*/_react.default.cloneElement(overlay, (0, _extends2.default)({}, props, overlayProps, {
       placement: placement,
       arrowProps: arrowProps,
       popper: popper,
       className: (0, _classnames.default)(overlay.props.className, !transition && show && 'show'),
-      style: (0, _extends2.default)({}, overlay.props.style, {}, overlayProps.style)
+      style: (0, _extends2.default)({}, overlay.props.style, overlayProps.style)
     }));
   });
 }
@@ -49577,7 +49749,7 @@ function OverlayTrigger(_ref) {
     ref: triggerNodeRef
   })) : /*#__PURE__*/_react.default.createElement(RefHolder, {
     ref: triggerNodeRef
-  }, (0, _react.cloneElement)(children, triggerProps)), /*#__PURE__*/_react.default.createElement(_Overlay.default, (0, _extends2.default)({}, props, {
+  }, /*#__PURE__*/(0, _react.cloneElement)(children, triggerProps)), /*#__PURE__*/_react.default.createElement(_Overlay.default, (0, _extends2.default)({}, props, {
     show: show,
     onHide: handleHide,
     flip: flip,
@@ -49617,7 +49789,7 @@ var defaultProps = {
   activeLabel: '(current)'
 };
 
-var PageItem = _react.default.forwardRef(function (_ref, ref) {
+var PageItem = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var active = _ref.active,
       disabled = _ref.disabled,
       className = _ref.className,
@@ -49709,7 +49881,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @property {PageItem} Next
  * @property {PageItem} Last
  */
-var Pagination = _react.default.forwardRef(function (_ref, ref) {
+var Pagination = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -49751,7 +49923,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var PopoverTitle = _react.default.forwardRef(function (_ref, ref) {
+var PopoverTitle = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
       bsPrefix = _ref.bsPrefix,
@@ -49788,7 +49960,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var PopoverContent = _react.default.forwardRef(function (_ref, ref) {
+var PopoverContent = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
       bsPrefix = _ref.bsPrefix,
@@ -49835,7 +50007,7 @@ var defaultProps = {
   placement: 'right'
 };
 
-var Popover = _react.default.forwardRef(function (_ref, ref) {
+var Popover = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       placement = _ref.placement,
       className = _ref.className,
@@ -49923,7 +50095,7 @@ function onlyProgressBar(props, propName, componentName) {
 
     if (child.type === element.type) return;
     var childType = child.type;
-    var childIdentifier = _react.default.isValidElement(child) ? childType.displayName || childType.name || childType : child;
+    var childIdentifier = /*#__PURE__*/_react.default.isValidElement(child) ? childType.displayName || childType.name || childType : child;
     error = new Error("Children of " + componentName + " can contain only ProgressBar " + ("components. Found " + childIdentifier + "."));
   });
 
@@ -49975,7 +50147,7 @@ function renderProgressBar(_ref, ref) {
   }, label) : label);
 }
 
-var ProgressBar = _react.default.forwardRef(function (_ref2, ref) {
+var ProgressBar = /*#__PURE__*/_react.default.forwardRef(function (_ref2, ref) {
   var isChild = _ref2.isChild,
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref2, ["isChild"]);
   props.bsPrefix = (0, _ThemeProvider.useBootstrapPrefix)(props.bsPrefix, 'progress');
@@ -50001,7 +50173,7 @@ var ProgressBar = _react.default.forwardRef(function (_ref2, ref) {
   }, wrapperProps, {
     className: (0, _classnames.default)(className, bsPrefix)
   }), children ? (0, _ElementChildren.map)(children, function (child) {
-    return (0, _react.cloneElement)(child, {
+    return /*#__PURE__*/(0, _react.cloneElement)(child, {
       isChild: true
     });
   }) : renderProgressBar({
@@ -50045,7 +50217,7 @@ var defaultProps = {
   aspectRatio: '1by1'
 };
 
-var ResponsiveEmbed = _react.default.forwardRef(function (_ref, ref) {
+var ResponsiveEmbed = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -50059,7 +50231,7 @@ var ResponsiveEmbed = _react.default.forwardRef(function (_ref, ref) {
     ref: ref
   }, props, {
     className: (0, _classnames.default)(decoratedBsPrefix, className, aspectRatio && decoratedBsPrefix + "-" + aspectRatio)
-  }), _react.default.cloneElement(child, {
+  }), /*#__PURE__*/_react.default.cloneElement(child, {
     className: (0, _classnames.default)(child.props.className, decoratedBsPrefix + "-item")
   }));
 });
@@ -50092,7 +50264,7 @@ var defaultProps = {
   noGutters: false
 };
 
-var Row = _react.default.forwardRef(function (_ref, ref) {
+var Row = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       noGutters = _ref.noGutters,
@@ -50147,7 +50319,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Spinner = _react.default.forwardRef(function (_ref, ref) {
+var Spinner = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       variant = _ref.variant,
       animation = _ref.animation,
@@ -50261,8 +50433,18 @@ var defaultProps = {
   toggleLabel: 'Toggle dropdown',
   type: 'button'
 };
+/**
+ * A convenience component for simple or general use split button dropdowns. Renders a
+ * `ButtonGroup` containing a `Button` and a `Button` toggle for the `Dropdown`. All `children`
+ * are passed directly to the default `Dropdown.Menu`. This component accepts all of [`Dropdown`'s
+ * props](#dropdown-props).
+ *
+ * _All unknown props are passed through to the `Dropdown` component._
+ * The Button `variant`, `size` and `bsPrefix` props are passed to the button and toggle,
+ * and menu-related props are passed to the `Dropdown.Menu`
+ */
 
-var SplitButton = _react.default.forwardRef(function (_ref, ref) {
+var SplitButton = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       size = _ref.size,
@@ -50398,7 +50580,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TabContent = _react.default.forwardRef(function (_ref, ref) {
+var TabContent = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
@@ -50463,7 +50645,7 @@ function useTabContext(props) {
   });
 }
 
-var TabPane = _react.default.forwardRef(function (props, ref) {
+var TabPane = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   var _useTabContext = useTabContext(props),
       bsPrefix = _useTabContext.bsPrefix,
       className = _useTabContext.className,
@@ -50580,7 +50762,7 @@ var _ThemeProvider = require("./ThemeProvider");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Table = _react.default.forwardRef(function (_ref, ref) {
+var Table = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       striped = _ref.striped,
@@ -50737,7 +50919,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO: check
-var ToastContext = _react.default.createContext({
+var ToastContext = /*#__PURE__*/_react.default.createContext({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClose: function onClose() {}
 });
@@ -50779,7 +50961,7 @@ var defaultProps = {
   closeButton: true
 };
 
-var ToastHeader = _react.default.forwardRef(function (_ref, ref) {
+var ToastHeader = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       closeLabel = _ref.closeLabel,
       closeButton = _ref.closeButton,
@@ -50858,7 +51040,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Toast = _react.default.forwardRef(function (_ref, ref) {
+var Toast = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -50953,7 +51135,7 @@ var noop = function noop() {
   return undefined;
 };
 
-var ToggleButton = _react.default.forwardRef(function (_ref, ref) {
+var ToggleButton = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var children = _ref.children,
       name = _ref.name,
       className = _ref.className,
@@ -51031,7 +51213,7 @@ var defaultProps = {
   vertical: false
 };
 
-var ToggleButtonGroup = _react.default.forwardRef(function (props, ref) {
+var ToggleButtonGroup = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
   var _useUncontrolled = (0, _uncontrollable.useUncontrolled)(props, {
     value: 'onChange'
   }),
@@ -51082,7 +51264,7 @@ var ToggleButtonGroup = _react.default.forwardRef(function (props, ref) {
       return handleToggle(childVal, e);
     };
 
-    return _react.default.cloneElement(child, {
+    return /*#__PURE__*/_react.default.cloneElement(child, {
       type: type,
       name: child.name || name,
       checked: values.indexOf(childVal) !== -1,
@@ -51121,7 +51303,7 @@ var defaultProps = {
   placement: 'right'
 };
 
-var Tooltip = _react.default.forwardRef(function (_ref, ref) {
+var Tooltip = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       placement = _ref.placement,
       className = _ref.className,
@@ -53040,7 +53222,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-},{"./../utils":"../node_modules/axios/lib/utils.js","./../core/settle":"../node_modules/axios/lib/core/settle.js","./../helpers/cookies":"../node_modules/axios/lib/helpers/cookies.js","./../helpers/buildURL":"../node_modules/axios/lib/helpers/buildURL.js","../core/buildFullPath":"../node_modules/axios/lib/core/buildFullPath.js","./../helpers/parseHeaders":"../node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"../node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"../node_modules/axios/lib/core/createError.js"}],"../../node_modules/process/browser.js":[function(require,module,exports) {
+},{"./../utils":"../node_modules/axios/lib/utils.js","./../core/settle":"../node_modules/axios/lib/core/settle.js","./../helpers/cookies":"../node_modules/axios/lib/helpers/cookies.js","./../helpers/buildURL":"../node_modules/axios/lib/helpers/buildURL.js","../core/buildFullPath":"../node_modules/axios/lib/core/buildFullPath.js","./../helpers/parseHeaders":"../node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"../node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"../node_modules/axios/lib/core/createError.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -53350,7 +53532,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-},{"./utils":"../node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"../node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"../node_modules/axios/lib/adapters/xhr.js","./adapters/http":"../node_modules/axios/lib/adapters/xhr.js","process":"../../node_modules/process/browser.js"}],"../node_modules/axios/lib/core/dispatchRequest.js":[function(require,module,exports) {
+},{"./utils":"../node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"../node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"../node_modules/axios/lib/adapters/xhr.js","./adapters/http":"../node_modules/axios/lib/adapters/xhr.js","process":"../node_modules/process/browser.js"}],"../node_modules/axios/lib/core/dispatchRequest.js":[function(require,module,exports) {
 'use strict';
 
 var utils = require('./../utils');
@@ -53726,6 +53908,19 @@ module.exports = function spread(callback) {
   };
 };
 
+},{}],"../node_modules/axios/lib/helpers/isAxiosError.js":[function(require,module,exports) {
+'use strict';
+
+/**
+ * Determines whether the payload is an error thrown by Axios
+ *
+ * @param {*} payload The value to test
+ * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+ */
+module.exports = function isAxiosError(payload) {
+  return (typeof payload === 'object') && (payload.isAxiosError === true);
+};
+
 },{}],"../node_modules/axios/lib/axios.js":[function(require,module,exports) {
 'use strict';
 
@@ -53776,12 +53971,15 @@ axios.all = function all(promises) {
 };
 axios.spread = require('./helpers/spread');
 
+// Expose isAxiosError
+axios.isAxiosError = require('./helpers/isAxiosError');
+
 module.exports = axios;
 
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
+},{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"../node_modules/axios/lib/helpers/isAxiosError.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 },{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"../src/actions/userActions.js":[function(require,module,exports) {
 "use strict";
@@ -53797,270 +53995,452 @@ var _userConstants = require("../constants/userConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 // import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
-const login = (email, password) => async dispatch => {
-  try {
-    dispatch({
-      type: _userConstants.USER_LOGIN_REQUEST
-    });
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+var login = function login(email, password) {
+  return /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
+      var config, _yield$axios$post, data;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              dispatch({
+                type: _userConstants.USER_LOGIN_REQUEST
+              });
+              config = {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              };
+              _context.next = 5;
+              return _axios.default.post('/api/users/login', {
+                email: email,
+                password: password
+              }, config);
+
+            case 5:
+              _yield$axios$post = _context.sent;
+              data = _yield$axios$post.data;
+              dispatch({
+                type: _userConstants.USER_LOGIN_SUCCESS,
+                payload: data
+              });
+              localStorage.setItem('userInfo', JSON.stringify(data));
+              _context.next = 14;
+              break;
+
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](0);
+              dispatch({
+                type: _userConstants.USER_LOGIN_FAIL,
+                payload: _context.t0.response && _context.t0.response.data.message ? _context.t0.response.data.message : _context.t0.message
+              });
+
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 11]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.post('/api/users/login', {
-      email,
-      password
-    }, config);
-    dispatch({
-      type: _userConstants.USER_LOGIN_SUCCESS,
-      payload: data
-    });
-    localStorage.setItem('userInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: _userConstants.USER_LOGIN_FAIL,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message
-    });
-  }
+  }();
 };
 
 exports.login = login;
 
-const logout = () => dispatch => {
-  localStorage.removeItem('userInfo');
-  dispatch({
-    type: _userConstants.USER_LOGOUT
-  });
-  dispatch({
-    type: _userConstants.USER_DETAILS_RESET
-  });
-  dispatch({
-    type: _userConstants.USER_LIST_RESET
-  });
+var logout = function logout() {
+  return function (dispatch) {
+    localStorage.removeItem('userInfo');
+    dispatch({
+      type: _userConstants.USER_LOGOUT
+    });
+    dispatch({
+      type: _userConstants.USER_DETAILS_RESET
+    });
+    dispatch({
+      type: _userConstants.USER_LIST_RESET
+    });
+  };
 };
 
 exports.logout = logout;
 
-const register = (name, email, password) => async dispatch => {
-  try {
-    dispatch({
-      type: _userConstants.USER_REGISTER_REQUEST
-    });
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+var register = function register(name, email, password) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
+      var config, _yield$axios$post2, data;
+
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              dispatch({
+                type: _userConstants.USER_REGISTER_REQUEST
+              });
+              config = {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              };
+              _context2.next = 5;
+              return _axios.default.post('/api/users', {
+                name: name,
+                email: email,
+                password: password
+              }, config);
+
+            case 5:
+              _yield$axios$post2 = _context2.sent;
+              data = _yield$axios$post2.data;
+              dispatch({
+                type: _userConstants.USER_REGISTER_SUCCESS,
+                payload: data
+              });
+              dispatch({
+                type: _userConstants.USER_LOGIN_SUCCESS,
+                payload: data
+              });
+              localStorage.setItem('userInfo', JSON.stringify(data));
+              _context2.next = 15;
+              break;
+
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](0);
+              dispatch({
+                type: _userConstants.USER_REGISTER_FAIL,
+                payload: _context2.t0.response && _context2.t0.response.data.message ? _context2.t0.response.data.message : _context2.t0.message
+              });
+
+            case 15:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 12]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.post('/api/users', {
-      name,
-      email,
-      password
-    }, config);
-    dispatch({
-      type: _userConstants.USER_REGISTER_SUCCESS,
-      payload: data
-    });
-    dispatch({
-      type: _userConstants.USER_LOGIN_SUCCESS,
-      payload: data
-    });
-    localStorage.setItem('userInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: _userConstants.USER_REGISTER_FAIL,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message
-    });
-  }
+  }();
 };
 
 exports.register = register;
 
-const getUserDetails = id => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: _userConstants.USER_DETAILS_REQUEST
-    });
-    const {
-      userLogin: {
-        userInfo
-      }
-    } = getState();
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`
-      }
+var getUserDetails = function getUserDetails(id) {
+  return /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState) {
+      var _getState, userInfo, config, _yield$axios$get, data;
+
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              dispatch({
+                type: _userConstants.USER_DETAILS_REQUEST
+              });
+              _getState = getState(), userInfo = _getState.userLogin.userInfo;
+              config = {
+                headers: {
+                  Authorization: "Bearer ".concat(userInfo.token)
+                }
+              };
+              _context3.next = 6;
+              return _axios.default.get("/api/users/".concat(id), config);
+
+            case 6:
+              _yield$axios$get = _context3.sent;
+              data = _yield$axios$get.data;
+              dispatch({
+                type: _userConstants.USER_DETAILS_SUCCESS,
+                payload: data
+              });
+              _context3.next = 14;
+              break;
+
+            case 11:
+              _context3.prev = 11;
+              _context3.t0 = _context3["catch"](0);
+              dispatch({
+                type: _userConstants.USER_DETAILS_FAIL,
+                payload: _context3.t0.response && _context3.t0.response.data.message ? _context3.t0.response.data.message : _context3.t0.message
+              });
+
+            case 14:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 11]]);
+    }));
+
+    return function (_x3, _x4) {
+      return _ref3.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.get(`/api/users/${id}`, config);
-    dispatch({
-      type: _userConstants.USER_DETAILS_SUCCESS,
-      payload: data
-    });
-  } catch (error) {
-    dispatch({
-      type: _userConstants.USER_DETAILS_FAIL,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message
-    });
-  }
+  }();
 };
 
 exports.getUserDetails = getUserDetails;
 
-const updateUserProfile = user => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: _userConstants.USER_UPDATE_PROFILE_REQUEST
-    });
-    const {
-      userLogin: {
-        userInfo
-      }
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`
-      }
+var updateUserProfile = function updateUserProfile(user) {
+  return /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState) {
+      var _getState2, userInfo, config, _yield$axios$put, data;
+
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              dispatch({
+                type: _userConstants.USER_UPDATE_PROFILE_REQUEST
+              });
+              _getState2 = getState(), userInfo = _getState2.userLogin.userInfo;
+              config = {
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: "Bearer ".concat(userInfo.token)
+                }
+              };
+              _context4.next = 6;
+              return _axios.default.put('/api/users/profile', user, config);
+
+            case 6:
+              _yield$axios$put = _context4.sent;
+              data = _yield$axios$put.data;
+              dispatch({
+                type: _userConstants.USER_UPDATE_PROFILE_SUCCESS,
+                payload: data
+              });
+              dispatch({
+                type: _userConstants.USER_LOGIN_SUCCESS,
+                payload: data
+              });
+              localStorage.setItem('userInfo', JSON.stringify(data));
+              _context4.next = 16;
+              break;
+
+            case 13:
+              _context4.prev = 13;
+              _context4.t0 = _context4["catch"](0);
+              dispatch({
+                type: _userConstants.USER_UPDATE_PROFILE_FAIL,
+                payload: _context4.t0.response && _context4.t0.response.data.message ? _context4.t0.response.data.message : _context4.t0.message
+              });
+
+            case 16:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 13]]);
+    }));
+
+    return function (_x5, _x6) {
+      return _ref4.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.put('/api/users/profile', user, config);
-    dispatch({
-      type: _userConstants.USER_UPDATE_PROFILE_SUCCESS,
-      payload: data
-    });
-    dispatch({
-      type: _userConstants.USER_LOGIN_SUCCESS,
-      payload: data
-    });
-    localStorage.setItem('userInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: _userConstants.USER_UPDATE_PROFILE_FAIL,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message
-    });
-  }
+  }();
 };
 
 exports.updateUserProfile = updateUserProfile;
 
-const listUsers = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: _userConstants.USER_LIST_REQUEST
-    });
-    const {
-      userLogin: {
-        userInfo
-      }
-    } = getState();
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`
-      }
+var listUsers = function listUsers() {
+  return /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(dispatch, getState) {
+      var _getState3, userInfo, config, _yield$axios$get2, data, message;
+
+      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              dispatch({
+                type: _userConstants.USER_LIST_REQUEST
+              });
+              _getState3 = getState(), userInfo = _getState3.userLogin.userInfo;
+              config = {
+                headers: {
+                  Authorization: "Bearer ".concat(userInfo.token)
+                }
+              };
+              _context5.next = 6;
+              return _axios.default.get("/api/users", config);
+
+            case 6:
+              _yield$axios$get2 = _context5.sent;
+              data = _yield$axios$get2.data;
+              dispatch({
+                type: _userConstants.USER_LIST_SUCCESS,
+                payload: data
+              });
+              _context5.next = 16;
+              break;
+
+            case 11:
+              _context5.prev = 11;
+              _context5.t0 = _context5["catch"](0);
+              message = _context5.t0.response && _context5.t0.response.data.message ? _context5.t0.response.data.message : _context5.t0.message;
+
+              if (message === 'Not authorized, token failed') {
+                dispatch(logout());
+              }
+
+              dispatch({
+                type: _userConstants.USER_LIST_FAIL,
+                payload: message
+              });
+
+            case 16:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 11]]);
+    }));
+
+    return function (_x7, _x8) {
+      return _ref5.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.get(`/api/users`, config);
-    dispatch({
-      type: _userConstants.USER_LIST_SUCCESS,
-      payload: data
-    });
-  } catch (error) {
-    const message = error.response && error.response.data.message ? error.response.data.message : error.message;
-
-    if (message === 'Not authorized, token failed') {
-      dispatch(logout());
-    }
-
-    dispatch({
-      type: _userConstants.USER_LIST_FAIL,
-      payload: message
-    });
-  }
+  }();
 };
 
 exports.listUsers = listUsers;
 
-const deleteUser = id => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: _userConstants.USER_DELETE_REQUEST
-    });
-    const {
-      userLogin: {
-        userInfo
-      }
-    } = getState();
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`
-      }
+var deleteUser = function deleteUser(id) {
+  return /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(dispatch, getState) {
+      var _getState4, userInfo, config, message;
+
+      return regeneratorRuntime.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              dispatch({
+                type: _userConstants.USER_DELETE_REQUEST
+              });
+              _getState4 = getState(), userInfo = _getState4.userLogin.userInfo;
+              config = {
+                headers: {
+                  Authorization: "Bearer ".concat(userInfo.token)
+                }
+              };
+              _context6.next = 6;
+              return _axios.default.delete("/api/users/".concat(id), config);
+
+            case 6:
+              dispatch({
+                type: _userConstants.USER_DELETE_SUCCESS
+              });
+              _context6.next = 14;
+              break;
+
+            case 9:
+              _context6.prev = 9;
+              _context6.t0 = _context6["catch"](0);
+              message = _context6.t0.response && _context6.t0.response.data.message ? _context6.t0.response.data.message : _context6.t0.message;
+
+              if (message === 'Not authorized, token failed') {
+                dispatch(logout());
+              }
+
+              dispatch({
+                type: _userConstants.USER_DELETE_FAIL,
+                payload: message
+              });
+
+            case 14:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 9]]);
+    }));
+
+    return function (_x9, _x10) {
+      return _ref6.apply(this, arguments);
     };
-    await _axios.default.delete(`/api/users/${id}`, config);
-    dispatch({
-      type: _userConstants.USER_DELETE_SUCCESS
-    });
-  } catch (error) {
-    const message = error.response && error.response.data.message ? error.response.data.message : error.message;
-
-    if (message === 'Not authorized, token failed') {
-      dispatch(logout());
-    }
-
-    dispatch({
-      type: _userConstants.USER_DELETE_FAIL,
-      payload: message
-    });
-  }
+  }();
 };
 
 exports.deleteUser = deleteUser;
 
-const updateUser = user => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: _userConstants.USER_UPDATE_REQUEST
-    });
-    const {
-      userLogin: {
-        userInfo
-      }
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`
-      }
+var updateUser = function updateUser(user) {
+  return /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(dispatch, getState) {
+      var _getState5, userInfo, config, _yield$axios$put2, data, message;
+
+      return regeneratorRuntime.wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.prev = 0;
+              dispatch({
+                type: _userConstants.USER_UPDATE_REQUEST
+              });
+              _getState5 = getState(), userInfo = _getState5.userLogin.userInfo;
+              config = {
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: "Bearer ".concat(userInfo.token)
+                }
+              };
+              _context7.next = 6;
+              return _axios.default.put("/api/users/".concat(user._id), user, config);
+
+            case 6:
+              _yield$axios$put2 = _context7.sent;
+              data = _yield$axios$put2.data;
+              dispatch({
+                type: _userConstants.USER_UPDATE_SUCCESS
+              });
+              dispatch({
+                type: _userConstants.USER_DETAILS_SUCCESS,
+                payload: data
+              });
+              _context7.next = 17;
+              break;
+
+            case 12:
+              _context7.prev = 12;
+              _context7.t0 = _context7["catch"](0);
+              message = _context7.t0.response && _context7.t0.response.data.message ? _context7.t0.response.data.message : _context7.t0.message;
+
+              if (message === 'Not authorized, token failed') {
+                dispatch(logout());
+              }
+
+              dispatch({
+                type: _userConstants.USER_UPDATE_FAIL,
+                payload: message
+              });
+
+            case 17:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7, null, [[0, 12]]);
+    }));
+
+    return function (_x11, _x12) {
+      return _ref7.apply(this, arguments);
     };
-    const {
-      data
-    } = await _axios.default.put(`/api/users/${user._id}`, user, config);
-    dispatch({
-      type: _userConstants.USER_UPDATE_SUCCESS
-    });
-    dispatch({
-      type: _userConstants.USER_DETAILS_SUCCESS,
-      payload: data
-    });
-  } catch (error) {
-    const message = error.response && error.response.data.message ? error.response.data.message : error.message;
-
-    if (message === 'Not authorized, token failed') {
-      dispatch(logout());
-    }
-
-    dispatch({
-      type: _userConstants.USER_UPDATE_FAIL,
-      payload: message
-    });
-  }
+  }();
 };
 
 exports.updateUser = updateUser;
@@ -54086,14 +54466,14 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const Header = () => {
-  const dispatch = (0, _reactRedux.useDispatch)();
-  const userLogin = (0, _reactRedux.useSelector)(state => state.userLogin);
-  const {
-    userInfo
-  } = userLogin;
+var Header = function Header() {
+  var dispatch = (0, _reactRedux.useDispatch)();
+  var userLogin = (0, _reactRedux.useSelector)(function (state) {
+    return state.userLogin;
+  });
+  var userInfo = userLogin.userInfo;
 
-  const logoutHandler = () => {
+  var logoutHandler = function logoutHandler() {
     dispatch((0, _userActions.logout)());
   };
 
@@ -54154,10 +54534,10 @@ var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Footer = () => {
+var Footer = function Footer() {
   return /*#__PURE__*/_react.default.createElement("footer", null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
     className: "text-center py-3"
-  }, "CopyRight \xA9 socketioChat"))));
+  }, "CopyRight \xA9 classPoint by Nick de Waal"))));
 };
 
 var _default = Footer;
@@ -54172,21 +54552,125 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactUuid = _interopRequireDefault(require("react-uuid"));
+
+var _reactRedux = require("react-redux");
+
 var _reactBootstrap = require("react-bootstrap");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const Categories = () => {
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var Categories = function Categories() {
+  var dispatch = (0, _reactRedux.useDispatch)();
+  var categoryList = (0, _reactRedux.useSelector)(function (state) {
+    return state.categoryList;
+  });
+
+  var handleAddButtonClick = function handleAddButtonClick() {
+    console.log('add button');
+  };
+
+  var handleKeyEnter = function handleKeyEnter() {
+    console.log('handle key enter');
+  };
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      category = _useState2[0],
+      setCategory = _useState2[1];
+
   return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "list-title"
-  }, "Categories"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.ListGroup, null));
+  }, "Categories"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "category-container p-3"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, "add to categories"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Row, {
+    className: "py-4 d-flex justify-content-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 8
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
+    type: "text",
+    placeholder: "new Category",
+    value: category,
+    onChange: function onChange(e) {
+      return setCategory(e.target.value);
+    },
+    onKeyPress: handleKeyEnter
+  })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 4
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "bg-primary",
+    onClick: handleAddButtonClick
+  }, "Add"))), categoryList && categoryList.map(function (category) {
+    if (category.subcategories) {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "category-container",
+        key: (0, _reactUuid.default)()
+      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+        className: "pl-3",
+        key: category.id,
+        controlId: "formBasicCheckbox"
+      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Check, {
+        type: "checkbox",
+        checked: category.checked,
+        label: category.category,
+        id: category.id,
+        value: category.category // onChange={(e) => onCheckHandler(e)}
+
+      })), category.subcategories.map(function (subcategory) {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: "subcategory-container pl-2 bg-primary"
+        }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+          className: "pl-3",
+          key: subcategory.id,
+          controlId: "formBasicCheckbox"
+        }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Check, {
+          type: "checkbox",
+          checked: subcategory.checked,
+          label: subcategory.subcategory,
+          id: subcategory.id,
+          value: subcategory.subcategory // onChange={(e) => onCheckHandler(e)}
+
+        })), subcategory.list.map(function (listItem) {
+          ;
+
+          /*#__PURE__*/
+          _react.default.createElement(_reactBootstrap.Form.Group, {
+            className: "pl-3",
+            key: listItem.id,
+            controlId: "formBasicCheckbox"
+          }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Check, {
+            type: "checkbox",
+            checked: listItem.checked,
+            label: listItem.listItem,
+            id: listItem.id,
+            value: listItem.listItem // onChange={(e) => onCheckHandler(e)}
+
+          }));
+        }));
+      }));
+    }
+  }))));
 };
 
 var _default = Categories;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/components/WordList.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-uuid":"../node_modules/react-uuid/uuid.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/components/WordList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54194,23 +54678,94 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _reactBootstrap = require("react-bootstrap");
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const WordList = () => {
-  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+var WordList = function WordList() {
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "list-title"
-  }, "WordList"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.ListGroup, null));
+  }, "WordList"));
 };
 
 var _default = WordList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/components/Settings.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/components/PlayGameButtons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactRouterBootstrap = require("react-router-bootstrap");
+
+var _reactRedux = require("react-redux");
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import { resetTeams } from '../actions/teamActions'
+// import { resetCategories } from '../actions/categoryActions'
+// import { resetTime } from '../actions/timerActions'
+// import { loadLetters } from '../actions/alphabetActions'
+var PlayGameButtons = function PlayGameButtons() {
+  // const dispatch = useDispatch()
+  // const handleReset = () => {
+  //   setNumberOfRounds(10)
+  //   setNumberOfTeams(2)
+  //   dispatch(resetTeams())
+  //   dispatch(resetCategories())
+  //   dispatch(loadLetters(10))
+  //   dispatch(resetTime())
+  // }
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
+    className: ""
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    xl: 6,
+    className: "py-2 d-flex"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterBootstrap.LinkContainer, {
+    to: "/play?random=false",
+    className: "d-flex justify-content-center align-items-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "flex-grow-1 bg-success"
+  }, "Play"))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    xl: 6,
+    className: "py-2 d-flex"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterBootstrap.LinkContainer, {
+    to: "/play?random=true",
+    className: "d-flex justify-content-center align-items-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "flex-grow-1 btn-success"
+  }, "Play Random")))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    xl: 6,
+    className: "py-2 d-flex"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "flex-grow-1 btn-danger"
+  }, "Reset")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    xl: 6,
+    className: "py-2 d-flex"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "flex-grow-1 btn-info"
+  }, "how to play"))));
+}; // PlayGameButtons.propTypes = {
+//   setNumberOfRounds: PropTypes.func.isRequired,
+//   setNumberOfTeams: PropTypes.func.isRequired,
+//   handleShowModal: PropTypes.func.isRequired,
+//   categories: PropTypes.array.isRequired,
+// }
+
+
+var _default = PlayGameButtons;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-bootstrap":"../node_modules/react-router-bootstrap/lib/index.js","react-redux":"../node_modules/react-redux/es/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../src/components/Settings.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54220,21 +54775,24 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactBootstrap = require("react-bootstrap");
+var _PlayGameButtons = _interopRequireDefault(require("./PlayGameButtons"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const Settings = () => {
+// import { Container } from 'react-bootstrap'
+var Settings = function Settings() {
   return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "list-title"
-  }, "Settings"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.ListGroup, null));
+  }, "Settings"), /*#__PURE__*/_react.default.createElement(_PlayGameButtons.default, null));
 };
 
 var _default = Settings;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/screens/HomeScreen.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./PlayGameButtons":"../src/components/PlayGameButtons.js"}],"../src/screens/HomeScreen.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54261,12 +54819,12 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 // import Meta from '../components/Meta'
-const HomeScreen = ({
-  match
-}) => {
+var HomeScreen = function HomeScreen() {
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
     fluid: true
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
+    className: "d-flex justify-content-around"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
     md: "4"
   }, /*#__PURE__*/_react.default.createElement(_Categories.default, null)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
     md: "4"
@@ -54291,10 +54849,9 @@ var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Message = ({
-  variant,
-  children
-}) => {
+var Message = function Message(_ref) {
+  var variant = _ref.variant,
+      children = _ref.children;
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Alert, {
     variant: variant
   }, children);
@@ -54319,7 +54876,7 @@ var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Loader = () => {
+var Loader = function Loader() {
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Spinner, {
     animation: "border",
     role: "status",
@@ -54350,9 +54907,8 @@ var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const FormContainer = ({
-  children
-}) => {
+var FormContainer = function FormContainer(_ref) {
+  var children = _ref.children;
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: "justify-content-md-center"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
@@ -54393,27 +54949,47 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const LoginScreen = ({
-  location,
-  history
-}) => {
-  const [email, setEmail] = (0, _react.useState)('');
-  const [password, setPassword] = (0, _react.useState)('');
-  const dispatch = (0, _reactRedux.useDispatch)();
-  const userLogin = (0, _reactRedux.useSelector)(state => state.userLogin);
-  const {
-    loading,
-    error,
-    userInfo
-  } = userLogin;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-  (0, _react.useEffect)(() => {
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var LoginScreen = function LoginScreen(_ref) {
+  var location = _ref.location,
+      history = _ref.history;
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      email = _useState2[0],
+      setEmail = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      password = _useState4[0],
+      setPassword = _useState4[1];
+
+  var dispatch = (0, _reactRedux.useDispatch)();
+  var userLogin = (0, _reactRedux.useSelector)(function (state) {
+    return state.userLogin;
+  });
+  var loading = userLogin.loading,
+      error = userLogin.error,
+      userInfo = userLogin.userInfo;
+  var redirect = location.search ? location.search.split('=')[1] : '/';
+  (0, _react.useEffect)(function () {
     if (userInfo) {
       history.push('/');
     }
   }, [history, userInfo, redirect]);
 
-  const submitHandler = e => {
+  var submitHandler = function submitHandler(e) {
     e.preventDefault();
     dispatch((0, _userActions.login)(email, password));
   };
@@ -54428,21 +55004,25 @@ const LoginScreen = ({
     type: "email",
     placeholder: "Enter email",
     value: email,
-    onChange: e => setEmail(e.target.value)
+    onChange: function onChange(e) {
+      return setEmail(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "password"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
     placeholder: "Enter password",
     value: password,
-    onChange: e => setPassword(e.target.value)
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     type: "submit",
     variant: "primary"
   }, "Sign In")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: "py-3"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, null, "New Customer?", ' ', /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: redirect ? `/register?redirect=${redirect}` : '/register'
+    to: redirect ? "/register?redirect=".concat(redirect) : '/register'
   }, "Register"))));
 };
 
@@ -54478,30 +55058,62 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const RegisterScreen = ({
-  location,
-  history
-}) => {
-  const [name, setName] = (0, _react.useState)('');
-  const [email, setEmail] = (0, _react.useState)('');
-  const [password, setPassword] = (0, _react.useState)('');
-  const [confirmPassword, setConfirmPassword] = (0, _react.useState)('');
-  const [message, setMessage] = (0, _react.useState)(null);
-  const dispatch = (0, _reactRedux.useDispatch)();
-  const userRegister = (0, _reactRedux.useSelector)(state => state.userRegister);
-  const {
-    loading,
-    error,
-    userInfo
-  } = userRegister;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-  (0, _react.useEffect)(() => {
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var RegisterScreen = function RegisterScreen(_ref) {
+  var location = _ref.location,
+      history = _ref.history;
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      email = _useState4[0],
+      setEmail = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      password = _useState6[0],
+      setPassword = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      confirmPassword = _useState8[0],
+      setConfirmPassword = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      message = _useState10[0],
+      setMessage = _useState10[1];
+
+  var dispatch = (0, _reactRedux.useDispatch)();
+  var userRegister = (0, _reactRedux.useSelector)(function (state) {
+    return state.userRegister;
+  });
+  var loading = userRegister.loading,
+      error = userRegister.error,
+      userInfo = userRegister.userInfo;
+  var redirect = location.search ? location.search.split('=')[1] : '/';
+  (0, _react.useEffect)(function () {
     if (userInfo) {
       history.push(redirect);
     }
   }, [history, userInfo, redirect]);
 
-  const submitHandler = e => {
+  var submitHandler = function submitHandler(e) {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -54523,35 +55135,43 @@ const RegisterScreen = ({
     type: "text",
     placeholder: "Enter name",
     value: name,
-    onChange: e => setName(e.target.value)
+    onChange: function onChange(e) {
+      return setName(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "email"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Email Address"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "email",
     placeholder: "Enter email",
     value: email,
-    onChange: e => setEmail(e.target.value)
+    onChange: function onChange(e) {
+      return setEmail(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "password"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
     placeholder: "Enter password",
     value: password,
-    onChange: e => setPassword(e.target.value)
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "confirmPassword"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Confirm Password"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
     placeholder: "Confirm password",
     value: confirmPassword,
-    onChange: e => setConfirmPassword(e.target.value)
+    onChange: function onChange(e) {
+      return setConfirmPassword(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     type: "submit",
     variant: "primary"
   }, "Register")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: "py-3"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, null, "Have an Account?", ' ', /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: redirect ? `/login?redirect=${redirect}` : '/login'
+    to: redirect ? "/login?redirect=".concat(redirect) : '/login'
   }, "Register"))));
 };
 
@@ -54585,31 +55205,63 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const ProfileScreen = ({
-  location,
-  history
-}) => {
-  const [name, setName] = (0, _react.useState)('');
-  const [email, setEmail] = (0, _react.useState)('');
-  const [password, setPassword] = (0, _react.useState)('');
-  const [confirmPassword, setConfirmPassword] = (0, _react.useState)('');
-  const [message, setMessage] = (0, _react.useState)(null);
-  const dispatch = (0, _reactRedux.useDispatch)();
-  const userDetails = (0, _reactRedux.useSelector)(state => state.userDetails);
-  const {
-    loading,
-    error,
-    user
-  } = userDetails;
-  const userLogin = (0, _reactRedux.useSelector)(state => state.userLogin);
-  const {
-    userInfo
-  } = userLogin;
-  const userUpdateProfile = (0, _reactRedux.useSelector)(state => state.userUpdateProfile);
-  const {
-    success
-  } = userUpdateProfile;
-  (0, _react.useEffect)(() => {
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var ProfileScreen = function ProfileScreen(_ref) {
+  var location = _ref.location,
+      history = _ref.history;
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      email = _useState4[0],
+      setEmail = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      password = _useState6[0],
+      setPassword = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      confirmPassword = _useState8[0],
+      setConfirmPassword = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      message = _useState10[0],
+      setMessage = _useState10[1];
+
+  var dispatch = (0, _reactRedux.useDispatch)();
+  var userDetails = (0, _reactRedux.useSelector)(function (state) {
+    return state.userDetails;
+  });
+  var loading = userDetails.loading,
+      error = userDetails.error,
+      user = userDetails.user;
+  var userLogin = (0, _reactRedux.useSelector)(function (state) {
+    return state.userLogin;
+  });
+  var userInfo = userLogin.userInfo;
+  var userUpdateProfile = (0, _reactRedux.useSelector)(function (state) {
+    return state.userUpdateProfile;
+  });
+  var success = userUpdateProfile.success;
+  (0, _react.useEffect)(function () {
     if (!userInfo) {
       history.push('/login');
     } else {
@@ -54625,7 +55277,7 @@ const ProfileScreen = ({
     }
   }, [dispatch, history, userInfo, user, success]);
 
-  const submitHandler = e => {
+  var submitHandler = function submitHandler(e) {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -54633,9 +55285,9 @@ const ProfileScreen = ({
     } else {
       dispatch((0, _userActions.updateUserProfile)({
         id: user._id,
-        name,
-        email,
-        password
+        name: name,
+        email: email,
+        password: password
       }));
     }
   };
@@ -54656,28 +55308,36 @@ const ProfileScreen = ({
     type: "text",
     placeholder: "Enter name",
     value: name,
-    onChange: e => setName(e.target.value)
+    onChange: function onChange(e) {
+      return setName(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "email"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Email Address"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "email",
     placeholder: "Enter email",
     value: email,
-    onChange: e => setEmail(e.target.value)
+    onChange: function onChange(e) {
+      return setEmail(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "password"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
     placeholder: "Enter password",
     value: password,
-    onChange: e => setPassword(e.target.value)
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "confirmPassword"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Confirm Password"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
     placeholder: "Confirm password",
     value: confirmPassword,
-    onChange: e => setConfirmPassword(e.target.value)
+    onChange: function onChange(e) {
+      return setConfirmPassword(e.target.value);
+    }
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     type: "submit",
     variant: "primary"
@@ -54716,10 +55376,12 @@ var _ProfileScreen = _interopRequireDefault(require("./screens/ProfileScreen"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const App = () => {
+var App = function App() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("main", {
     className: "py-3"
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
+    fluid: true
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/login",
     component: _LoginScreen.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -54754,24 +55416,43 @@ exports.default = _default;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _reactDom = require("react-dom");
 
 var _reactRedux = require("react-redux");
 
 var _store = _interopRequireDefault(require("./store"));
 
-require("./bootstrap.min.css");
-
-require("./index.css");
+require("./assets/styles/index.scss");
 
 var _App = _interopRequireDefault(require("./App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
-  store: _store.default
-}, /*#__PURE__*/_react.default.createElement(_App.default, null)), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-redux":"../node_modules/react-redux/es/index.js","./store":"../src/store.js","./bootstrap.min.css":"../src/bootstrap.min.css","./index.css":"../src/index.css","./App":"../src/App.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+/* global module */
+// import './assets/bootstrap.min.css'
+var root = document.getElementById('root');
+
+function renderApp() {
+  // const App = require('./App').default
+  (0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
+    store: _store.default
+  }, /*#__PURE__*/_react.default.createElement(_App.default, null)), root);
+}
+
+renderApp();
+
+if (module.hot) {
+  module.hot.accept(renderApp);
+} // ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   root
+// )
+// if (module.hot) {
+//   module.hot.accept(renderApp)
+// }
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-redux":"../node_modules/react-redux/es/index.js","./store":"../src/store.js","./assets/styles/index.scss":"../src/assets/styles/index.scss","./App":"../src/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -54799,7 +55480,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6144" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7859" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -54975,5 +55656,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/index.js"], null)
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/index.js"], null)
 //# sourceMappingURL=/src.7ed060e2.js.map
