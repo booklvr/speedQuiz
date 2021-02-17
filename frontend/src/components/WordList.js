@@ -10,7 +10,6 @@ const WordList = () => {
   const wordList = useSelector((state) => state.wordList)
 
   const deleteBtnHandler = (id) => {
-    console.log('remove word from list')
     dispatch(removeWord(id))
     dispatch(uncheckWord(id))
   }

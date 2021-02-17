@@ -19,8 +19,6 @@ export const wordListReducer = (state = [], action) => {
         })),
       ]
     case REMOVE_SUBCATEGORY_BY_CHECKBOX:
-      console.log('fucking made it')
-      console.log('payload', payload)
       return [...state].filter((word) => !payload.includes(word.id))
     case REMOVE_WORD:
       return [...state].filter((word) => word.id != payload)

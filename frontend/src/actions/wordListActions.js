@@ -11,7 +11,6 @@ export const addWordByCheckbox = ({ id, word }) => (dispatch) => {
 }
 
 export const removeWord = (id) => (dispatch) => {
-  console.log('remove word action')
   dispatch({
     type: REMOVE_WORD,
     payload: id,

@@ -7,6 +7,8 @@ import {
   toggleSubcategoryCollapse,
   toggleWordCheckbox,
   toggleSubcategoryCheckbox,
+  toggleCategoryCheckbox,
+  toggleAllCheckbox,
 } from '../actions/categoryActions'
 
 import { addWordByCheckbox, removeWord } from '../actions/wordListActions'
@@ -24,16 +26,14 @@ const Categories = () => {
   }
 
   const allCheckHandler = () => {
-    console.log('checked all')
+    setCheckAll(!checkAll)
   }
 
-  const categoryCheckHandler = () => {
-    console.log('checked category')
+  const categoryCheckHandler = (categoryId, checked) => {
+    dispatch(toggleCategoryCheckbox(categoryId, checked))
   }
 
   const subcategoryCheckHandler = (categoryId, subcategoryId, checked) => {
-    console.log('checked subcategory')
-
     dispatch(toggleSubcategoryCheckbox(categoryId, subcategoryId, checked))
   }
 
@@ -42,9 +42,6 @@ const Categories = () => {
     listItem,
     subcategoryId = undefined
   ) => {
-    console.log('category', categoryId)
-    console.log('subcategory', subcategoryId)
-    console.log('item', listItem)
     dispatch(
       toggleWordCheckbox({ categoryId, subcategoryId, itemId: listItem.id })
     )
@@ -62,8 +59,12 @@ const Categories = () => {
   const handleSubcategoryCollapse = (categoryId, subcategoryId) => {
     dispatch(toggleSubcategoryCollapse(categoryId, subcategoryId))
   }
-
+  //remove ???
   const [category, setCategory] = useState('')
+
+  useEffect(() => {
+    dispatch(toggleAllCheckbox(checkAll))
+  }, [checkAll])
 
   return (
     <Fragment>
@@ -91,7 +92,7 @@ const Categories = () => {
           <Form.Group className='pl-1' controlId='formBasicCheckbox'>
             <Form.Check
               type='checkbox'
-              checked={false}
+              checked={checkAll}
               label='all'
               value='all'
               onChange={(e) => allCheckHandler(e)}
@@ -114,7 +115,9 @@ const Categories = () => {
                         label={category.category}
                         id={category.id}
                         value={category.category}
-                        onChange={(e) => categoryCheckHandler(e)}
+                        onChange={() =>
+                          categoryCheckHandler(category.id, category.checked)
+                        }
                       ></Form.Check>
                       <div
                         className='collapse-category-btn mr-4'
@@ -208,7 +211,9 @@ const Categories = () => {
                         label={category.category}
                         id={category.id}
                         value={category.category}
-                        onChange={(e) => categoryCheckHandler(e)}
+                        onChange={() =>
+                          categoryCheckHandler(category.id, category.checked)
+                        }
                       ></Form.Check>
                       <div
                         className='collapse-category-btn mr-4'
