@@ -14,6 +14,8 @@ import {
 
 import { categoryListReducer } from './reducers/categoryListReducer'
 
+import { wordListReducer } from './reducers/wordListReducer'
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -23,14 +25,20 @@ const reducer = combineReducers({
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
   categoryList: categoryListReducer,
+  wordList: wordListReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
+const wordListFromStorage = localStorage.getItem('wordList')
+  ? JSON.parse(localStorage.getItem('wordList'))
+  : []
+
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
+  wordList: wordListFromStorage,
 }
 
 const middleware = [thunk]

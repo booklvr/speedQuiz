@@ -10,14 +10,14 @@ const HomeScreen = () => {
   return (
     <Container fluid={true}>
       <Row className='d-flex justify-content-around'>
-        <Col md='4'>
+        <Col md={12} xl={4} className='order-xl-last mb-lg-4'>
+          <Settings />
+        </Col>
+        <Col md={6} xl={4}>
           <Categories />
         </Col>
-        <Col md='4'>
+        <Col md={6} xl={4}>
           <WordList />
-        </Col>
-        <Col md='4'>
-          <Settings />
         </Col>
       </Row>
     </Container>

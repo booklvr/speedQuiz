@@ -5,11 +5,16 @@ import { ListGroup, Form, Col, Button } from 'react-bootstrap'
 import {
   toggleCategoryCollapse,
   toggleSubcategoryCollapse,
+  toggleWordCheckbox,
+  toggleSubcategoryCheckbox,
 } from '../actions/categoryActions'
+
+import { addWordByCheckbox, removeWord } from '../actions/wordListActions'
 
 const Categories = () => {
   const dispatch = useDispatch()
   const categoryList = useSelector((state) => state.categoryList)
+  const [checkAll, setCheckAll] = useState(false)
 
   const handleAddButtonClick = () => {
     console.log('add button')
@@ -26,16 +31,31 @@ const Categories = () => {
     console.log('checked category')
   }
 
-  const subcategoryCheckHandler = () => {
+  const subcategoryCheckHandler = (categoryId, subcategoryId, checked) => {
     console.log('checked subcategory')
+
+    dispatch(toggleSubcategoryCheckbox(categoryId, subcategoryId, checked))
   }
 
-  const wordCheckHandler = () => {
-    console.log('checked word')
+  const wordCheckHandler = (
+    categoryId,
+    listItem,
+    subcategoryId = undefined
+  ) => {
+    console.log('category', categoryId)
+    console.log('subcategory', subcategoryId)
+    console.log('item', listItem)
+    dispatch(
+      toggleWordCheckbox({ categoryId, subcategoryId, itemId: listItem.id })
+    )
+    if (listItem.checked) {
+      dispatch(removeWord(listItem.id))
+    } else {
+      dispatch(addWordByCheckbox({ word: listItem.word, id: listItem.id }))
+    }
   }
 
   const handleCollapseCategory = (id) => {
-    console.log('what the fuck')
     dispatch(toggleCategoryCollapse(id))
   }
 
@@ -49,9 +69,9 @@ const Categories = () => {
     <Fragment>
       <h1 className='list-title'>Categories</h1>
       <div className='p-5 categories-container bg-info'>
-        <h3 className='text-center'>Create your word list</h3>
-        <Form className='bg-secondary p-5'>
-          <Form.Row className='py-4 d-flex justify-content-center'>
+        <Form className='bg-secondary p-4 m-4'>
+          <Form.Row className='pb-4 d-flex justify-content-center'>
+            <h2 className='mb-2 text-center'>Create your word list</h2>
             <Col md={8}>
               <Form.Control
                 type='text'
@@ -123,7 +143,13 @@ const Categories = () => {
                                 label={subcategory.subcategory}
                                 id={subcategory.id}
                                 value={subcategory.subcategory}
-                                onChange={(e) => subCategoryCheckHandler(e)}
+                                onChange={() =>
+                                  subcategoryCheckHandler(
+                                    category.id,
+                                    subcategory.id,
+                                    subcategory.checked
+                                  )
+                                }
                               ></Form.Check>
                               <div
                                 className='collapse-category-btn mr-4'
@@ -151,7 +177,13 @@ const Categories = () => {
                                       label={listItem.word}
                                       id={listItem.id}
                                       value={listItem.word}
-                                      onChange={(e) => wordCheckHandler(e)}
+                                      onChange={() =>
+                                        wordCheckHandler(
+                                          category.id,
+                                          listItem,
+                                          subcategory.id
+                                        )
+                                      }
                                     ></Form.Check>
                                   </Form.Group>
                                 )
@@ -200,7 +232,9 @@ const Categories = () => {
                             label={listItem.word}
                             id={listItem.id}
                             value={listItem.word}
-                            onChange={(e) => wordCheckHandler(e)}
+                            onChange={() =>
+                              wordCheckHandler(category.id, listItem)
+                            }
                           ></Form.Check>
                         </Form.Group>
                       ))}
