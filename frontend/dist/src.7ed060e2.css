@@ -10234,7 +10234,17 @@ html::-webkit-scrollbar {
 }
 
 .categories-container {
-  background-color: pink;
+  min-height: calc(100vh - 200px);
+  margin-bottom: 20px;
+  position: relative;
+}
+.categories-container form {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
 }
 
 .collapse-category-btn {
