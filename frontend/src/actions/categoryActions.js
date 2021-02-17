@@ -3,7 +3,9 @@ import {
   TOGGLE_SUBCATEGORY_COLLAPSE,
   TOGGLE_WORD_CHECKBOX,
   TOGGLE_SUBCATEGORY_CHECKBOX,
+  TOGGLE_CATEGORY_CHECKBOX,
   UNCHECK_WORD,
+  TOGGLE_ALL_CHECKBOX,
 } from '../constants/categoryConstants'
 import {
   ADD_SUBCATEGORY_BY_CHECKBOX,
@@ -37,7 +39,6 @@ export const toggleSubcategoryCheckbox = (
   subcategoryId,
   checked
 ) => (dispatch, getState) => {
-  console.log('toggle subcategories checkbox')
   dispatch({
     type: TOGGLE_SUBCATEGORY_CHECKBOX,
     payload: { categoryId, subcategoryId },
@@ -56,9 +57,7 @@ export const toggleSubcategoryCheckbox = (
               payload: listItemIds,
             })
           } else {
-            console.log('subcategory', subcategory)
             let wordListIds = wordList.map((word) => word.id)
-            console.log(wordListIds)
             let newArray = subcategory.list.filter(
               (listItem) => !wordListIds.includes(listItem.id)
             )
@@ -69,6 +68,109 @@ export const toggleSubcategoryCheckbox = (
           }
         }
       })
+    }
+  })
+}
+
+export const toggleCategoryCheckbox = (categoryId, checked) => (
+  dispatch,
+  getState
+) => {
+  dispatch({
+    type: TOGGLE_CATEGORY_CHECKBOX,
+    payload: categoryId,
+  })
+
+  const categories = getState().categoryList
+  const wordList = getState().wordList
+  categories.forEach((category) => {
+    if (category.id === categoryId) {
+      if (category.subcategories) {
+        category.subcategories.forEach((subcategory) => {
+          if (checked) {
+            let listItemIds = subcategory.list.map((listItem) => listItem.id)
+            dispatch({
+              type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+              payload: listItemIds,
+            })
+          } else {
+            let wordListIds = wordList.map((word) => word.id)
+            let newArray = subcategory.list.filter(
+              (listItem) => !wordListIds.includes(listItem.id)
+            )
+            dispatch({
+              type: ADD_SUBCATEGORY_BY_CHECKBOX,
+              payload: newArray,
+            })
+          }
+        })
+      } else {
+        if (checked) {
+          let listItemIds = category.list.map((listItem) => listItem.id)
+          dispatch({
+            type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+            payload: listItemIds,
+          })
+        } else {
+          let wordListIds = wordList.map((word) => word.id)
+          let newArray = category.list.filter(
+            (listItem) => !wordListIds.includes(listItem.id)
+          )
+          dispatch({
+            type: ADD_SUBCATEGORY_BY_CHECKBOX,
+            payload: newArray,
+          })
+        }
+      }
+    }
+  })
+}
+
+export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
+  dispatch({
+    type: TOGGLE_ALL_CHECKBOX,
+    payload: checked,
+  })
+
+  const categories = getState().categoryList
+  const wordList = getState().wordList
+  categories.forEach((category) => {
+    if (category.subcategories) {
+      category.subcategories.forEach((subcategory) => {
+        if (!checked) {
+          let listItemIds = subcategory.list.map((listItem) => listItem.id)
+          dispatch({
+            type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+            payload: listItemIds,
+          })
+        } else {
+          let wordListIds = wordList.map((word) => word.id)
+          let newArray = subcategory.list.filter(
+            (listItem) => !wordListIds.includes(listItem.id)
+          )
+          dispatch({
+            type: ADD_SUBCATEGORY_BY_CHECKBOX,
+            payload: newArray,
+          })
+        }
+      })
+    } else {
+      if (!checked) {
+        let listItemIds = category.list.map((listItem) => listItem.id)
+        dispatch({
+          type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+          payload: listItemIds,
+        })
+      } else {
+        let wordListIds = wordList.map((word) => word.id)
+        let newArray = category.list.filter(
+          (listItem) => !wordListIds.includes(listItem.id)
+        )
+        dispatch({
+          type: ADD_SUBCATEGORY_BY_CHECKBOX,
+          payload: newArray,
+        })
+      }
     }
   })
 }

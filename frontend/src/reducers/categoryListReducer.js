@@ -1,5 +1,8 @@
 import uuid from 'react-uuid'
+import Categories from '../components/Categories'
 import {
+  TOGGLE_ALL_CHECKBOX,
+  TOGGLE_CATEGORY_CHECKBOX,
   TOGGLE_CATEGORY_COLLAPSE,
   TOGGLE_SUBCATEGORY_CHECKBOX,
   TOGGLE_SUBCATEGORY_COLLAPSE,
@@ -9,24 +12,6 @@ import {
 
 import { ADD_WORD_BY_CHECKBOX } from '../constants/wordListConstants'
 import categoryList from '../data/categoryList'
-
-// categoryList.forEach((category) => {
-//   console.log('category:', category.category)
-//   if (category.subcategories) {
-//     category.subcategories.forEach((subcategory) => {
-//       console.log('subcategory:', subcategory.subcategory)
-//       console.log('LIST')
-//       subcategory.list.forEach((listItem) => {
-//         console.log(listItem)
-//       })
-//     })
-//   } else {
-//     console.log('LIST')
-//     category.list.forEach((listItem) => {
-//       console.log(listItem)
-//     })
-//   }
-// })
 
 const categoryWordList = categoryList.map((category) => {
   if (category.subcategories) {
@@ -63,7 +48,6 @@ const categoryWordList = categoryList.map((category) => {
     }
   }
 })
-// console.log(categoryWordList)
 
 export const categoryListReducer = (state = categoryWordList, action) => {
   const { type, payload } = action
@@ -186,6 +170,70 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         }
       })
+    case TOGGLE_CATEGORY_CHECKBOX:
+      return [...state].map((category) => {
+        if (category.subcategories) {
+          if (category.id === payload) {
+            return {
+              ...category,
+              checked: !category.checked,
+              subcategories: [...category.subcategories].map((subcategory) => ({
+                ...subcategory,
+                checked: !category.checked,
+                list: [...subcategory.list].map((listItem) => ({
+                  ...listItem,
+                  checked: !category.checked,
+                })),
+              })),
+            }
+          } else {
+            return {
+              ...category,
+            }
+          }
+        } else {
+          if (category.id === payload) {
+            return {
+              ...category,
+              checked: !category.checked,
+              list: [...category.list].map((listItem) => ({
+                ...listItem,
+                checked: !category.checked,
+              })),
+            }
+          } else {
+            return {
+              ...category,
+            }
+          }
+        }
+      })
+    case TOGGLE_ALL_CHECKBOX:
+      return [...state].map((category) => {
+        if (category.subcategories) {
+          return {
+            ...category,
+            checked: payload,
+            subcategories: [...category.subcategories].map((subcategory) => ({
+              ...subcategory,
+              checked: payload,
+              list: [...subcategory.list].map((listItem) => ({
+                ...listItem,
+                checked: payload,
+              })),
+            })),
+          }
+        } else {
+          return {
+            ...category,
+            checked: payload,
+            list: [...category.list].map((listItem) => ({
+              ...listItem,
+              checked: payload,
+            })),
+          }
+        }
+      })
     case UNCHECK_WORD:
       return [...state].map((category) => {
         if (category.subcategories) {
@@ -193,19 +241,35 @@ export const categoryListReducer = (state = categoryWordList, action) => {
             ...category,
             subcategories: [...category.subcategories].map((subcategory) => ({
               ...subcategory,
-              list: [...subcategory.list].map((word) => ({
-                ...word,
-                checked: false,
-              })),
+              list: [...subcategory.list].map((word) => {
+                if (word.id === payload) {
+                  return {
+                    ...word,
+                    checked: false,
+                  }
+                } else {
+                  return {
+                    ...word,
+                  }
+                }
+              }),
             })),
           }
         } else {
           return {
             ...category,
-            list: [...category.list].map((word) => ({
-              ...word,
-              checked: false,
-            })),
+            list: [...category.list].map((word) => {
+              if (word.id === payload) {
+                return {
+                  ...word,
+                  checked: false,
+                }
+              } else {
+                return {
+                  ...word,
+                }
+              }
+            }),
           }
         }
       })
