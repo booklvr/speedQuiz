@@ -1,0 +1,5 @@
+export const LOAD_GAME = 'LOAD_GAME'
+export const SET_CURRENT_TEAM = 'SET_CURRENT_TEAM'
+export const CORRECT_WORD = 'CORRECT_WORD'
+export const SKIP_WORD = 'SKIP_WORD'
+export const PREVIOUS_WORD = 'PREVIOUS_WORD'

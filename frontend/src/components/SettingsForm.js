@@ -25,7 +25,6 @@ const SettingsForm = () => {
   const [numberOfTeams, setNumberOfTeams] = useState(teams.length)
 
   const handleTimerBlurEvent = () => {
-    console.log('handle timer blur event')
     if (seconds === '' || seconds === 0) {
       setSeconds(timer)
     }
@@ -36,7 +35,6 @@ const SettingsForm = () => {
   }
 
   const handleTeamBlurEvent = () => {
-    console.log('handleTeamBlurEvent')
     if (numberOfTeams == '' || numberOfTeams == 0) {
       setNumberOfTeams(teams.length)
     }

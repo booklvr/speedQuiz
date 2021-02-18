@@ -85,7 +85,6 @@ const Categories = () => {
       firstUpdate.current = false
       return
     }
-    console.log('dispatch this guy')
     dispatch(toggleAllCheckbox(checkAll))
   }, [checkAll])
 

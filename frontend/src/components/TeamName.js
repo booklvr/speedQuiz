@@ -10,7 +10,6 @@ const TeamName = ({ teamName, index, id }) => {
   const [name, setName] = useState(teamName)
 
   const handleBlurEvent = (e) => {
-    console.log('handle team name blur event')
     dispatch(changeTeamName(name, id))
   }
 
