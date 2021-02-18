@@ -33771,7 +33771,7 @@ var invariant = function (condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-},{}],"../node_modules/uncontrollable/lib/esm/utils.js":[function(require,module,exports) {
+},{}],"../node_modules/uncontrollable/esm/utils.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33833,7 +33833,7 @@ function defaultKey(key) {
 function canAcceptRef(component) {
   return !!component && (typeof component !== 'function' || component.prototype && component.prototype.isReactComponent);
 }
-},{"invariant":"../node_modules/invariant/browser.js"}],"../node_modules/uncontrollable/lib/esm/hook.js":[function(require,module,exports) {
+},{"invariant":"../node_modules/invariant/browser.js"}],"../node_modules/uncontrollable/esm/hook.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33922,23 +33922,7 @@ function useUncontrolled(props, config) {
     return (0, _extends3.default)({}, rest, (_extends2 = {}, _extends2[fieldName] = value, _extends2[handlerName] = handler, _extends2));
   }, props);
 }
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","./utils":"../node_modules/uncontrollable/lib/esm/utils.js"}],"../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _setPrototypeOf;
-
-function _setPrototypeOf(o, p) {
-  exports.default = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-},{}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","./utils":"../node_modules/uncontrollable/esm/utils.js"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33946,16 +33930,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _inheritsLoose;
 
-var _setPrototypeOf = _interopRequireDefault(require("@babel/runtime/helpers/esm/setPrototypeOf"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
   subClass.prototype.constructor = subClass;
-  (0, _setPrototypeOf.default)(subClass, superClass);
+  subClass.__proto__ = superClass;
 }
-},{"@babel/runtime/helpers/esm/setPrototypeOf":"../node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js"}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
+},{}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34087,7 +34067,7 @@ function polyfill(Component) {
 
   return Component;
 }
-},{}],"../node_modules/uncontrollable/lib/esm/uncontrollable.js":[function(require,module,exports) {
+},{}],"../node_modules/uncontrollable/esm/uncontrollable.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34114,8 +34094,6 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _jsxFileName = "/Users/jquense/src/uncontrollable/src/uncontrollable.js";
 
 function uncontrollable(Component, controlledValues, methods) {
   if (methods === void 0) {
@@ -34255,12 +34233,7 @@ function uncontrollable(Component, controlledValues, methods) {
   if (_react.default.forwardRef) {
     WrappedComponent = _react.default.forwardRef(function (props, ref) {
       return _react.default.createElement(UncontrolledComponent, (0, _extends3.default)({}, props, {
-        innerRef: ref,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 128
-        },
-        __self: this
+        innerRef: ref
       }));
     });
     WrappedComponent.propTypes = UncontrolledComponent.propTypes;
@@ -34282,7 +34255,7 @@ function uncontrollable(Component, controlledValues, methods) {
 
   return WrappedComponent;
 }
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","invariant":"../node_modules/invariant/browser.js","./utils":"../node_modules/uncontrollable/lib/esm/utils.js"}],"../node_modules/uncontrollable/lib/esm/index.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","invariant":"../node_modules/invariant/browser.js","./utils":"../node_modules/uncontrollable/esm/utils.js"}],"../node_modules/uncontrollable/esm/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34316,7 +34289,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./hook":"../node_modules/uncontrollable/lib/esm/hook.js","./uncontrollable":"../node_modules/uncontrollable/lib/esm/uncontrollable.js"}],"../node_modules/react-bootstrap/esm/ThemeProvider.js":[function(require,module,exports) {
+},{"./hook":"../node_modules/uncontrollable/esm/hook.js","./uncontrollable":"../node_modules/uncontrollable/esm/uncontrollable.js"}],"../node_modules/react-bootstrap/esm/ThemeProvider.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35780,7 +35753,7 @@ Accordion.Toggle = _AccordionToggle.default;
 Accordion.Collapse = _AccordionCollapse.default;
 var _default = Accordion;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./AccordionToggle":"../node_modules/react-bootstrap/esm/AccordionToggle.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js","./AccordionCollapse":"../node_modules/react-bootstrap/esm/AccordionCollapse.js","./AccordionContext":"../node_modules/react-bootstrap/esm/AccordionContext.js"}],"../node_modules/@restart/hooks/esm/useCommittedRef.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./AccordionToggle":"../node_modules/react-bootstrap/esm/AccordionToggle.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js","./AccordionCollapse":"../node_modules/react-bootstrap/esm/AccordionCollapse.js","./AccordionContext":"../node_modules/react-bootstrap/esm/AccordionContext.js"}],"../node_modules/@restart/hooks/esm/useCommittedRef.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36214,7 +36187,7 @@ Alert.Link = AlertLink;
 Alert.Heading = AlertHeading;
 var _default = Alert;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./Fade":"../node_modules/react-bootstrap/esm/Fade.js","./CloseButton":"../node_modules/react-bootstrap/esm/CloseButton.js","./divWithClassName":"../node_modules/react-bootstrap/esm/divWithClassName.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js"}],"../node_modules/react-bootstrap/esm/Badge.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./Fade":"../node_modules/react-bootstrap/esm/Fade.js","./CloseButton":"../node_modules/react-bootstrap/esm/CloseButton.js","./divWithClassName":"../node_modules/react-bootstrap/esm/divWithClassName.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js"}],"../node_modules/react-bootstrap/esm/Badge.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36896,20 +36869,6 @@ function setChainedTimeout(handleRef, fn, timeoutAtMs) {
 /**
  * Returns a controller object for setting a timeout that is properly cleaned up
  * once the component unmounts. New timeouts cancel and replace existing ones.
- *
- *
- *
- * ```tsx
- * const { set, clear } = useTimeout();
- * const [hello, showHello] = useState(false);
- * //Display hello after 5 seconds
- * set(() => showHello(true), 5000);
- * return (
- *   <div className="App">
- *     {hello ? <h3>Hello</h3> : null}
- *   </div>
- * );
- * ```
  */
 
 
@@ -37568,7 +37527,7 @@ Carousel.Caption = _CarouselCaption.default;
 Carousel.Item = _CarouselItem.default;
 var _default = Carousel;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","@restart/hooks/useUpdateEffect":"../node_modules/@restart/hooks/esm/useUpdateEffect.js","@restart/hooks/useCommittedRef":"../node_modules/@restart/hooks/esm/useCommittedRef.js","@restart/hooks/useTimeout":"../node_modules/@restart/hooks/esm/useTimeout.js","classnames":"../node_modules/classnames/index.js","dom-helpers/transitionEnd":"../node_modules/dom-helpers/esm/transitionEnd.js","react-transition-group/Transition":"../node_modules/react-transition-group/esm/Transition.js","prop-types":"../node_modules/prop-types/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./CarouselCaption":"../node_modules/react-bootstrap/esm/CarouselCaption.js","./CarouselItem":"../node_modules/react-bootstrap/esm/CarouselItem.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./triggerBrowserReflow":"../node_modules/react-bootstrap/esm/triggerBrowserReflow.js"}],"../node_modules/react-bootstrap/esm/Col.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","@restart/hooks/useUpdateEffect":"../node_modules/@restart/hooks/esm/useUpdateEffect.js","@restart/hooks/useCommittedRef":"../node_modules/@restart/hooks/esm/useCommittedRef.js","@restart/hooks/useTimeout":"../node_modules/@restart/hooks/esm/useTimeout.js","classnames":"../node_modules/classnames/index.js","dom-helpers/transitionEnd":"../node_modules/dom-helpers/esm/transitionEnd.js","react-transition-group/Transition":"../node_modules/react-transition-group/esm/Transition.js","prop-types":"../node_modules/prop-types/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./CarouselCaption":"../node_modules/react-bootstrap/esm/CarouselCaption.js","./CarouselItem":"../node_modules/react-bootstrap/esm/CarouselItem.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./triggerBrowserReflow":"../node_modules/react-bootstrap/esm/triggerBrowserReflow.js"}],"../node_modules/react-bootstrap/esm/Col.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41473,7 +41432,7 @@ Dropdown.Menu = _DropdownMenu.default;
 Dropdown.Toggle = _DropdownToggle.default;
 var _default = Dropdown;
 exports.default = _default;
-},{"dom-helpers/matches":"../node_modules/dom-helpers/esm/matches.js","dom-helpers/querySelectorAll":"../node_modules/dom-helpers/esm/querySelectorAll.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","@restart/hooks/usePrevious":"../node_modules/@restart/hooks/esm/usePrevious.js","@restart/hooks/useCallbackRef":"../node_modules/@restart/hooks/esm/useCallbackRef.js","@restart/hooks/useForceUpdate":"../node_modules/@restart/hooks/esm/useForceUpdate.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./DropdownContext":"../node_modules/react-overlays/esm/DropdownContext.js","./DropdownMenu":"../node_modules/react-overlays/esm/DropdownMenu.js","./DropdownToggle":"../node_modules/react-overlays/esm/DropdownToggle.js"}],"../node_modules/react-bootstrap/esm/NavContext.js":[function(require,module,exports) {
+},{"dom-helpers/matches":"../node_modules/dom-helpers/esm/matches.js","dom-helpers/querySelectorAll":"../node_modules/dom-helpers/esm/querySelectorAll.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","@restart/hooks/usePrevious":"../node_modules/@restart/hooks/esm/usePrevious.js","@restart/hooks/useCallbackRef":"../node_modules/@restart/hooks/esm/useCallbackRef.js","@restart/hooks/useForceUpdate":"../node_modules/@restart/hooks/esm/useForceUpdate.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./DropdownContext":"../node_modules/react-overlays/esm/DropdownContext.js","./DropdownMenu":"../node_modules/react-overlays/esm/DropdownMenu.js","./DropdownToggle":"../node_modules/react-overlays/esm/DropdownToggle.js"}],"../node_modules/react-bootstrap/esm/NavContext.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42140,7 +42099,7 @@ Dropdown.Menu = _DropdownMenu.default;
 Dropdown.Toggle = _DropdownToggle.default;
 var _default = Dropdown;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","react-overlays/Dropdown":"../node_modules/react-overlays/esm/Dropdown.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./DropdownItem":"../node_modules/react-bootstrap/esm/DropdownItem.js","./DropdownMenu":"../node_modules/react-bootstrap/esm/DropdownMenu.js","./DropdownToggle":"../node_modules/react-bootstrap/esm/DropdownToggle.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js"}],"../node_modules/react-bootstrap/esm/DropdownButton.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","react-overlays/Dropdown":"../node_modules/react-overlays/esm/Dropdown.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","@restart/hooks/useEventCallback":"../node_modules/@restart/hooks/esm/useEventCallback.js","./DropdownItem":"../node_modules/react-bootstrap/esm/DropdownItem.js","./DropdownMenu":"../node_modules/react-bootstrap/esm/DropdownMenu.js","./DropdownToggle":"../node_modules/react-bootstrap/esm/DropdownToggle.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js"}],"../node_modules/react-bootstrap/esm/DropdownButton.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43928,7 +43887,7 @@ ListGroup.displayName = 'ListGroup';
 ListGroup.Item = _ListGroupItem.default;
 var _default = ListGroup;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","warning":"../node_modules/warning/warning.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./AbstractNav":"../node_modules/react-bootstrap/esm/AbstractNav.js","./ListGroupItem":"../node_modules/react-bootstrap/esm/ListGroupItem.js"}],"../node_modules/react-bootstrap/esm/Media.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","warning":"../node_modules/warning/warning.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./AbstractNav":"../node_modules/react-bootstrap/esm/AbstractNav.js","./ListGroupItem":"../node_modules/react-bootstrap/esm/ListGroupItem.js"}],"../node_modules/react-bootstrap/esm/Media.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45674,7 +45633,7 @@ Nav.Item = _NavItem.default;
 Nav.Link = _NavLink.default;
 var _default = Nav;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","prop-types-extra/lib/all":"../node_modules/prop-types-extra/lib/all.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./NavbarContext":"../node_modules/react-bootstrap/esm/NavbarContext.js","./CardContext":"../node_modules/react-bootstrap/esm/CardContext.js","./AbstractNav":"../node_modules/react-bootstrap/esm/AbstractNav.js","./NavItem":"../node_modules/react-bootstrap/esm/NavItem.js","./NavLink":"../node_modules/react-bootstrap/esm/NavLink.js"}],"../node_modules/react-bootstrap/esm/NavbarBrand.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","prop-types-extra/lib/all":"../node_modules/prop-types-extra/lib/all.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./NavbarContext":"../node_modules/react-bootstrap/esm/NavbarContext.js","./CardContext":"../node_modules/react-bootstrap/esm/CardContext.js","./AbstractNav":"../node_modules/react-bootstrap/esm/AbstractNav.js","./NavItem":"../node_modules/react-bootstrap/esm/NavItem.js","./NavLink":"../node_modules/react-bootstrap/esm/NavLink.js"}],"../node_modules/react-bootstrap/esm/NavbarBrand.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45934,7 +45893,7 @@ Navbar.Collapse = _NavbarCollapse.default;
 Navbar.Text = NavbarText;
 var _default = Navbar;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js","./NavbarBrand":"../node_modules/react-bootstrap/esm/NavbarBrand.js","./NavbarCollapse":"../node_modules/react-bootstrap/esm/NavbarCollapse.js","./NavbarToggle":"../node_modules/react-bootstrap/esm/NavbarToggle.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./NavbarContext":"../node_modules/react-bootstrap/esm/NavbarContext.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js"}],"../node_modules/react-bootstrap/esm/NavDropdown.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./createWithBsPrefix":"../node_modules/react-bootstrap/esm/createWithBsPrefix.js","./NavbarBrand":"../node_modules/react-bootstrap/esm/NavbarBrand.js","./NavbarCollapse":"../node_modules/react-bootstrap/esm/NavbarCollapse.js","./NavbarToggle":"../node_modules/react-bootstrap/esm/NavbarToggle.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./NavbarContext":"../node_modules/react-bootstrap/esm/NavbarContext.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js"}],"../node_modules/react-bootstrap/esm/NavDropdown.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46623,7 +46582,7 @@ function OverlayTrigger(_ref) {
 OverlayTrigger.defaultProps = defaultProps;
 var _default = OverlayTrigger;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","dom-helpers/contains":"../node_modules/dom-helpers/esm/contains.js","react":"../node_modules/react/index.js","@restart/hooks/useTimeout":"../node_modules/@restart/hooks/esm/useTimeout.js","react-overlays/safeFindDOMNode":"../node_modules/react-overlays/esm/safeFindDOMNode.js","warning":"../node_modules/warning/warning.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./Overlay":"../node_modules/react-bootstrap/esm/Overlay.js"}],"../node_modules/react-bootstrap/esm/PageItem.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","dom-helpers/contains":"../node_modules/dom-helpers/esm/contains.js","react":"../node_modules/react/index.js","@restart/hooks/useTimeout":"../node_modules/@restart/hooks/esm/useTimeout.js","react-overlays/safeFindDOMNode":"../node_modules/react-overlays/esm/safeFindDOMNode.js","warning":"../node_modules/warning/warning.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./Overlay":"../node_modules/react-bootstrap/esm/Overlay.js"}],"../node_modules/react-bootstrap/esm/PageItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47421,7 +47380,7 @@ var TabContainer = function TabContainer(props) {
 
 var _default = TabContainer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./TabContext":"../node_modules/react-bootstrap/esm/TabContext.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js"}],"../node_modules/react-bootstrap/esm/TabContent.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./TabContext":"../node_modules/react-bootstrap/esm/TabContext.js","./SelectableContext":"../node_modules/react-bootstrap/esm/SelectableContext.js"}],"../node_modules/react-bootstrap/esm/TabContent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47767,7 +47726,7 @@ Tabs.defaultProps = defaultProps;
 Tabs.displayName = 'Tabs';
 var _default = Tabs;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","prop-types-extra/lib/isRequiredForA11y":"../node_modules/prop-types-extra/lib/isRequiredForA11y.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./Nav":"../node_modules/react-bootstrap/esm/Nav.js","./NavLink":"../node_modules/react-bootstrap/esm/NavLink.js","./NavItem":"../node_modules/react-bootstrap/esm/NavItem.js","./TabContainer":"../node_modules/react-bootstrap/esm/TabContainer.js","./TabContent":"../node_modules/react-bootstrap/esm/TabContent.js","./TabPane":"../node_modules/react-bootstrap/esm/TabPane.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js"}],"../node_modules/react-bootstrap/esm/ToastContext.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","prop-types-extra/lib/isRequiredForA11y":"../node_modules/prop-types-extra/lib/isRequiredForA11y.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./Nav":"../node_modules/react-bootstrap/esm/Nav.js","./NavLink":"../node_modules/react-bootstrap/esm/NavLink.js","./NavItem":"../node_modules/react-bootstrap/esm/NavItem.js","./TabContainer":"../node_modules/react-bootstrap/esm/TabContainer.js","./TabContent":"../node_modules/react-bootstrap/esm/TabContent.js","./TabPane":"../node_modules/react-bootstrap/esm/TabPane.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js"}],"../node_modules/react-bootstrap/esm/ToastContext.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -48138,7 +48097,7 @@ ToggleButtonGroup.defaultProps = defaultProps;
 ToggleButtonGroup.Button = _ToggleButton.default;
 var _default = ToggleButtonGroup;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","invariant":"../node_modules/invariant/browser.js","uncontrollable":"../node_modules/uncontrollable/lib/esm/index.js","./createChainedFunction":"../node_modules/react-bootstrap/esm/createChainedFunction.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js","./ButtonGroup":"../node_modules/react-bootstrap/esm/ButtonGroup.js","./ToggleButton":"../node_modules/react-bootstrap/esm/ToggleButton.js"}],"../node_modules/react-bootstrap/esm/Tooltip.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","invariant":"../node_modules/invariant/browser.js","uncontrollable":"../node_modules/uncontrollable/esm/index.js","./createChainedFunction":"../node_modules/react-bootstrap/esm/createChainedFunction.js","./ElementChildren":"../node_modules/react-bootstrap/esm/ElementChildren.js","./ButtonGroup":"../node_modules/react-bootstrap/esm/ButtonGroup.js","./ToggleButton":"../node_modules/react-bootstrap/esm/ToggleButton.js"}],"../node_modules/react-bootstrap/esm/Tooltip.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -48849,7 +48808,7 @@ exports.UNCHECK_WORD = UNCHECK_WORD;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.REMOVE_ALL_BY_CHECKBOX = exports.ADD_ALL_BY_CHECKBOX = exports.REMOVE_CATEGORY_BY_CHECKBOX = exports.ADD_CATEGORY_BY_CHECKBOX = exports.REMOVE_SUBCATEGORY_BY_CHECKBOX = exports.ADD_SUBCATEGORY_BY_CHECKBOX = exports.REMOVE_WORD = exports.ADD_WORD_BY_CHECKBOX = void 0;
+exports.ADD_NEW_WORD = exports.REMOVE_SUBCATEGORY_BY_CHECKBOX = exports.ADD_SUBCATEGORY_BY_CHECKBOX = exports.REMOVE_WORD = exports.ADD_WORD_BY_CHECKBOX = void 0;
 var ADD_WORD_BY_CHECKBOX = 'ADD_WORD_BY_CHECKBOX';
 exports.ADD_WORD_BY_CHECKBOX = ADD_WORD_BY_CHECKBOX;
 var REMOVE_WORD = 'REMOVE_WORD';
@@ -48858,14 +48817,12 @@ var ADD_SUBCATEGORY_BY_CHECKBOX = 'ADD_SUBCATEGORY_BY_CHECKBOX';
 exports.ADD_SUBCATEGORY_BY_CHECKBOX = ADD_SUBCATEGORY_BY_CHECKBOX;
 var REMOVE_SUBCATEGORY_BY_CHECKBOX = 'REMOVE_SUBCATEGORY_BY_CHECKBOX';
 exports.REMOVE_SUBCATEGORY_BY_CHECKBOX = REMOVE_SUBCATEGORY_BY_CHECKBOX;
-var ADD_CATEGORY_BY_CHECKBOX = 'ADD_CATEGORY_BY_CHECKBOX';
-exports.ADD_CATEGORY_BY_CHECKBOX = ADD_CATEGORY_BY_CHECKBOX;
-var REMOVE_CATEGORY_BY_CHECKBOX = 'REMOVE_CATEGORY_BY_CHECKBOX';
-exports.REMOVE_CATEGORY_BY_CHECKBOX = REMOVE_CATEGORY_BY_CHECKBOX;
-var ADD_ALL_BY_CHECKBOX = 'ADD_ALL_BY_CHECKBOX';
-exports.ADD_ALL_BY_CHECKBOX = ADD_ALL_BY_CHECKBOX;
-var REMOVE_ALL_BY_CHECKBOX = 'REMOVE_ALL_BY_CHECKBOX';
-exports.REMOVE_ALL_BY_CHECKBOX = REMOVE_ALL_BY_CHECKBOX;
+var ADD_NEW_WORD = 'ADD_NEW_WORD'; // export const ADD_CATEGORY_BY_CHECKBOX = 'ADD_CATEGORY_BY_CHECKBOX'
+// export const REMOVE_CATEGORY_BY_CHECKBOX = 'REMOVE_CATEGORY_BY_CHECKBOX'
+// export const ADD_ALL_BY_CHECKBOX = 'ADD_ALL_BY_CHECKBOX'
+// export const REMOVE_ALL_BY_CHECKBOX = 'REMOVE_ALL_BY_CHECKBOX'
+
+exports.ADD_NEW_WORD = ADD_NEW_WORD;
 },{}],"../src/actions/categoryActions.js":[function(require,module,exports) {
 "use strict";
 
@@ -48907,7 +48864,7 @@ var toggleWordCheckbox = function toggleWordCheckbox(_ref) {
   var categoryId = _ref.categoryId,
       subcategoryId = _ref.subcategoryId,
       itemId = _ref.itemId;
-  return function (dispatch) {
+  return function (dispatch, getState) {
     dispatch({
       type: _categoryConstants.TOGGLE_WORD_CHECKBOX,
       payload: {
@@ -48916,6 +48873,7 @@ var toggleWordCheckbox = function toggleWordCheckbox(_ref) {
         itemId: itemId
       }
     });
+    localStorage.setItem('categoryList', JSON.stringify(getState().categoryList));
   };
 };
 
@@ -48960,6 +48918,7 @@ var toggleSubcategoryCheckbox = function toggleSubcategoryCheckbox(categoryId, s
         });
       }
     });
+    localStorage.setItem('categoryList', JSON.stringify(getState().categoryList));
   };
 };
 
@@ -49022,6 +48981,7 @@ var toggleCategoryCheckbox = function toggleCategoryCheckbox(categoryId, checked
         }
       }
     });
+    localStorage.setItem('categoryList', JSON.stringify(getState().categoryList));
   };
 };
 
@@ -49082,17 +49042,19 @@ var toggleAllCheckbox = function toggleAllCheckbox(checked) {
         }
       }
     });
+    localStorage.setItem('categoryList', JSON.stringify(getState().categoryList));
   };
 };
 
 exports.toggleAllCheckbox = toggleAllCheckbox;
 
 var uncheckWord = function uncheckWord(id) {
-  return function (dispatch) {
+  return function (dispatch, getState) {
     dispatch({
       type: _categoryConstants.UNCHECK_WORD,
       payload: id
     });
+    localStorage.setItem('categoryList', JSON.stringify(getState().categoryList));
   };
 };
 
@@ -49103,14 +49065,14 @@ exports.uncheckWord = uncheckWord;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.removeWord = exports.addWordByCheckbox = void 0;
+exports.addNewWord = exports.removeWord = exports.addWordByCheckbox = void 0;
 
 var _wordListConstants = require("../constants/wordListConstants");
 
 var addWordByCheckbox = function addWordByCheckbox(_ref) {
   var id = _ref.id,
       word = _ref.word;
-  return function (dispatch) {
+  return function (dispatch, getState) {
     dispatch({
       type: _wordListConstants.ADD_WORD_BY_CHECKBOX,
       payload: {
@@ -49118,21 +49080,35 @@ var addWordByCheckbox = function addWordByCheckbox(_ref) {
         word: word
       }
     });
+    localStorage.setItem('wordList', JSON.stringify(getState().wordList));
   };
 };
 
 exports.addWordByCheckbox = addWordByCheckbox;
 
 var removeWord = function removeWord(id) {
-  return function (dispatch) {
+  return function (dispatch, getState) {
     dispatch({
       type: _wordListConstants.REMOVE_WORD,
       payload: id
     });
+    localStorage.setItem('wordList', JSON.stringify(getState().wordList));
   };
 };
 
 exports.removeWord = removeWord;
+
+var addNewWord = function addNewWord(word) {
+  return function (dispatch, getState) {
+    dispatch({
+      type: _wordListConstants.ADD_NEW_WORD,
+      payload: word
+    });
+    localStorage.setItem('wordList', JSON.stringify(getState().wordList));
+  };
+};
+
+exports.addNewWord = addNewWord;
 },{"../constants/wordListConstants":"../src/constants/wordListConstants.js"}],"../src/components/Categories.js":[function(require,module,exports) {
 "use strict";
 
@@ -49182,12 +49158,26 @@ var Categories = function Categories() {
       checkAll = _useState2[0],
       setCheckAll = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      newWord = _useState4[0],
+      setNewWord = _useState4[1];
+
+  var firstUpdate = (0, _react.useRef)(true);
+
   var handleAddButtonClick = function handleAddButtonClick() {
-    console.log('add button');
+    if (newWord !== '') {
+      dispatch((0, _wordListActions.addNewWord)(newWord));
+      setNewWord('');
+    }
   };
 
-  var handleKeyEnter = function handleKeyEnter() {
-    console.log('handle key enter');
+  var handleKeyEnter = function handleKeyEnter(e) {
+    if (e.key === 'Enter' && newWord !== '') {
+      e.preventDefault();
+      dispatch((0, _wordListActions.addNewWord)(newWord));
+      setNewWord('');
+    }
   };
 
   var allCheckHandler = function allCheckHandler() {
@@ -49226,17 +49216,20 @@ var Categories = function Categories() {
 
   var handleSubcategoryCollapse = function handleSubcategoryCollapse(categoryId, subcategoryId) {
     dispatch((0, _categoryActions.toggleSubcategoryCollapse)(categoryId, subcategoryId));
-  }; //remove ???
+  };
 
+  (0, _react.useLayoutEffect)(function () {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
 
-  var _useState3 = (0, _react.useState)(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      category = _useState4[0],
-      setCategory = _useState4[1];
-
-  (0, _react.useEffect)(function () {
+    console.log('dispatch this guy');
     dispatch((0, _categoryActions.toggleAllCheckbox)(checkAll));
-  }, [checkAll]);
+  }, [checkAll]); // useEffect(() => {
+  //   dispatch(toggleAllCheckbox(checkAll))
+  // }, [checkAll])
+
   return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "list-title"
   }, "Categories"), /*#__PURE__*/_react.default.createElement("div", {
@@ -49251,10 +49244,10 @@ var Categories = function Categories() {
     md: 8
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
     type: "text",
-    placeholder: "new Category",
-    value: category,
+    placeholder: "new word",
+    value: newWord,
     onChange: function onChange(e) {
-      return setCategory(e.target.value);
+      return setNewWord(e.target.value);
     },
     onKeyPress: handleKeyEnter
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
@@ -49720,7 +49713,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.wordListReducer = void 0;
 
+var _reactUuid = _interopRequireDefault(require("react-uuid"));
+
 var _wordListConstants = require("../constants/wordListConstants");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -49747,6 +49744,12 @@ var wordListReducer = function wordListReducer() {
       payload = action.payload;
 
   switch (type) {
+    case _wordListConstants.ADD_NEW_WORD:
+      return [].concat(_toConsumableArray(state), [{
+        word: payload,
+        id: (0, _reactUuid.default)()
+      }]);
+
     case _wordListConstants.ADD_WORD_BY_CHECKBOX:
       return [].concat(_toConsumableArray(state), [_objectSpread({}, payload)]);
 
@@ -49774,7 +49777,124 @@ var wordListReducer = function wordListReducer() {
 };
 
 exports.wordListReducer = wordListReducer;
-},{"../constants/wordListConstants":"../src/constants/wordListConstants.js"}],"../src/store.js":[function(require,module,exports) {
+},{"react-uuid":"../node_modules/react-uuid/uuid.js","../constants/wordListConstants":"../src/constants/wordListConstants.js"}],"../src/constants/settingsConstants.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RESET_POINTS = exports.CHANGE_TEAM_NAME = exports.ADD_TEAMS = exports.REMOVE_TEAMS = exports.CHANGE_NUMBER_OF_SECONDS = void 0;
+var CHANGE_NUMBER_OF_SECONDS = 'CHANGE_NUMBER_OF_SECONDS';
+exports.CHANGE_NUMBER_OF_SECONDS = CHANGE_NUMBER_OF_SECONDS;
+var REMOVE_TEAMS = 'REMOVE_TEAMS';
+exports.REMOVE_TEAMS = REMOVE_TEAMS;
+var ADD_TEAMS = 'ADD_TEAMS';
+exports.ADD_TEAMS = ADD_TEAMS;
+var CHANGE_TEAM_NAME = 'CHANGE_TEAM_NAME';
+exports.CHANGE_TEAM_NAME = CHANGE_TEAM_NAME;
+var RESET_POINTS = 'RESET_POINTS';
+exports.RESET_POINTS = RESET_POINTS;
+},{}],"../src/reducers/SettingsReducer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.settingsReducer = void 0;
+
+var _reactUuid = _interopRequireDefault(require("react-uuid"));
+
+var _settingsConstants = require("../constants/settingsConstants");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var settingsReducer = function settingsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    timer: 30,
+    teams: [{
+      name: 'team 1',
+      id: (0, _reactUuid.default)(),
+      current: true,
+      points: 0
+    }, {
+      name: 'team 2',
+      id: (0, _reactUuid.default)(),
+      current: false,
+      points: 0
+    }, {
+      name: 'team 3',
+      id: (0, _reactUuid.default)(),
+      current: false,
+      points: 0
+    }]
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
+
+  switch (type) {
+    case _settingsConstants.CHANGE_NUMBER_OF_SECONDS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        timer: parseInt(payload)
+      });
+
+    case _settingsConstants.REMOVE_TEAMS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        teams: _toConsumableArray(state.teams).slice(0, payload * -1)
+      });
+
+    case _settingsConstants.ADD_TEAMS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        teams: [].concat(_toConsumableArray(state.teams), _toConsumableArray(payload))
+      });
+
+    case _settingsConstants.CHANGE_TEAM_NAME:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        teams: _toConsumableArray(state.teams).map(function (team) {
+          if (team.id === payload.id) {
+            return _objectSpread(_objectSpread({}, team), {}, {
+              name: payload.name
+            });
+          }
+
+          return _objectSpread({}, team);
+        })
+      });
+
+    case _settingsConstants.RESET_POINTS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        teams: _toConsumableArray(state.teams).map(function (team) {
+          return _objectSpread(_objectSpread({}, team), {}, {
+            points: 0
+          });
+        })
+      });
+
+    default:
+      return state;
+  }
+};
+
+exports.settingsReducer = settingsReducer;
+},{"react-uuid":"../node_modules/react-uuid/uuid.js","../constants/settingsConstants":"../src/constants/settingsConstants.js"}],"../src/store.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49794,6 +49914,8 @@ var _categoryListReducer = require("./reducers/categoryListReducer");
 
 var _wordListReducer = require("./reducers/wordListReducer");
 
+var _SettingsReducer = require("./reducers/SettingsReducer");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var reducer = (0, _redux.combineReducers)({
@@ -49805,15 +49927,20 @@ var reducer = (0, _redux.combineReducers)({
   userDelete: _userReducers.userDeleteReducer,
   userUpdate: _userReducers.userUpdateReducer,
   categoryList: _categoryListReducer.categoryListReducer,
-  wordList: _wordListReducer.wordListReducer
+  wordList: _wordListReducer.wordListReducer,
+  settings: _SettingsReducer.settingsReducer
 });
 var userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
+var categoryListFromStorage = localStorage.getItem('categoryList') ? JSON.parse(localStorage.getItem('categoryList')) : undefined;
 var wordListFromStorage = localStorage.getItem('wordList') ? JSON.parse(localStorage.getItem('wordList')) : [];
+var settingsFromStorage = localStorage.getItem('settings') ? JSON.parse(localStorage.getItem('settings')) : undefined;
 var initialState = {
   userLogin: {
     userInfo: userInfoFromStorage
   },
-  wordList: wordListFromStorage
+  categoryList: categoryListFromStorage,
+  wordList: wordListFromStorage,
+  settings: settingsFromStorage
 };
 var middleware = [_reduxThunk.default];
 var composeEnhancers = (0, _reduxDevtoolsExtension.composeWithDevTools)({
@@ -49823,7 +49950,7 @@ var composeEnhancers = (0, _reduxDevtoolsExtension.composeWithDevTools)({
 var store = (0, _redux.createStore)(reducer, initialState, composeEnhancers(_redux.applyMiddleware.apply(void 0, middleware)));
 var _default = store;
 exports.default = _default;
-},{"redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./reducers/userReducers":"../src/reducers/userReducers.js","./reducers/categoryListReducer":"../src/reducers/categoryListReducer.js","./reducers/wordListReducer":"../src/reducers/wordListReducer.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./reducers/userReducers":"../src/reducers/userReducers.js","./reducers/categoryListReducer":"../src/reducers/categoryListReducer.js","./reducers/wordListReducer":"../src/reducers/wordListReducer.js","./reducers/SettingsReducer":"../src/reducers/SettingsReducer.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -55459,8 +55586,7 @@ var WordList = function WordList() {
   }, "WordList"), /*#__PURE__*/_react.default.createElement("div", {
     className: "p-5 categories-container bg-info"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.ListGroup, {
-    className: "p-5 bg-secondary",
-    variant: "flush"
+    className: "bg-secondary p-4 m-4 word-list"
   }, wordList.length > 0 && wordList.map(function (_ref) {
     var word = _ref.word,
         id = _ref.id;
@@ -55505,46 +55631,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import { resetTime } from '../actions/timerActions'
 // import { loadLetters } from '../actions/alphabetActions'
 var PlayGameButtons = function PlayGameButtons() {
-  // const dispatch = useDispatch()
-  // const handleReset = () => {
-  //   setNumberOfRounds(10)
-  //   setNumberOfTeams(2)
-  //   dispatch(resetTeams())
-  //   dispatch(resetCategories())
-  //   dispatch(loadLetters(10))
-  //   dispatch(resetTime())
-  // }
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
     className: ""
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-    xl: 6,
+    lg: 4,
+    xl: 12,
     className: "py-2 d-flex"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterBootstrap.LinkContainer, {
-    to: "/play?random=false",
+    to: "/play",
     className: "d-flex justify-content-center align-items-center"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "flex-grow-1 bg-success"
   }, "Play"))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-    xl: 6,
-    className: "py-2 d-flex"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterBootstrap.LinkContainer, {
-    to: "/play?random=true",
-    className: "d-flex justify-content-center align-items-center"
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
-    className: "flex-grow-1 btn-success"
-  }, "Play Random")))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-    xl: 6,
-    className: "py-2 d-flex"
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
-    className: "flex-grow-1 btn-danger"
-  }, "Reset")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-    xl: 6,
+    lg: 4,
+    xl: 12,
     className: "py-2 d-flex"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "flex-grow-1 btn-info"
-  }, "how to play"))));
+  }, "how to play")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    lg: 4,
+    xl: 12,
+    className: "py-2 d-flex"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "flex-grow-1 btn-danger"
+  }, "Reset"))));
 }; // PlayGameButtons.propTypes = {
-//   setNumberOfRounds: PropTypes.func.isRequired,
 //   setNumberOfTeams: PropTypes.func.isRequired,
 //   handleShowModal: PropTypes.func.isRequired,
 //   categories: PropTypes.array.isRequired,
@@ -55553,7 +55664,328 @@ var PlayGameButtons = function PlayGameButtons() {
 
 var _default = PlayGameButtons;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-bootstrap":"../node_modules/react-router-bootstrap/lib/index.js","react-redux":"../node_modules/react-redux/es/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../src/components/Settings.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-bootstrap":"../node_modules/react-router-bootstrap/lib/index.js","react-redux":"../node_modules/react-redux/es/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../src/actions/settingsActions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.resetPoints = exports.changeTeamName = exports.changeNumberOfTeams = exports.changeNumberOfSeconds = void 0;
+
+var _reactUuid = _interopRequireDefault(require("react-uuid"));
+
+var _settingsConstants = require("../constants/settingsConstants");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var changeNumberOfSeconds = function changeNumberOfSeconds(seconds) {
+  return function (dispatch, getState) {
+    dispatch({
+      type: _settingsConstants.CHANGE_NUMBER_OF_SECONDS,
+      payload: seconds
+    });
+    localStorage.setItem('settings', JSON.stringify(getState().settings));
+  };
+};
+
+exports.changeNumberOfSeconds = changeNumberOfSeconds;
+
+var changeNumberOfTeams = function changeNumberOfTeams(numberOfTeams) {
+  return function (dispatch, getState) {
+    var teams = getState().settings.teams;
+
+    if (numberOfTeams < teams.length) {
+      dispatch({
+        type: _settingsConstants.REMOVE_TEAMS,
+        payload: teams.length - numberOfTeams
+      });
+    } else if (numberOfTeams > teams.length) {
+      var newTeams = [];
+
+      for (var i = 0; i < numberOfTeams - teams.length; i++) {
+        newTeams.push({
+          name: "team ".concat(parseInt(i + numberOfTeams)),
+          id: (0, _reactUuid.default)(),
+          current: false,
+          points: 0
+        });
+      }
+
+      dispatch({
+        type: _settingsConstants.ADD_TEAMS,
+        payload: newTeams
+      });
+    }
+
+    localStorage.setItem('settings', JSON.stringify(getState().settings));
+  };
+};
+
+exports.changeNumberOfTeams = changeNumberOfTeams;
+
+var changeTeamName = function changeTeamName(name, id) {
+  return function (dispatch, getState) {
+    dispatch({
+      type: _settingsConstants.CHANGE_TEAM_NAME,
+      payload: {
+        name: name,
+        id: id
+      }
+    });
+    localStorage.setItem('settings', JSON.stringify(getState().settings));
+  };
+};
+
+exports.changeTeamName = changeTeamName;
+
+var resetPoints = function resetPoints() {
+  return function (dispatch, getState) {
+    dispatch({
+      type: _settingsConstants.RESET_POINTS
+    });
+    localStorage.setItem('settings', JSON.stringify(getState().settings));
+  };
+};
+
+exports.resetPoints = resetPoints;
+},{"react-uuid":"../node_modules/react-uuid/uuid.js","../constants/settingsConstants":"../src/constants/settingsConstants.js"}],"../src/components/TeamName.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactRedux = require("react-redux");
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _settingsActions = require("../actions/settingsActions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var TeamName = function TeamName(_ref) {
+  var teamName = _ref.teamName,
+      index = _ref.index,
+      id = _ref.id;
+  var dispatch = (0, _reactRedux.useDispatch)();
+
+  var _useState = (0, _react.useState)(teamName),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var handleBlurEvent = function handleBlurEvent(e) {
+    console.log('handle team name blur event');
+    dispatch((0, _settingsActions.changeTeamName)(name, id));
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    lg: 6,
+    xl: 12,
+    className: "p-md-2 p-xl-3 pb-0 pb-md-0"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Row,
+    className: "d-flex align-items-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 4,
+    className: "pl-1"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, {
+    className: "settings-label"
+  }, "Team ", index + 1)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 8
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
+    className: "team-name",
+    value: name,
+    onChange: function onChange(e) {
+      return setName(e.target.value);
+    },
+    onBlur: function onBlur(e) {
+      return handleBlurEvent(e);
+    }
+  }))));
+};
+
+TeamName.propTypes = {
+  teamName: _propTypes.default.string.isRequired,
+  id: _propTypes.default.string.isRequired
+};
+var _default = TeamName;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-redux":"../node_modules/react-redux/es/index.js","prop-types":"../node_modules/prop-types/index.js","../actions/settingsActions":"../src/actions/settingsActions.js"}],"../src/components/SettingsForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRedux = require("react-redux");
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _TeamName = _interopRequireDefault(require("./TeamName"));
+
+var _settingsActions = require("../actions/settingsActions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var SettingsForm = function SettingsForm() {
+  var dispatch = (0, _reactRedux.useDispatch)();
+
+  var _useSelector = (0, _reactRedux.useSelector)(function (state) {
+    return state.settings;
+  }),
+      timer = _useSelector.timer,
+      teams = _useSelector.teams; // const timer = useSelector((state) => state.timer)
+  // const [minutes, setMinutes] = useState(Math.floor(timer.timeLeft / 60))
+
+
+  var _useState = (0, _react.useState)(timer),
+      _useState2 = _slicedToArray(_useState, 2),
+      seconds = _useState2[0],
+      setSeconds = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(teams.length),
+      _useState4 = _slicedToArray(_useState3, 2),
+      numberOfTeams = _useState4[0],
+      setNumberOfTeams = _useState4[1];
+
+  var handleTimerBlurEvent = function handleTimerBlurEvent() {
+    console.log('handle timer blur event');
+
+    if (seconds === '' || seconds === 0) {
+      setSeconds(timer);
+    }
+  };
+
+  var handleTeamChangeEvent = function handleTeamChangeEvent(e) {
+    setNumberOfTeams(e.target.value > 15 ? 15 : e.target.value);
+  };
+
+  var handleTeamBlurEvent = function handleTeamBlurEvent() {
+    console.log('handleTeamBlurEvent');
+
+    if (numberOfTeams == '' || numberOfTeams == 0) {
+      setNumberOfTeams(teams.length);
+    }
+  };
+
+  (0, _react.useEffect)(function () {
+    if (seconds !== '' && seconds > 0) {
+      dispatch((0, _settingsActions.changeNumberOfSeconds)(seconds));
+    }
+  }, [seconds]);
+  (0, _react.useEffect)(function () {
+    if (numberOfTeams !== '' && numberOfTeams > 0) {
+      dispatch((0, _settingsActions.changeNumberOfTeams)(numberOfTeams));
+    } else {
+      dispatch((0, _settingsActions.changeNumberOfTeams)(teams.length));
+    }
+  }, [numberOfTeams]);
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    lg: 6,
+    xl: 12,
+    className: "p-md-2 p-xl-3 pb-0 pb-md-0"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Row,
+    className: "d-flex align-items-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 4,
+    className: "pl-1"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, {
+    className: "settings-label"
+  }, "Seconds / Round")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 8
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
+    className: "p-2",
+    value: seconds,
+    type: "number",
+    min: 0,
+    onChange: function onChange(e) {
+      return setSeconds(e.target.value);
+    },
+    onBlur: handleTimerBlurEvent,
+    step: 5
+  })))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    lg: 6,
+    xl: 12,
+    className: "p-md-2 p-xl-3 pb-0 pb-md-0"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Row,
+    className: "d-flex align-items-center"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 4,
+    className: "pl-1"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, {
+    className: "settings-label"
+  }, "Teams")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+    md: 8
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
+    className: "p-1",
+    min: 1,
+    max: 15,
+    type: "number",
+    value: numberOfTeams,
+    onChange: function onChange(e) {
+      return handleTeamChangeEvent(e);
+    },
+    onBlur: function onBlur(e) {
+      return handleTeamBlurEvent(e);
+    }
+  })))), teams.length && teams.map(function (_ref, index) {
+    var name = _ref.name,
+        id = _ref.id;
+    return /*#__PURE__*/_react.default.createElement(_TeamName.default, {
+      key: id,
+      index: index,
+      teamName: name,
+      id: id
+    });
+  }))));
+};
+
+var _default = SettingsForm;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","./TeamName":"../src/components/TeamName.js","../actions/settingsActions":"../src/actions/settingsActions.js"}],"../src/components/Settings.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55565,6 +55997,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _PlayGameButtons = _interopRequireDefault(require("./PlayGameButtons"));
 
+var _SettingsForm = _interopRequireDefault(require("./SettingsForm"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -55575,12 +56009,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var Settings = function Settings() {
   return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "list-title"
-  }, "Settings"), /*#__PURE__*/_react.default.createElement(_PlayGameButtons.default, null));
+  }, "Settings"), /*#__PURE__*/_react.default.createElement(_PlayGameButtons.default, null), /*#__PURE__*/_react.default.createElement(_SettingsForm.default, null));
 };
 
 var _default = Settings;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./PlayGameButtons":"../src/components/PlayGameButtons.js"}],"../src/screens/HomeScreen.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./PlayGameButtons":"../src/components/PlayGameButtons.js","./SettingsForm":"../src/components/SettingsForm.js"}],"../src/screens/HomeScreen.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56140,7 +56574,108 @@ var ProfileScreen = function ProfileScreen(_ref) {
 
 var _default = ProfileScreen;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-redux":"../node_modules/react-redux/es/index.js","../components/Message":"../src/components/Message.js","../components/Loader":"../src/components/Loader.js","../actions/userActions":"../src/actions/userActions.js","../constants/userConstants":"../src/constants/userConstants.js"}],"../src/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-redux":"../node_modules/react-redux/es/index.js","../components/Message":"../src/components/Message.js","../components/Loader":"../src/components/Loader.js","../actions/userActions":"../src/actions/userActions.js","../constants/userConstants":"../src/constants/userConstants.js"}],"../src/components/Teams.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRedux = require("react-redux");
+
+var _reactBootstrap = require("react-bootstrap");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Teams = function Teams() {
+  var _useSelector = (0, _reactRedux.useSelector)(function (state) {
+    return state.settings;
+  }),
+      teams = _useSelector.teams;
+
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
+    fluid: true,
+    className: "d-flex justify-content-center"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "teams-container"
+  }, teams && teams.map(function (team) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: team.id,
+      className: "game-team-name"
+    }, team.name, " ", /*#__PURE__*/_react.default.createElement("span", {
+      className: "team-points"
+    }, team.points));
+  })));
+};
+
+var _default = Teams;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js"}],"../src/components/TeamButtons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TeamButtons = function TeamButtons() {
+  return /*#__PURE__*/_react.default.createElement("div", null, "team buttons");
+};
+
+var _default = TeamButtons;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/screens/PlayGameScreen.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactRedux = require("react-redux");
+
+var _Teams = _interopRequireDefault(require("../components/Teams"));
+
+var _TeamButtons = _interopRequireDefault(require("../components/TeamButtons"));
+
+var _settingsActions = require("../actions/settingsActions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var PlayGameScreen = function PlayGameScreen() {
+  var dispatch = (0, _reactRedux.useDispatch)();
+
+  var _useSelector = (0, _reactRedux.useSelector)(function (state) {
+    return state.settings;
+  }),
+      teams = _useSelector.teams;
+
+  (0, _react.useEffect)(function () {
+    dispatch((0, _settingsActions.resetPoints)());
+  }, []);
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
+    fluid: true
+  }, /*#__PURE__*/_react.default.createElement(_Teams.default, null));
+};
+
+var _default = PlayGameScreen;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-redux":"../node_modules/react-redux/es/index.js","../components/Teams":"../src/components/Teams.js","../components/TeamButtons":"../src/components/TeamButtons.js","../actions/settingsActions":"../src/actions/settingsActions.js"}],"../src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56166,6 +56701,8 @@ var _RegisterScreen = _interopRequireDefault(require("./screens/RegisterScreen")
 
 var _ProfileScreen = _interopRequireDefault(require("./screens/ProfileScreen"));
 
+var _PlayGameScreen = _interopRequireDefault(require("./screens/PlayGameScreen"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
@@ -56183,17 +56720,8 @@ var App = function App() {
     path: "/profile",
     component: _ProfileScreen.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/search/:keyword",
-    component: _HomeScreen.default,
-    exact: true
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/page/:pageNumber",
-    component: _HomeScreen.default,
-    exact: true
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/search/:keyword/page/:pageNumber",
-    component: _HomeScreen.default,
-    exact: true
+    path: "/play",
+    component: _PlayGameScreen.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/",
     component: _HomeScreen.default,
@@ -56203,7 +56731,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","./components/Header":"../src/components/Header.js","./components/Footer":"../src/components/Footer.js","./screens/HomeScreen":"../src/screens/HomeScreen.js","./screens/LoginScreen":"../src/screens/LoginScreen.js","./screens/RegisterScreen":"../src/screens/RegisterScreen.js","./screens/ProfileScreen":"../src/screens/ProfileScreen.js"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","./components/Header":"../src/components/Header.js","./components/Footer":"../src/components/Footer.js","./screens/HomeScreen":"../src/screens/HomeScreen.js","./screens/LoginScreen":"../src/screens/LoginScreen.js","./screens/RegisterScreen":"../src/screens/RegisterScreen.js","./screens/ProfileScreen":"../src/screens/ProfileScreen.js","./screens/PlayGameScreen":"../src/screens/PlayGameScreen.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -56272,7 +56800,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49549" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10864" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -26,12 +26,14 @@ export const toggleSubcategoryCollapse = (categoryId, subcategoryId) => (
 }
 
 export const toggleWordCheckbox = ({ categoryId, subcategoryId, itemId }) => (
-  dispatch
+  dispatch,
+  getState
 ) => {
   dispatch({
     type: TOGGLE_WORD_CHECKBOX,
     payload: { categoryId, subcategoryId, itemId },
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
 
 export const toggleSubcategoryCheckbox = (
@@ -70,6 +72,7 @@ export const toggleSubcategoryCheckbox = (
       })
     }
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
 
 export const toggleCategoryCheckbox = (categoryId, checked) => (
@@ -124,6 +127,7 @@ export const toggleCategoryCheckbox = (categoryId, checked) => (
       }
     }
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
 
 export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
@@ -173,11 +177,13 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
       }
     }
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
 
-export const uncheckWord = (id) => (dispatch) => {
+export const uncheckWord = (id) => (dispatch, getState) => {
   dispatch({
     type: UNCHECK_WORD,
     payload: id,
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }

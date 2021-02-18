@@ -1,4 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import uuid from 'react-uuid'
 import { useDispatch, useSelector } from 'react-redux'
 import { ListGroup, Form, Col, Button } from 'react-bootstrap'
@@ -11,18 +17,32 @@ import {
   toggleAllCheckbox,
 } from '../actions/categoryActions'
 
-import { addWordByCheckbox, removeWord } from '../actions/wordListActions'
+import {
+  addWordByCheckbox,
+  removeWord,
+  addNewWord,
+} from '../actions/wordListActions'
 
 const Categories = () => {
   const dispatch = useDispatch()
   const categoryList = useSelector((state) => state.categoryList)
   const [checkAll, setCheckAll] = useState(false)
+  const [newWord, setNewWord] = useState('')
+
+  const firstUpdate = useRef(true)
 
   const handleAddButtonClick = () => {
-    console.log('add button')
+    if (newWord !== '') {
+      dispatch(addNewWord(newWord))
+      setNewWord('')
+    }
   }
-  const handleKeyEnter = () => {
-    console.log('handle key enter')
+  const handleKeyEnter = (e) => {
+    if (e.key === 'Enter' && newWord !== '') {
+      e.preventDefault()
+      dispatch(addNewWord(newWord))
+      setNewWord('')
+    }
   }
 
   const allCheckHandler = () => {
@@ -59,12 +79,19 @@ const Categories = () => {
   const handleSubcategoryCollapse = (categoryId, subcategoryId) => {
     dispatch(toggleSubcategoryCollapse(categoryId, subcategoryId))
   }
-  //remove ???
-  const [category, setCategory] = useState('')
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false
+      return
+    }
+    console.log('dispatch this guy')
     dispatch(toggleAllCheckbox(checkAll))
   }, [checkAll])
+
+  // useEffect(() => {
+  //   dispatch(toggleAllCheckbox(checkAll))
+  // }, [checkAll])
 
   return (
     <Fragment>
@@ -76,9 +103,9 @@ const Categories = () => {
             <Col md={8}>
               <Form.Control
                 type='text'
-                placeholder='new Category'
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                placeholder='new word'
+                value={newWord}
+                onChange={(e) => setNewWord(e.target.value)}
                 onKeyPress={handleKeyEnter}
               />
             </Col>
