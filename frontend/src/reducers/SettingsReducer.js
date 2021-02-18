@@ -7,6 +7,8 @@ import {
   RESET_POINTS,
 } from '../constants/settingsConstants'
 
+import { SET_CURRENT_TEAM } from '../constants/gameConstants'
+
 export const settingsReducer = (
   state = {
     timer: 30,
@@ -71,6 +73,7 @@ export const settingsReducer = (
           points: 0,
         })),
       }
+    
     default:
       return state
   }

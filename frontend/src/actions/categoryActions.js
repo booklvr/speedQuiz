@@ -73,6 +73,7 @@ export const toggleSubcategoryCheckbox = (
     }
   })
   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
 export const toggleCategoryCheckbox = (categoryId, checked) => (
@@ -128,6 +129,7 @@ export const toggleCategoryCheckbox = (categoryId, checked) => (
     }
   })
   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
 export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
@@ -178,6 +180,7 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
     }
   })
   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
 export const uncheckWord = (id) => (dispatch, getState) => {

@@ -29,4 +29,14 @@
       width: 90px;
     }
   }
+
+  .game-team-name.current {
+    background-color: lighten(#1f9bcf, 25%);
+    border: 5px solid #1f9bcf;
+    border-bottom: 0;
+    .team-points {
+      background-color: white;
+      z-index: 1;
+    }
+  }
 }

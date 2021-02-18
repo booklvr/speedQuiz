@@ -10310,6 +10310,15 @@ html::-webkit-scrollbar {
   font-size: 50px;
   width: 90px;
 }
+.teams-container .game-team-name.current {
+  background-color: #81cdec;
+  border: 5px solid #1f9bcf;
+  border-bottom: 0;
+}
+.teams-container .game-team-name.current .team-points {
+  background-color: white;
+  z-index: 1;
+}
 
 .nav-item.active {
   border: 10px solid #1f9bcf;
