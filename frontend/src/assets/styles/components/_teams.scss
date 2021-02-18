@@ -1,0 +1,32 @@
+.teams-container {
+  width: 100%;
+  border-bottom: 3px solid #1f9bcf;
+  display: flex;
+  .game-team-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+    // background-color: #1f9bcf;
+    height: 60px;
+    width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 20px 0;
+    padding-left: 10px;
+    border: 3px solid #1f9bcf;
+    border-bottom: 0;
+    z-index: 1;
+
+    .team-points {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: lighten(#1f9bcf, 25%);
+      color: black;
+      font-size: 50px;
+      width: 90px;
+    }
+  }
+}

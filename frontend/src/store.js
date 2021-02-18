@@ -15,6 +15,7 @@ import {
 import { categoryListReducer } from './reducers/categoryListReducer'
 
 import { wordListReducer } from './reducers/wordListReducer'
+import { settingsReducer } from './reducers/SettingsReducer'
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -26,19 +27,30 @@ const reducer = combineReducers({
   userUpdate: userUpdateReducer,
   categoryList: categoryListReducer,
   wordList: wordListReducer,
+  settings: settingsReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
+const categoryListFromStorage = localStorage.getItem('categoryList')
+  ? JSON.parse(localStorage.getItem('categoryList'))
+  : undefined
+
 const wordListFromStorage = localStorage.getItem('wordList')
   ? JSON.parse(localStorage.getItem('wordList'))
   : []
 
+const settingsFromStorage = localStorage.getItem('settings')
+  ? JSON.parse(localStorage.getItem('settings'))
+  : undefined
+
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
+  categoryList: categoryListFromStorage,
   wordList: wordListFromStorage,
+  settings: settingsFromStorage,
 }
 
 const middleware = [thunk]

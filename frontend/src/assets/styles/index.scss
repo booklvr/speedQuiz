@@ -22,9 +22,11 @@
 @import 'components/message';
 @import 'components/settings';
 @import 'components/wordList';
+@import 'components/teams';
 
 // pages
 @import 'pages/homeScreen.scss';
 @import 'pages/loginScreen.scss';
 @import 'pages/profileScreen.scss';
 @import 'pages/registerScreen.scss';
+@import 'pages/playGameScreen';

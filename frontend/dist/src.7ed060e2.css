@@ -10271,4 +10271,48 @@ html::-webkit-scrollbar {
   color: black;
 }
 
+.categories-container .word-list {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.teams-container {
+  width: 100%;
+  border-bottom: 3px solid #1f9bcf;
+  display: flex;
+}
+.teams-container .game-team-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30px;
+  height: 60px;
+  width: 250px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 20px 0;
+  padding-left: 10px;
+  border: 3px solid #1f9bcf;
+  border-bottom: 0;
+  z-index: 1;
+}
+.teams-container .game-team-name .team-points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #81cdec;
+  color: black;
+  font-size: 50px;
+  width: 90px;
+}
+
+.nav-item.active {
+  border: 10px solid #1f9bcf;
+}
+
 /*# sourceMappingURL=/src.7ed060e2.css.map */

@@ -18,7 +18,7 @@ const WordList = () => {
     <Fragment>
       <h1 className='list-title'>WordList</h1>
       <div className='p-5 categories-container bg-info'>
-        <ListGroup className='p-5 bg-secondary' variant='flush'>
+        <ListGroup className='bg-secondary p-4 m-4 word-list'>
           {wordList.length > 0 &&
             wordList.map(({ word, id }) => (
               <ListGroup.Item

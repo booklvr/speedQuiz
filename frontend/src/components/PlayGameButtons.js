@@ -9,42 +9,23 @@ import PropTypes from 'prop-types'
 // import { loadLetters } from '../actions/alphabetActions'
 
 const PlayGameButtons = () => {
-  // const dispatch = useDispatch()
-
-  // const handleReset = () => {
-  //   setNumberOfRounds(10)
-  //   setNumberOfTeams(2)
-  //   dispatch(resetTeams())
-  //   dispatch(resetCategories())
-  //   dispatch(loadLetters(10))
-  //   dispatch(resetTime())
-  // }
   return (
     <Container className=''>
       <Row>
-        <Col xl={6} className='py-2 d-flex'>
+        <Col lg={4} xl={12} className='py-2 d-flex'>
           <LinkContainer
-            to={`/play?random=false`}
+            to={`/play`}
             className='d-flex justify-content-center align-items-center'
           >
             <Button className='flex-grow-1 bg-success'>Play</Button>
           </LinkContainer>
         </Col>
-        <Col xl={6} className='py-2 d-flex'>
-          <LinkContainer
-            to={`/play?random=true`}
-            className='d-flex justify-content-center align-items-center'
-          >
-            <Button className='flex-grow-1 btn-success'>Play Random</Button>
-          </LinkContainer>
-        </Col>
-      </Row>
-      <Row>
-        <Col xl={6} className='py-2 d-flex'>
-          <Button className='flex-grow-1 btn-danger'>Reset</Button>
-        </Col>
-        <Col xl={6} className='py-2 d-flex'>
+
+        <Col lg={4} xl={12} className='py-2 d-flex'>
           <Button className='flex-grow-1 btn-info'>how to play</Button>
+        </Col>
+        <Col lg={4} xl={12} className='py-2 d-flex'>
+          <Button className='flex-grow-1 btn-danger'>Reset</Button>
         </Col>
       </Row>
     </Container>
@@ -52,7 +33,6 @@ const PlayGameButtons = () => {
 }
 
 // PlayGameButtons.propTypes = {
-//   setNumberOfRounds: PropTypes.func.isRequired,
 //   setNumberOfTeams: PropTypes.func.isRequired,
 //   handleShowModal: PropTypes.func.isRequired,
 //   categories: PropTypes.array.isRequired,
