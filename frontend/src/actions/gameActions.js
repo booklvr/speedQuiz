@@ -4,7 +4,21 @@ import {
   CORRECT_WORD,
   SKIP_WORD,
   PREVIOUS_WORD,
+  SHUFFLE_AND_ADD_TO_WORD_LIST,
+  ADD_POINT_TO_CURRENT_TEAM,
+  CLOSE_START_MODAL,
+  START_THE_ROUND,
+  START_THE_ROUND_OUTSIDE_MODAL,
 } from '../constants/gameConstants'
+
+const shuffleArray = (array) => {
+  const shuffledArray = [...array]
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
+  }
+  return shuffledArray
+}
 
 export const nextTeam = () => (dispatch, getState) => {
   const { teams, teamIndex } = getState().game
@@ -27,20 +41,6 @@ export const previousTeam = () => (dispatch, getState) => {
 export const loadGame = () => (dispatch, getState) => {
   const { teams, timer } = getState().settings
   const wordList = getState().wordList
-  console.log('teams', teams)
-  console.log('timer', timer)
-  console.log('wordList', wordList)
-
-  const shuffleArray = (array) => {
-    let newArray = [...array]
-    for (var i = newArray.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1))
-      var temp = newArray[i]
-      newArray[i] = newArray[j]
-      newArray[j] = temp
-    }
-    return newArray
-  }
 
   dispatch({
     type: LOAD_GAME,
@@ -58,20 +58,60 @@ export const loadGame = () => (dispatch, getState) => {
   })
 }
 
-export const correctWord = () => (dispatch) => {
-  dispatch({
-    type: CORRECT_WORD,
-  })
+export const correctWord = () => (dispatch, getState) => {
+  const { wordList, wordIndex } = getState().game
+
+  // if you reach the end of the word list shuffle and rest index to 0
+  if (wordIndex === wordList.length - 1) {
+    dispatch({
+      type: SHUFFLE_AND_ADD_TO_WORD_LIST,
+      payload: shuffleArray(wordList),
+    })
+    dispatch({
+      type: ADD_POINT_TO_CURRENT_TEAM,
+    })
+  } else {
+    dispatch({
+      type: CORRECT_WORD,
+    })
+  }
 }
 
-export const skipWord = () => (dispatch) => {
-  dispatch({
-    type: SKIP_WORD
-  })
+export const skipWord = () => (dispatch, getState) => {
+  const { wordIndex, wordList } = getState().game
+  if (wordIndex === wordList.length - 1) {
+    dispatch({
+      type: SHUFFLE_AND_ADD_TO_WORD_LIST,
+      payload: shuffleArray(wordList),
+    })
+  } else {
+    dispatch({
+      type: SKIP_WORD,
+    })
+  }
 }
 
 export const previousWord = () => (dispatch) => {
   dispatch({
-    type: PREVIOUS_WORD
+    type: PREVIOUS_WORD,
+  })
+}
+
+export const startTheRound = () => (dispatch) => {
+  dispatch({
+    type: START_THE_ROUND,
+  })
+}
+
+export const closeStartModal = () => (dispatch) => {
+  console.log('fucking close the modal')
+  dispatch({
+    type: CLOSE_START_MODAL,
+  })
+}
+
+export const startTheRoundOutsideModal = () => (dispatch) => {
+  dispatch({
+    type: START_THE_ROUND_OUTSIDE_MODAL,
   })
 }

@@ -10320,8 +10320,61 @@ html::-webkit-scrollbar {
   z-index: 1;
 }
 
+.points-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.points-container .points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  font-size: 120px;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: start;
+}
+.timer-container .timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  font-size: 120px;
+}
+
+.game-controls-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-word-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.current-word-container .btn {
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+}
+
 .nav-item.active {
   border: 10px solid #1f9bcf;
+}
+
+.play-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 200px);
 }
 
 /*# sourceMappingURL=/src.7ed060e2.css.map */
