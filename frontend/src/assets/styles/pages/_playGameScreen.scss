@@ -2,3 +2,10 @@
   // background-color: #1f9bcf !important;
   border: 10px solid #1f9bcf;
 }
+
+.play-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 200px);
+}

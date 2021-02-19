@@ -1,0 +1,1983 @@
+{
+  "id": "../src/reducers/gameReducer.js",
+  "dependencies": [
+    {
+      "name": "C:\\Users\\COM\\Documents\\code\\projects\\speedQuiz\\frontend\\package.json",
+      "includedInParent": true,
+      "mtime": 1613691211529
+    },
+    {
+      "name": "../constants/gameConstants",
+      "loc": { "line": 11, "column": 7 },
+      "parent": "C:\\Users\\COM\\Documents\\code\\projects\\speedQuiz\\frontend\\src\\reducers\\gameReducer.js",
+      "resolved": "C:\\Users\\COM\\Documents\\code\\projects\\speedQuiz\\frontend\\src\\constants\\gameConstants.js"
+    }
+  ],
+  "generated": {
+    "js": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.gameReducer = void 0;\n\nvar _gameConstants = require(\"../constants/gameConstants\");\n\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }\n\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _iterableToArray(iter) { if (typeof Symbol !== \"undefined\" && Symbol.iterator in Object(iter)) return Array.from(iter); }\n\nfunction _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nvar gameReducer = function gameReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {\n    teams: [],\n    teamIndex: 0,\n    timer: {\n      time: 30,\n      start: false\n    },\n    wordList: [],\n    wordIndex: 0,\n    points: 0\n  };\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n  var type = action.type,\n      payload = action.payload;\n\n  switch (type) {\n    case _gameConstants.LOAD_GAME:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        teams: _toConsumableArray(payload.teams),\n        wordList: _toConsumableArray(payload.wordList),\n        showStartModal: true,\n        timer: _objectSpread(_objectSpread({}, state.timer), {}, {\n          time: payload.timer.time,\n          start: false\n        })\n      });\n\n    case _gameConstants.SET_CURRENT_TEAM:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        teamIndex: payload,\n        showStartModal: true\n      });\n\n    case _gameConstants.CORRECT_WORD:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        teams: _toConsumableArray(state.teams).map(function (team, index) {\n          if (state.teamIndex === index) {\n            return _objectSpread(_objectSpread({}, team), {}, {\n              points: team.points + 1\n            });\n          } else {\n            return _objectSpread({}, team);\n          }\n        }),\n        wordIndex: state.wordIndex + 1,\n        points: state.points + 1\n      });\n\n    case _gameConstants.SKIP_WORD:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        wordIndex: state.wordIndex + 1\n      });\n\n    case _gameConstants.PREVIOUS_WORD:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        wordIndex: state.wordIndex - 1\n      });\n\n    case _gameConstants.SHUFFLE_AND_ADD_TO_WORD_LIST:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        wordList: [].concat(_toConsumableArray(state.wordList), _toConsumableArray(payload))\n      });\n\n    case _gameConstants.ADD_POINT_TO_CURRENT_TEAM:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        points: state.points + 1,\n        teams: _toConsumableArray(state.teams).map(function (team, index) {\n          if (state.teamIndex === index) {\n            return _objectSpread(_objectSpread({}, team), {}, {\n              points: team.points + 1\n            });\n          } else {\n            return _objectSpread({}, team);\n          }\n        })\n      });\n\n    case _gameConstants.CLOSE_START_MODAL:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        showStartModal: false\n      });\n\n    case _gameConstants.START_THE_ROUND:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        points: 0,\n        showStartModal: false,\n        timer: _objectSpread(_objectSpread({}, state.timer), {}, {\n          start: true\n        })\n      });\n\n    default:\n      return state;\n  }\n};\n\nexports.gameReducer = gameReducer;"
+  },
+  "sourceMaps": {
+    "js": {
+      "mappings": [
+        {
+          "generated": { "line": 8, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 1, "column": 0 }
+        },
+        {
+          "generated": { "line": 28, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 7 }
+        },
+        {
+          "name": "gameReducer",
+          "generated": { "line": 28, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 13 }
+        },
+        {
+          "generated": { "line": 28, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 24 }
+        },
+        {
+          "generated": { "line": 28, "column": 18 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 27 }
+        },
+        {
+          "name": "gameReducer",
+          "generated": { "line": 28, "column": 27 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 13 }
+        },
+        {
+          "generated": { "line": 28, "column": 38 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 27 }
+        },
+        {
+          "generated": { "line": 28, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 29, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 29, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "generated": { "line": 29, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 29, "column": 82 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 30, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 15, "column": 4 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 30, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 15, "column": 4 }
+        },
+        {
+          "generated": { "line": 30, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 15, "column": 9 }
+        },
+        {
+          "generated": { "line": 30, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 15, "column": 11 }
+        },
+        {
+          "generated": { "line": 30, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 31, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 16, "column": 4 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 31, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 16, "column": 4 }
+        },
+        {
+          "generated": { "line": 31, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 16, "column": 13 }
+        },
+        {
+          "generated": { "line": 31, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 16, "column": 15 }
+        },
+        {
+          "generated": { "line": 31, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 32, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 4 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 32, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 4 }
+        },
+        {
+          "generated": { "line": 32, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 9 }
+        },
+        {
+          "generated": { "line": 32, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 11 }
+        },
+        {
+          "name": "time",
+          "generated": { "line": 33, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 18, "column": 6 }
+        },
+        {
+          "name": "time",
+          "generated": { "line": 33, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 18, "column": 6 }
+        },
+        {
+          "generated": { "line": 33, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 18, "column": 10 }
+        },
+        {
+          "generated": { "line": 33, "column": 12 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 18, "column": 12 }
+        },
+        {
+          "generated": { "line": 33, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 11 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 34, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 34, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "generated": { "line": 34, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 19, "column": 11 }
+        },
+        {
+          "generated": { "line": 34, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 19, "column": 13 }
+        },
+        {
+          "generated": { "line": 35, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 17, "column": 11 }
+        },
+        {
+          "generated": { "line": 35, "column": 5 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 36, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 21, "column": 4 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 36, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 21, "column": 4 }
+        },
+        {
+          "generated": { "line": 36, "column": 12 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 21, "column": 12 }
+        },
+        {
+          "generated": { "line": 36, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 21, "column": 14 }
+        },
+        {
+          "generated": { "line": 36, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 37, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 22, "column": 4 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 37, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 22, "column": 4 }
+        },
+        {
+          "generated": { "line": 37, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 22, "column": 13 }
+        },
+        {
+          "generated": { "line": 37, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 22, "column": 15 }
+        },
+        {
+          "generated": { "line": 37, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 38, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 23, "column": 4 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 38, "column": 4 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 23, "column": 4 }
+        },
+        {
+          "generated": { "line": 38, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 23, "column": 10 }
+        },
+        {
+          "generated": { "line": 38, "column": 12 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 23, "column": 12 }
+        },
+        {
+          "generated": { "line": 39, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 14, "column": 10 }
+        },
+        {
+          "generated": { "line": 39, "column": 3 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 40, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "action",
+          "generated": { "line": 40, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 25, "column": 2 }
+        },
+        {
+          "generated": { "line": 40, "column": 12 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 41, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "type",
+          "generated": { "line": 41, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 10 }
+        },
+        {
+          "generated": { "line": 41, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "action",
+          "generated": { "line": 41, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 28 }
+        },
+        {
+          "generated": { "line": 41, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "type",
+          "generated": { "line": 41, "column": 20 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 10 }
+        },
+        {
+          "generated": { "line": 41, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 42, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 42, "column": 6 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 16 }
+        },
+        {
+          "generated": { "line": 42, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "action",
+          "generated": { "line": 42, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 28 }
+        },
+        {
+          "generated": { "line": 42, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 42, "column": 23 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 27, "column": 16 }
+        },
+        {
+          "generated": { "line": 42, "column": 30 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 26, "column": 5 }
+        },
+        {
+          "generated": { "line": 44, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 28, "column": 2 }
+        },
+        {
+          "name": "type",
+          "generated": { "line": 44, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 28, "column": 10 }
+        },
+        {
+          "generated": { "line": 44, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 28, "column": 2 }
+        },
+        {
+          "generated": { "line": 45, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 29, "column": 4 }
+        },
+        {
+          "name": "LOAD_GAME",
+          "generated": { "line": 45, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 29, "column": 9 }
+        },
+        {
+          "generated": { "line": 45, "column": 33 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 29, "column": 4 }
+        },
+        {
+          "generated": { "line": 46, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 46, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 31, "column": 11 }
+        },
+        {
+          "generated": { "line": 46, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 47, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 8 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 47, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 8 }
+        },
+        {
+          "generated": { "line": 47, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 13 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 47, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 19 }
+        },
+        {
+          "generated": { "line": 47, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 26 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 47, "column": 42 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 27 }
+        },
+        {
+          "generated": { "line": 47, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 32, "column": 13 }
+        },
+        {
+          "generated": { "line": 47, "column": 48 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 48, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 8 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 48, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 8 }
+        },
+        {
+          "generated": { "line": 48, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 16 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 48, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 22 }
+        },
+        {
+          "generated": { "line": 48, "column": 44 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 29 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 48, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 30 }
+        },
+        {
+          "generated": { "line": 48, "column": 53 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 33, "column": 16 }
+        },
+        {
+          "generated": { "line": 48, "column": 54 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 49, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 34, "column": 8 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 49, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 34, "column": 8 }
+        },
+        {
+          "generated": { "line": 49, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 34, "column": 22 }
+        },
+        {
+          "generated": { "line": 49, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 34, "column": 24 }
+        },
+        {
+          "generated": { "line": 49, "column": 28 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 50, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 8 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 50, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 8 }
+        },
+        {
+          "generated": { "line": 50, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 13 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 50, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 36, "column": 13 }
+        },
+        {
+          "generated": { "line": 50, "column": 52 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 36, "column": 18 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 50, "column": 53 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 36, "column": 19 }
+        },
+        {
+          "generated": { "line": 50, "column": 58 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 13 }
+        },
+        {
+          "name": "time",
+          "generated": { "line": 51, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 10 }
+        },
+        {
+          "name": "time",
+          "generated": { "line": 51, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 10 }
+        },
+        {
+          "generated": { "line": 51, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 14 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 51, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 16 }
+        },
+        {
+          "generated": { "line": 51, "column": 23 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 23 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 51, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "generated": { "line": 51, "column": 29 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 16 }
+        },
+        {
+          "name": "time",
+          "generated": { "line": 51, "column": 30 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 37, "column": 30 }
+        },
+        {
+          "generated": { "line": 51, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 13 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 52, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 38, "column": 10 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 52, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 38, "column": 10 }
+        },
+        {
+          "generated": { "line": 52, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 38, "column": 15 }
+        },
+        {
+          "generated": { "line": 52, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 38, "column": 17 }
+        },
+        {
+          "generated": { "line": 53, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 35, "column": 13 }
+        },
+        {
+          "generated": { "line": 54, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 30, "column": 6 }
+        },
+        {
+          "generated": { "line": 56, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 41, "column": 4 }
+        },
+        {
+          "name": "SET_CURRENT_TEAM",
+          "generated": { "line": 56, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 41, "column": 9 }
+        },
+        {
+          "generated": { "line": 56, "column": 40 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 41, "column": 4 }
+        },
+        {
+          "generated": { "line": 57, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 42, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 57, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 43, "column": 11 }
+        },
+        {
+          "generated": { "line": 57, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 42, "column": 6 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 58, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 44, "column": 8 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 58, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 44, "column": 8 }
+        },
+        {
+          "generated": { "line": 58, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 44, "column": 17 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 58, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 44, "column": 19 }
+        },
+        {
+          "generated": { "line": 58, "column": 26 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 42, "column": 6 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 59, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 45, "column": 8 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 59, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 45, "column": 8 }
+        },
+        {
+          "generated": { "line": 59, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 45, "column": 22 }
+        },
+        {
+          "generated": { "line": 59, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 45, "column": 24 }
+        },
+        {
+          "generated": { "line": 60, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 42, "column": 6 }
+        },
+        {
+          "generated": { "line": 62, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 47, "column": 4 }
+        },
+        {
+          "name": "CORRECT_WORD",
+          "generated": { "line": 62, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 47, "column": 9 }
+        },
+        {
+          "generated": { "line": 62, "column": 36 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 47, "column": 4 }
+        },
+        {
+          "generated": { "line": 63, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 48, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 63, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 49, "column": 11 }
+        },
+        {
+          "generated": { "line": 63, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 48, "column": 6 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 64, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 8 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 64, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 8 }
+        },
+        {
+          "generated": { "line": 64, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 13 }
+        },
+        {
+          "generated": { "line": 64, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 15 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 64, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 19 }
+        },
+        {
+          "generated": { "line": 64, "column": 39 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 24 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 64, "column": 40 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 25 }
+        },
+        {
+          "generated": { "line": 64, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 15 }
+        },
+        {
+          "name": "map",
+          "generated": { "line": 64, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 32 }
+        },
+        {
+          "generated": { "line": 64, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 15 }
+        },
+        {
+          "generated": { "line": 64, "column": 51 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 36 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 64, "column": 61 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 37 }
+        },
+        {
+          "generated": { "line": 64, "column": 65 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 36 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 64, "column": 67 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 43 }
+        },
+        {
+          "generated": { "line": 64, "column": 72 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 36 }
+        },
+        {
+          "generated": { "line": 64, "column": 74 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 53 }
+        },
+        {
+          "generated": { "line": 65, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 10 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 65, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 14 }
+        },
+        {
+          "generated": { "line": 65, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 19 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 65, "column": 20 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 20 }
+        },
+        {
+          "generated": { "line": 65, "column": 29 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 14 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 65, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 34 }
+        },
+        {
+          "generated": { "line": 65, "column": 39 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 10 }
+        },
+        {
+          "generated": { "line": 65, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 41 }
+        },
+        {
+          "generated": { "line": 66, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 52, "column": 12 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 66, "column": 51 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 53, "column": 17 }
+        },
+        {
+          "generated": { "line": 66, "column": 55 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 52, "column": 12 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 67, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 14 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 67, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 14 }
+        },
+        {
+          "generated": { "line": 67, "column": 20 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 20 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 67, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 22 }
+        },
+        {
+          "generated": { "line": 67, "column": 26 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 26 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 67, "column": 27 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 27 }
+        },
+        {
+          "generated": { "line": 67, "column": 33 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 22 }
+        },
+        {
+          "generated": { "line": 67, "column": 36 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 54, "column": 36 }
+        },
+        {
+          "generated": { "line": 68, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 52, "column": 12 }
+        },
+        {
+          "generated": { "line": 69, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 56, "column": 11 }
+        },
+        {
+          "generated": { "line": 69, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 51, "column": 10 }
+        },
+        {
+          "generated": { "line": 69, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 56, "column": 17 }
+        },
+        {
+          "generated": { "line": 70, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 57, "column": 12 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 70, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 58, "column": 17 }
+        },
+        {
+          "generated": { "line": 70, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 57, "column": 12 }
+        },
+        {
+          "generated": { "line": 71, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 60, "column": 11 }
+        },
+        {
+          "generated": { "line": 72, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 61, "column": 9 }
+        },
+        {
+          "generated": { "line": 72, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 50, "column": 15 }
+        },
+        {
+          "generated": { "line": 72, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 48, "column": 6 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 73, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 8 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 73, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 8 }
+        },
+        {
+          "generated": { "line": 73, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 17 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 73, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 19 }
+        },
+        {
+          "generated": { "line": 73, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 24 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 73, "column": 25 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 25 }
+        },
+        {
+          "generated": { "line": 73, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 19 }
+        },
+        {
+          "generated": { "line": 73, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 62, "column": 37 }
+        },
+        {
+          "generated": { "line": 73, "column": 38 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 48, "column": 6 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 74, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 8 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 74, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 8 }
+        },
+        {
+          "generated": { "line": 74, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 14 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 74, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 16 }
+        },
+        {
+          "generated": { "line": 74, "column": 21 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 21 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 74, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 22 }
+        },
+        {
+          "generated": { "line": 74, "column": 28 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 16 }
+        },
+        {
+          "generated": { "line": 74, "column": 31 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 63, "column": 31 }
+        },
+        {
+          "generated": { "line": 75, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 48, "column": 6 }
+        },
+        {
+          "generated": { "line": 77, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 65, "column": 4 }
+        },
+        {
+          "name": "SKIP_WORD",
+          "generated": { "line": 77, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 65, "column": 9 }
+        },
+        {
+          "generated": { "line": 77, "column": 33 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 65, "column": 4 }
+        },
+        {
+          "generated": { "line": 78, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 66, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 78, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 67, "column": 11 }
+        },
+        {
+          "generated": { "line": 78, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 66, "column": 6 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 79, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 8 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 79, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 8 }
+        },
+        {
+          "generated": { "line": 79, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 17 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 79, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 19 }
+        },
+        {
+          "generated": { "line": 79, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 24 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 79, "column": 25 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 25 }
+        },
+        {
+          "generated": { "line": 79, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 19 }
+        },
+        {
+          "generated": { "line": 79, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 68, "column": 37 }
+        },
+        {
+          "generated": { "line": 80, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 66, "column": 6 }
+        },
+        {
+          "generated": { "line": 82, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 70, "column": 4 }
+        },
+        {
+          "name": "PREVIOUS_WORD",
+          "generated": { "line": 82, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 70, "column": 9 }
+        },
+        {
+          "generated": { "line": 82, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 70, "column": 4 }
+        },
+        {
+          "generated": { "line": 83, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 71, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 83, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 72, "column": 11 }
+        },
+        {
+          "generated": { "line": 83, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 71, "column": 6 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 84, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 8 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 84, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 8 }
+        },
+        {
+          "generated": { "line": 84, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 17 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 84, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 19 }
+        },
+        {
+          "generated": { "line": 84, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 24 }
+        },
+        {
+          "name": "wordIndex",
+          "generated": { "line": 84, "column": 25 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 25 }
+        },
+        {
+          "generated": { "line": 84, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 19 }
+        },
+        {
+          "generated": { "line": 84, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 73, "column": 37 }
+        },
+        {
+          "generated": { "line": 85, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 71, "column": 6 }
+        },
+        {
+          "generated": { "line": 87, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 75, "column": 4 }
+        },
+        {
+          "name": "SHUFFLE_AND_ADD_TO_WORD_LIST",
+          "generated": { "line": 87, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 75, "column": 9 }
+        },
+        {
+          "generated": { "line": 87, "column": 53 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 75, "column": 4 }
+        },
+        {
+          "generated": { "line": 88, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 76, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 88, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 77, "column": 11 }
+        },
+        {
+          "generated": { "line": 88, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 76, "column": 6 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 89, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 8 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 89, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 8 }
+        },
+        {
+          "generated": { "line": 89, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 16 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 89, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 22 }
+        },
+        {
+          "generated": { "line": 89, "column": 52 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 27 }
+        },
+        {
+          "name": "wordList",
+          "generated": { "line": 89, "column": 53 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 28 }
+        },
+        {
+          "generated": { "line": 89, "column": 61 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 16 }
+        },
+        {
+          "name": "payload",
+          "generated": { "line": 89, "column": 83 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 41 }
+        },
+        {
+          "generated": { "line": 89, "column": 90 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 78, "column": 16 }
+        },
+        {
+          "generated": { "line": 90, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 76, "column": 6 }
+        },
+        {
+          "generated": { "line": 92, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 80, "column": 4 }
+        },
+        {
+          "name": "ADD_POINT_TO_CURRENT_TEAM",
+          "generated": { "line": 92, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 80, "column": 9 }
+        },
+        {
+          "generated": { "line": 92, "column": 49 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 80, "column": 4 }
+        },
+        {
+          "generated": { "line": 93, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 81, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 93, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 82, "column": 11 }
+        },
+        {
+          "generated": { "line": 93, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 81, "column": 6 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 94, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 8 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 94, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 8 }
+        },
+        {
+          "generated": { "line": 94, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 14 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 94, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 16 }
+        },
+        {
+          "generated": { "line": 94, "column": 21 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 21 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 94, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 22 }
+        },
+        {
+          "generated": { "line": 94, "column": 28 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 16 }
+        },
+        {
+          "generated": { "line": 94, "column": 31 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 83, "column": 31 }
+        },
+        {
+          "generated": { "line": 94, "column": 32 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 81, "column": 6 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 95, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 8 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 95, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 8 }
+        },
+        {
+          "generated": { "line": 95, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 13 }
+        },
+        {
+          "generated": { "line": 95, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 15 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 95, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 19 }
+        },
+        {
+          "generated": { "line": 95, "column": 39 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 24 }
+        },
+        {
+          "name": "teams",
+          "generated": { "line": 95, "column": 40 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 25 }
+        },
+        {
+          "generated": { "line": 95, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 15 }
+        },
+        {
+          "name": "map",
+          "generated": { "line": 95, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 32 }
+        },
+        {
+          "generated": { "line": 95, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 15 }
+        },
+        {
+          "generated": { "line": 95, "column": 51 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 36 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 95, "column": 61 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 37 }
+        },
+        {
+          "generated": { "line": 95, "column": 65 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 36 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 95, "column": 67 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 43 }
+        },
+        {
+          "generated": { "line": 95, "column": 72 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 36 }
+        },
+        {
+          "generated": { "line": 95, "column": 74 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 53 }
+        },
+        {
+          "generated": { "line": 96, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 10 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 96, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 14 }
+        },
+        {
+          "generated": { "line": 96, "column": 19 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 19 }
+        },
+        {
+          "name": "teamIndex",
+          "generated": { "line": 96, "column": 20 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 20 }
+        },
+        {
+          "generated": { "line": 96, "column": 29 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 14 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 96, "column": 34 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 34 }
+        },
+        {
+          "generated": { "line": 96, "column": 39 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 10 }
+        },
+        {
+          "generated": { "line": 96, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 41 }
+        },
+        {
+          "generated": { "line": 97, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 86, "column": 12 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 97, "column": 51 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 87, "column": 17 }
+        },
+        {
+          "generated": { "line": 97, "column": 55 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 86, "column": 12 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 98, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 14 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 98, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 14 }
+        },
+        {
+          "generated": { "line": 98, "column": 20 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 20 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 98, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 22 }
+        },
+        {
+          "generated": { "line": 98, "column": 26 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 26 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 98, "column": 27 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 27 }
+        },
+        {
+          "generated": { "line": 98, "column": 33 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 22 }
+        },
+        {
+          "generated": { "line": 98, "column": 36 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 88, "column": 36 }
+        },
+        {
+          "generated": { "line": 99, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 86, "column": 12 }
+        },
+        {
+          "generated": { "line": 100, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 90, "column": 11 }
+        },
+        {
+          "generated": { "line": 100, "column": 11 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 85, "column": 10 }
+        },
+        {
+          "generated": { "line": 100, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 90, "column": 17 }
+        },
+        {
+          "generated": { "line": 101, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 91, "column": 12 }
+        },
+        {
+          "name": "team",
+          "generated": { "line": 101, "column": 37 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 92, "column": 17 }
+        },
+        {
+          "generated": { "line": 101, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 91, "column": 12 }
+        },
+        {
+          "generated": { "line": 102, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 94, "column": 11 }
+        },
+        {
+          "generated": { "line": 103, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 95, "column": 9 }
+        },
+        {
+          "generated": { "line": 103, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 84, "column": 15 }
+        },
+        {
+          "generated": { "line": 104, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 81, "column": 6 }
+        },
+        {
+          "generated": { "line": 106, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 97, "column": 4 }
+        },
+        {
+          "name": "CLOSE_START_MODAL",
+          "generated": { "line": 106, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 97, "column": 9 }
+        },
+        {
+          "generated": { "line": 106, "column": 41 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 97, "column": 4 }
+        },
+        {
+          "generated": { "line": 107, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 98, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 107, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 99, "column": 11 }
+        },
+        {
+          "generated": { "line": 107, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 98, "column": 6 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 108, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 100, "column": 8 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 108, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 100, "column": 8 }
+        },
+        {
+          "generated": { "line": 108, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 100, "column": 22 }
+        },
+        {
+          "generated": { "line": 108, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 100, "column": 24 }
+        },
+        {
+          "generated": { "line": 109, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 98, "column": 6 }
+        },
+        {
+          "generated": { "line": 111, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 102, "column": 4 }
+        },
+        {
+          "name": "START_THE_ROUND",
+          "generated": { "line": 111, "column": 9 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 102, "column": 9 }
+        },
+        {
+          "generated": { "line": 111, "column": 39 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 102, "column": 4 }
+        },
+        {
+          "generated": { "line": 112, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 103, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 112, "column": 45 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 104, "column": 11 }
+        },
+        {
+          "generated": { "line": 112, "column": 50 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 103, "column": 6 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 113, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 105, "column": 8 }
+        },
+        {
+          "name": "points",
+          "generated": { "line": 113, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 105, "column": 8 }
+        },
+        {
+          "generated": { "line": 113, "column": 14 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 105, "column": 14 }
+        },
+        {
+          "generated": { "line": 113, "column": 16 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 105, "column": 16 }
+        },
+        {
+          "generated": { "line": 113, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 103, "column": 6 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 114, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 106, "column": 8 }
+        },
+        {
+          "name": "showStartModal",
+          "generated": { "line": 114, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 106, "column": 8 }
+        },
+        {
+          "generated": { "line": 114, "column": 22 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 106, "column": 22 }
+        },
+        {
+          "generated": { "line": 114, "column": 24 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 106, "column": 24 }
+        },
+        {
+          "generated": { "line": 114, "column": 29 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 103, "column": 6 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 115, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 107, "column": 8 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 115, "column": 8 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 107, "column": 8 }
+        },
+        {
+          "generated": { "line": 115, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 107, "column": 13 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 115, "column": 47 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 108, "column": 13 }
+        },
+        {
+          "generated": { "line": 115, "column": 52 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 108, "column": 18 }
+        },
+        {
+          "name": "timer",
+          "generated": { "line": 115, "column": 53 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 108, "column": 19 }
+        },
+        {
+          "generated": { "line": 115, "column": 58 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 107, "column": 13 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 116, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 109, "column": 10 }
+        },
+        {
+          "name": "start",
+          "generated": { "line": 116, "column": 10 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 109, "column": 10 }
+        },
+        {
+          "generated": { "line": 116, "column": 15 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 109, "column": 15 }
+        },
+        {
+          "generated": { "line": 116, "column": 17 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 109, "column": 17 }
+        },
+        {
+          "generated": { "line": 117, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 107, "column": 13 }
+        },
+        {
+          "generated": { "line": 118, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 103, "column": 6 }
+        },
+        {
+          "generated": { "line": 120, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 112, "column": 4 }
+        },
+        {
+          "generated": { "line": 121, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 113, "column": 6 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 121, "column": 13 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 113, "column": 13 }
+        },
+        {
+          "generated": { "line": 121, "column": 18 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 113, "column": 6 }
+        },
+        {
+          "generated": { "line": 122, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 28, "column": 2 }
+        },
+        {
+          "generated": { "line": 123, "column": 0 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 115, "column": 1 }
+        },
+        {
+          "generated": { "line": 123, "column": 1 },
+          "source": "../src/reducers/gameReducer.js",
+          "original": { "line": 13, "column": 7 }
+        }
+      ],
+      "sources": {
+        "../src/reducers/gameReducer.js": "import {\r\n  ADD_POINT_TO_CURRENT_TEAM,\r\n  CLOSE_START_MODAL,\r\n  CORRECT_WORD,\r\n  LOAD_GAME,\r\n  PREVIOUS_WORD,\r\n  SET_CURRENT_TEAM,\r\n  SHUFFLE_AND_ADD_TO_WORD_LIST,\r\n  SKIP_WORD,\r\n  START_THE_ROUND,\r\n} from '../constants/gameConstants'\r\n\r\nexport const gameReducer = (\r\n  state = {\r\n    teams: [],\r\n    teamIndex: 0,\r\n    timer: {\r\n      time: 30,\r\n      start: false,\r\n    },\r\n    wordList: [],\r\n    wordIndex: 0,\r\n    points: 0,\r\n  },\r\n  action\r\n) => {\r\n  const { type, payload } = action\r\n  switch (type) {\r\n    case LOAD_GAME:\r\n      return {\r\n        ...state,\r\n        teams: [...payload.teams],\r\n        wordList: [...payload.wordList],\r\n        showStartModal: true,\r\n        timer: {\r\n          ...state.timer,\r\n          time: payload.timer.time,\r\n          start: false,\r\n        },\r\n      }\r\n    case SET_CURRENT_TEAM:\r\n      return {\r\n        ...state,\r\n        teamIndex: payload,\r\n        showStartModal: true,\r\n      }\r\n    case CORRECT_WORD:\r\n      return {\r\n        ...state,\r\n        teams: [...state.teams].map((team, index) => {\r\n          if (state.teamIndex === index) {\r\n            return {\r\n              ...team,\r\n              points: team.points + 1,\r\n            }\r\n          } else {\r\n            return {\r\n              ...team,\r\n            }\r\n          }\r\n        }),\r\n        wordIndex: state.wordIndex + 1,\r\n        points: state.points + 1,\r\n      }\r\n    case SKIP_WORD:\r\n      return {\r\n        ...state,\r\n        wordIndex: state.wordIndex + 1,\r\n      }\r\n    case PREVIOUS_WORD:\r\n      return {\r\n        ...state,\r\n        wordIndex: state.wordIndex - 1,\r\n      }\r\n    case SHUFFLE_AND_ADD_TO_WORD_LIST:\r\n      return {\r\n        ...state,\r\n        wordList: [...state.wordList, ...payload],\r\n      }\r\n    case ADD_POINT_TO_CURRENT_TEAM:\r\n      return {\r\n        ...state,\r\n        points: state.points + 1,\r\n        teams: [...state.teams].map((team, index) => {\r\n          if (state.teamIndex === index) {\r\n            return {\r\n              ...team,\r\n              points: team.points + 1,\r\n            }\r\n          } else {\r\n            return {\r\n              ...team,\r\n            }\r\n          }\r\n        }),\r\n      }\r\n    case CLOSE_START_MODAL:\r\n      return {\r\n        ...state,\r\n        showStartModal: false,\r\n      }\r\n    case START_THE_ROUND:\r\n      return {\r\n        ...state,\r\n        points: 0,\r\n        showStartModal: false,\r\n        timer: {\r\n          ...state.timer,\r\n          start: true,\r\n        },\r\n      }\r\n    default:\r\n      return state\r\n  }\r\n}\r\n"
+      },
+      "lineCount": null
+    }
+  },
+  "error": null,
+  "hash": "ed79693795634ae4930a786d3963d8d9",
+  "cacheData": { "env": {} }
+}

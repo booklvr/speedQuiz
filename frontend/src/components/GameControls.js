@@ -1,14 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Container, Button } from 'react-bootstrap'
 
 import { correctWord, skipWord, previousWord } from '../actions/gameActions'
 
 const GameControls = () => {
   const dispatch = useDispatch()
+  const { wordIndex } = useSelector((state) => state.game)
 
   const handleCorrectWord = () => {
-    console.log('handlecorrect word')
     dispatch(correctWord())
   }
 
@@ -21,8 +21,12 @@ const GameControls = () => {
   }
 
   return (
-    <Container className='d-flex justify-content-around'>
-      <Button variant='dark' onClick={handlePreviousWord}>
+    <Container className='game-controls-container'>
+      <Button
+        variant='dark'
+        onClick={handlePreviousWord}
+        disabled={wordIndex === 0 ? true : false}
+      >
         Previous
       </Button>
       <Button variant='danger' onClick={handleSkipWord}>

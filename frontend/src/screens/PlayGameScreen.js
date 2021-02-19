@@ -1,11 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Teams from '../components/Teams'
 import TeamButtons from '../components/TeamButtons'
 import CurrentWord from '../components/CurrentWord'
 import GameControls from '../components/GameControls'
 import Timer from '../components/Timer'
+import Points from '../components/Points'
+import Modals from '../components/Modals'
 
 // import { resetPoints } from '../actions/settingsActions'
 
@@ -13,9 +15,6 @@ import { loadGame } from '../actions/gameActions'
 
 const PlayGameScreen = () => {
   const dispatch = useDispatch()
-  
-
-  
 
   useEffect(() => {
     // dispatch(resetPoints())
@@ -26,21 +25,23 @@ const PlayGameScreen = () => {
   }, [])
 
   return (
-    <Container fluid>
+    <Container fluid className='play-game-container'>
+      <Modals />
       <Teams />
       <TeamButtons />
 
       <CurrentWord />
 
-      <Row>
-        <Col md={2}>
+      <Row d-flex className='justify-content-between'>
+        <Col>
           <Timer />
         </Col>
-
-        <Col md={{ span: 4, offset: 2 }}>
+        <Col>
           <GameControls />
         </Col>
-        <Col md={{ span: 2, offset: 2 }}>points</Col>
+        <Col>
+          <Points />
+        </Col>
       </Row>
     </Container>
   )

@@ -1,0 +1,13 @@
+.points-container {
+  display: flex;
+  justify-content: flex-end;
+  .points {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border: 1px solid #000;
+    font-size: 120px;
+  }
+}

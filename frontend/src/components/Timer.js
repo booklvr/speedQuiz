@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Container, Row, Col } from 'react-bootstrap'
 
 const Timer = () => {
   const {
@@ -26,8 +27,28 @@ const Timer = () => {
     return () => clearInterval(intervalId)
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
-  }, [timeLeft, time])
-  return <div></div>
+  }, [timeLeft, time, start])
+  return (
+    <Container className='timer-container'>
+      <div className='timer'>{timeLeft}</div>
+    </Container>
+  )
 }
-
 export default Timer
+
+{
+  /* <Row className='timer'>
+        <Col className='d-flex justify-content-center' md={3}>
+          {Math.floor(timeLeft / 60)}
+        </Col>
+        <Col className='d-flex justify-content-center' md={1}>
+          :
+        </Col>
+        <Col className='d-flex justify-content-center' md={3}>
+          {(() => {
+            const time = timeLeft % 60
+            return time.toLocaleString(undefined, { minimumIntegerDigits: 2 })
+          })()}
+        </Col>
+      </Row> */
+}
