@@ -1,0 +1,66 @@
+.modal {
+  div {
+    .modal-content {
+      height: 600px;
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .modal-title {
+          font-size: 50px !important;
+        }
+        button {
+          font-size: 40px;
+          padding: 20px;
+        }
+      }
+
+      .modal-body {
+        .center-content {
+          font-size: 50px;
+          height: 350px;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          justify-content: space-around;
+
+          h2 {
+            font-size: 60px;
+          }
+
+          .input-group {
+            width: 275px;
+            display: flex;
+            flex-direction: row;
+
+            .form-control {
+              max-width: 130px;
+              font-size: 40px;
+            }
+            .input-group-text {
+              font-size: 40px;
+            }
+          }
+
+          .next-team-button-group {
+            font-size: 40px;
+            button {
+              font-size: 40px;
+              padding: 20px;
+            }
+          }
+        }
+
+        .modal-word-lists {
+          max-height: 300px;
+          font-size: 20px;
+          overflow: scroll;
+          background-color: yellow;
+        }
+      }
+    }
+  }
+}

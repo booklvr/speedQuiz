@@ -1,6 +1,8 @@
 .timer-container {
   display: flex;
+  flex-direction: column;
   justify-content: start;
+  align-items: start;
   .timer {
     display: flex;
     align-items: center;
@@ -9,5 +11,10 @@
     height: 250px;
     border: 1px solid #000;
     font-size: 120px;
+  }
+
+  h3 {
+    width: 250px;
+    text-align: center;
   }
 }
