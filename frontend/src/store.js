@@ -48,11 +48,16 @@ const settingsFromStorage = localStorage.getItem('settings')
   ? JSON.parse(localStorage.getItem('settings'))
   : undefined
 
+const gameFromStorage = localStorage.getItem('game')
+  ? JSON.parse(localStorage.getItem('settings'))
+  : undefined
+
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
   categoryList: categoryListFromStorage,
   wordList: wordListFromStorage,
   settings: settingsFromStorage,
+  game: gameFromStorage,
 }
 
 const middleware = [thunk]

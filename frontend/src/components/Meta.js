@@ -12,9 +12,9 @@ const Meta = ({ title, description, keywords }) => {
 }
 
 Meta.defaultProps = {
-  title: 'React BoilerPlate',
-  description: 'react redux express mongodb react-bootstrap',
-  keywords: 'electronics, buy electronics, cheap electronics',
+  title: 'Speed Quiz',
+  description: 'a fun classroom or group activity where you must act or or describe a word to gain points',
+  keywords: 'charades, speed quiz, english, esl',
 }
 
 export default Meta

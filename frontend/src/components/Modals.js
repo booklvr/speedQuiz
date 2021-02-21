@@ -1,22 +1,36 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import {
+  Modal,
+  Button,
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  InputGroup,
+  FormControl,
+} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   closeStartModal,
   nextTeam,
   previousTeam,
   startTheRound,
+  changeTeamPoints,
 } from '../actions/gameActions'
 
 const Modals = () => {
   const dispatch = useDispatch()
-  const { showStartModal, teams, teamIndex } = useSelector(
-    (state) => state.game
-  )
+  const {
+    showModal,
+    teams,
+    teamIndex,
+    startModal,
+    points,
+    skippedWords,
+    correctWords,
+  } = useSelector((state) => state.game)
   const [startCountdown, setStartCountdown] = useState(0)
-
-  console.log('teams', teams)
-  console.log('startCountdown', startCountdown)
+  const [teamPoints, setTeamPoints] = useState(points)
 
   const handleClose = () => {
     dispatch(closeStartModal())
@@ -27,47 +41,121 @@ const Modals = () => {
   }
 
   const handleStart = () => {
-    // dispatch(startTheRound())
-    setStartCountdown()
+    dispatch(startTheRound())
   }
 
   const handleNextButton = () => {
     dispatch(nextTeam())
   }
-  // const handleShow = () => setShow(true)
+  const handleChangeTeamPoints = (e) => {
+    if (isNaN(e.target.value)) return
+    setTeamPoints(e.target.value)
+
+    dispatch(changeTeamPoints(points - teamPoints))
+  }
 
   useEffect(() => {
-    // exit early when we reach 0
-    if (!startCountdown) {
-      return
-    }
-    // // wait for start button
-    // if (!start) return
+    console.log('points', points)
+    console.log('teamPoints', teamPoints)
+    dispatch(changeTeamPoints(points - teamPoints))
+  }, [teamPoints])
 
-    // save intervalId to clear the interval when the
-    // component re-renders
-    const intervalId = setInterval(() => {
-      setStartCountdown(startCountdown - 1)
-    }, 1000)
-
-    // clear interval on re-render to avoid memory leaks
-    return () => clearInterval(intervalId)
-    // add timeLeft as a dependency to re-rerun the effect
-    // when we update it
-  }, [startCountdown])
+  useEffect(() => {
+    setTeamPoints(points)
+  }, [points])
   return (
     <Fragment>
       {teams.length && (
-        <Modal show={showStartModal} onHide={handleClose} centered>
-          <Modal.Header closeButton>
+        <Modal
+          show={showModal}
+          onHide={handleClose}
+          centered
+          backdrop='static'
+          className='modal'
+          size='lg'
+        >
+          <Modal.Header>
             <Modal.Title>{teams && teams[teamIndex].name}</Modal.Title>
+            {startModal ? (
+              <Button variant='success' onClick={handleStart}>
+                Start
+              </Button>
+            ) : (
+              <Button variant='success' onClick={handleNextButton}>
+                Next Team
+              </Button>
+            )}
           </Modal.Header>
           <Modal.Body className='text-center'>
-            Are you ready? Press{' '}
-            <Button variant='success' onClick={handleStart}>
-              start
-            </Button>{' '}
-            to begin.
+            {(startModal && (
+              <div className='center-content'>
+                <div>Are you ready?</div>
+
+                <div>
+                  Press{' '}
+                  <Button variant='success' onClick={handleStart}>
+                    start
+                  </Button>{' '}
+                  to begin.
+                </div>
+              </div>
+            )) || (
+              <Container fluid>
+                <Row>
+                  <Col md='3'>
+                    <h4>Skipped</h4>
+
+                    <ListGroup className='modal-word-lists'>
+                      {(skippedWords.length &&
+                        skippedWords.map((skippedWord) => (
+                          <ListGroup.Item key={skippedWord.id}>
+                            {skippedWord.word}
+                          </ListGroup.Item>
+                        ))) || <ListGroup.Item>0</ListGroup.Item>}
+                    </ListGroup>
+                  </Col>
+                  <Col md='6' className='center-content'>
+                    <h2>Done!</h2>
+                    <InputGroup className='mb-3'>
+                      <FormControl
+                        value={teamPoints}
+                        aria-label="Recipient's username"
+                        aria-describedby='basic-addon2'
+                        onChange={(e) => handleChangeTeamPoints(e)}
+                      />
+                      <InputGroup.Append>
+                        <InputGroup.Text id='basic-addon2'>
+                          points
+                        </InputGroup.Text>
+                      </InputGroup.Append>
+                    </InputGroup>
+                    <div className='next-team-button-group'>
+                      {
+                        teams[
+                          teamIndex + 1 < teams.length ? [teamIndex + 1] : 0
+                        ].name
+                      }{' '}
+                      is{' '}
+                      <Button variant='success' onClick={handleNextButton}>
+                        next
+                      </Button>
+                    </div>
+                  </Col>
+                  <Col md='3'>
+                    <h4>Correct</h4>
+
+                    <ListGroup className='modal-word-lists'>
+                      {(correctWords.length &&
+                        correctWords.map((correctWord) => (
+                          <ListGroup.Item key={correctWord.id}>
+                            {correctWord.word}
+                          </ListGroup.Item>
+                        ))) || <ListGroup.Item>0</ListGroup.Item>}
+                    </ListGroup>
+                  </Col>
+                </Row>
+              </Container>
+            )}
           </Modal.Body>
           <Modal.Footer className='d-flex justify-content-between'>
             <Button variant='secondary' onClick={handlePreviousButton}>

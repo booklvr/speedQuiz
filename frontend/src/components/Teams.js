@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 
 const Teams = () => {
   const { teams, teamIndex } = useSelector((state) => state.game)
+
   return (
     <Container fluid className='d-flex justify-content-center'>
       <div className='teams-container'>

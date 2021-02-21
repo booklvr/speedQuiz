@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
+import { endOfRound } from '../actions/gameActions'
 
 const Timer = () => {
+  const dispatch = useDispatch()
   const {
+    startModal,
     timer: { time, start },
   } = useSelector((state) => state.game)
   const [timeLeft, setTimeLeft] = useState(time)
-  const [timerFinished, setTimerFinished] = useState(false)
+  // const [timerFinished, setTimerFinished] = useState(false)
 
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
+      dispatch(endOfRound())
       return
     }
     // wait for start button
@@ -28,8 +32,15 @@ const Timer = () => {
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
   }, [timeLeft, time, start])
+
+  useEffect(() => {
+    if (startModal) {
+      setTimeLeft(time)
+    }
+  }, [time, startModal])
   return (
     <Container className='timer-container'>
+      <h3>Timer</h3>
       <div className='timer'>{timeLeft}</div>
     </Container>
   )
