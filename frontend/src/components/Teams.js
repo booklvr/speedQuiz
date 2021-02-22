@@ -1,28 +1,20 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
+import TeamPoints from './TeamPoints'
 
 const Teams = () => {
   const { teams, teamIndex } = useSelector((state) => state.game)
 
   return (
-    <Container fluid className='d-flex justify-content-center'>
-      <div className='teams-container'>
-        {teams &&
-          teams.map((team, index) => (
-            <div
-              key={team.id}
-              className={
-                index === teamIndex
-                  ? 'game-team-name current'
-                  : 'game-team-name'
-              }
-            >
-              {team.name} <span className='team-points'>{team.points}</span>
-            </div>
-          ))}
-      </div>
-    </Container>
+    <div className='team-points-container'>
+      {teams &&
+        teams.map((team, index) => (
+          <TeamPoints key={team.id} team={team} index={index}>
+            {team.name} <span className='team-points'>{team.points}</span>
+          </TeamPoints>
+        ))}
+    </div>
   )
 }
 

@@ -55,8 +55,6 @@ const Modals = () => {
   }
 
   useEffect(() => {
-    console.log('points', points)
-    console.log('teamPoints', teamPoints)
     dispatch(changeTeamPoints(points - teamPoints))
   }, [teamPoints])
 
@@ -72,7 +70,7 @@ const Modals = () => {
           centered
           backdrop='static'
           className='modal'
-          size='lg'
+          size='xl'
         >
           <Modal.Header>
             <Modal.Title>{teams && teams[teamIndex].name}</Modal.Title>
@@ -119,7 +117,7 @@ const Modals = () => {
                     <InputGroup className='mb-3'>
                       <FormControl
                         value={teamPoints}
-                        aria-label="Recipient's username"
+                        aria-label='points for round'
                         aria-describedby='basic-addon2'
                         onChange={(e) => handleChangeTeamPoints(e)}
                       />
@@ -160,6 +158,9 @@ const Modals = () => {
           <Modal.Footer className='d-flex justify-content-between'>
             <Button variant='secondary' onClick={handlePreviousButton}>
               previous team
+            </Button>
+            <Button variant='secondary' onClick={handleClose}>
+              exit
             </Button>
             <Button variant='secondary' onClick={handleNextButton}>
               next team

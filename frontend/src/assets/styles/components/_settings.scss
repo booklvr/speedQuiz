@@ -1,0 +1,24 @@
+.teams-settings-container {
+  padding: 20px;
+  margin: 0 auto;
+  border: 24px solid #1f9bcf;
+  height: 325px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  // hide the scroll bar
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  div {
+    margin: 0;
+  }
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+}

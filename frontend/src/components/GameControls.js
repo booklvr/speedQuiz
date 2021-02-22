@@ -8,6 +8,8 @@ const GameControls = () => {
   const dispatch = useDispatch()
   const {
     wordIndex,
+    skippedWords,
+    correctWords,
     timer: { start },
   } = useSelector((state) => state.game)
 
@@ -34,7 +36,9 @@ const GameControls = () => {
             <Button
               variant='dark'
               onClick={handleUndoWord}
-              disabled={wordIndex === 0 ? true : false}
+              disabled={
+                !skippedWords.length && !correctWords.length ? true : false
+              }
             >
               Undo
             </Button>

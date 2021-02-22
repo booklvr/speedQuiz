@@ -14,7 +14,10 @@ const TeamButtons = () => {
   }
 
   return (
-    <Container fluid className='d-flex justify-content-between mt-3'>
+    <Container
+      fluid
+      className='d-flex justify-content-between mt-3 team-buttons-container'
+    >
       <Button
         className='bg-secondary bg-success'
         onClick={handlePreviousButton}

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 // import './assets/bootstrap.min.css'
 import './assets/styles/index.scss'
+import '@babel/polyfill'
 import App from './App'
 
 const root = document.getElementById('root')
