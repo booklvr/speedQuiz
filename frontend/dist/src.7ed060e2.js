@@ -62245,6 +62245,7 @@ var Header = function Header() {
     return state.userLogin;
   });
   var userInfo = userLogin.userInfo;
+  console.log('userInfo', userInfo);
 
   var logoutHandler = function logoutHandler() {
     dispatch((0, _userActions.logout)());
@@ -64659,7 +64660,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2330" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61621" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -11,6 +11,8 @@ const Header = () => {
 
   const { userInfo } = userLogin
 
+  console.log('userInfo', userInfo)
+
   const logoutHandler = () => {
     dispatch(logout())
   }
