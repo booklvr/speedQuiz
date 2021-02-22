@@ -1,0 +1,33 @@
+.individual-team-point-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 250px;
+  border: 1px solid #343a40;
+  margin-bottom: 5px;
+  margin-right: 5px;
+
+  .team-name {
+    width: 175px;
+    padding-left: 10px;
+    font-size: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .team-points {
+    text-align: center;
+    width: 75px;
+    font-size: 30px;
+    padding: 0 5px;
+    margin: 3px;
+    background-color: #f7f7f9;
+  }
+}
+
+.individual-team-point-container.current {
+  border: 2px solid #343a40;
+  background-color: #343a40;
+  color: white;
+}

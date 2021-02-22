@@ -13,6 +13,7 @@ import {
   CHANGE_TEAM_POINTS,
   UNDO_CORRECT,
   UNDO_SKIP,
+  EDIT_TEAM_POINTS,
 } from '../constants/gameConstants'
 
 const shuffleArray = (array) => {
@@ -106,9 +107,6 @@ export const undoWord = () => (dispatch, getState) => {
     ? correctWords[correctWords.length - 1].id
     : undefined
   const previousWord = wordList[wordIndex - 1].id
-  console.log('previousSkipped', previousSkipped)
-  console.log('previousCorrect', previousCorrect)
-  console.log('previousWord', previousWord)
 
   if (previousSkipped === previousWord) {
     dispatch({
@@ -152,9 +150,18 @@ export const endOfRound = () => (dispatch) => {
 }
 
 export const changeTeamPoints = (difference) => (dispatch) => {
-  console.log('difference')
   dispatch({
     type: CHANGE_TEAM_POINTS,
     payload: difference,
+  })
+}
+
+export const editTeamPoints = (points, id) => (dispatch) => {
+  dispatch({
+    type: EDIT_TEAM_POINTS,
+    payload: {
+      points,
+      id,
+    },
   })
 }

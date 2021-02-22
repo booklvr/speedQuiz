@@ -14,7 +14,7 @@ const TeamName = ({ teamName, index, id }) => {
   }
 
   return (
-    <Col lg={6} xl={12} className='p-md-2 p-xl-3 pb-0 pb-md-0'>
+    <Col lg={6} xl={12} className='px-md-2 px-xl-3 pb-0 pb-md-0 mb-1'>
       <Form.Group as={Row} className='d-flex align-items-center'>
         <Col md={4} className='pl-1'>
           <Form.Label className='settings-label'>Team {index + 1}</Form.Label>

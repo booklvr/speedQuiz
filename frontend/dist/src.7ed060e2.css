@@ -10271,6 +10271,30 @@ html::-webkit-scrollbar {
   color: black;
 }
 
+.teams-settings-container {
+  padding: 20px;
+  margin: 0 auto;
+  border: 24px solid #1f9bcf;
+  height: 325px;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.teams-settings-container::-webkit-scrollbar {
+  display: none;
+}
+.teams-settings-container div {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+}
+
 .categories-container .word-list {
   position: absolute;
   right: 0;
@@ -10280,44 +10304,12 @@ html::-webkit-scrollbar {
   overflow-y: scroll;
 }
 
-.teams-container {
+.team-points-container {
   width: 100%;
-  border-bottom: 3px solid #1f9bcf;
+  border-bottom: 3px solid black;
   display: flex;
-}
-.teams-container .game-team-name {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 30px;
-  height: 60px;
-  width: 250px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 0 20px 0;
-  padding-left: 10px;
-  border: 3px solid #1f9bcf;
-  border-bottom: 0;
-  z-index: 1;
-}
-.teams-container .game-team-name .team-points {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #81cdec;
-  color: black;
-  font-size: 50px;
-  width: 90px;
-}
-.teams-container .game-team-name.current {
-  background-color: #81cdec;
-  border: 5px solid #1f9bcf;
-  border-bottom: 0;
-}
-.teams-container .game-team-name.current .team-points {
-  background-color: white;
-  z-index: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .points-container {
@@ -10338,6 +10330,38 @@ html::-webkit-scrollbar {
 .points-container h3 {
   width: 250px;
   text-align: center;
+}
+
+.individual-team-point-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 250px;
+  border: 1px solid #343a40;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.individual-team-point-container .team-name {
+  width: 175px;
+  padding-left: 10px;
+  font-size: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.individual-team-point-container .team-points {
+  text-align: center;
+  width: 75px;
+  font-size: 30px;
+  padding: 0 5px;
+  margin: 3px;
+  background-color: #f7f7f9;
+}
+
+.individual-team-point-container.current {
+  border: 2px solid #343a40;
+  background-color: #343a40;
+  color: white;
 }
 
 .timer-container {
@@ -10379,6 +10403,9 @@ html::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 20px 10px 20px;
+  padding: 0;
+  height: 250px;
 }
 .current-word-container .btn {
   width: 200px;
@@ -10431,18 +10458,34 @@ html::-webkit-scrollbar {
 .modal div .modal-content .modal-body .center-content .input-group .input-group-text {
   font-size: 40px;
 }
-.modal div .modal-content .modal-body .center-content .next-team-button-group {
-  font-size: 40px;
-}
-.modal div .modal-content .modal-body .center-content .next-team-button-group button {
+.modal div .modal-content .modal-body .center-content button {
   font-size: 40px;
   padding: 20px;
+}
+.modal div .modal-content .modal-body .center-content .next-team-button-group {
+  font-size: 40px;
 }
 .modal div .modal-content .modal-body .modal-word-lists {
   max-height: 300px;
   font-size: 20px;
   overflow: scroll;
-  background-color: yellow;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.modal div .modal-content .modal-body .modal-word-lists::-webkit-scrollbar {
+  display: none;
+}
+
+.team-buttons-container button {
+  font-size: 25px;
+  padding: 20px;
+  min-width: 250px;
+  margin: 0;
 }
 
 .nav-item.active {
@@ -10453,7 +10496,7 @@ html::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 150px);
 }
 
 /*# sourceMappingURL=/src.7ed060e2.css.map */

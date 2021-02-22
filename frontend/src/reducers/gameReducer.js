@@ -12,6 +12,7 @@ import {
   SKIP_WORD,
   START_THE_ROUND,
   START_THE_TIMER,
+  EDIT_TEAM_POINTS,
 } from '../constants/gameConstants'
 
 export const gameReducer = (
@@ -148,6 +149,7 @@ export const gameReducer = (
         ...state,
         showModal: true,
         startModal: false,
+        startRound: false,
         timer: {
           ...state.timer,
           start: false,
@@ -171,6 +173,22 @@ export const gameReducer = (
             return {
               ...team,
               points: team.points - payload,
+            }
+          } else {
+            return {
+              ...team,
+            }
+          }
+        }),
+      }
+    case EDIT_TEAM_POINTS:
+      return {
+        ...state,
+        teams: [...state.teams].map((team, index) => {
+          if (team.id === payload.id) {
+            return {
+              ...team,
+              points: payload.points,
             }
           } else {
             return {

@@ -45,12 +45,13 @@
             }
           }
 
+          button {
+            font-size: 40px;
+            padding: 20px;
+          }
+
           .next-team-button-group {
             font-size: 40px;
-            button {
-              font-size: 40px;
-              padding: 20px;
-            }
           }
         }
 
@@ -58,7 +59,17 @@
           max-height: 300px;
           font-size: 20px;
           overflow: scroll;
-          background-color: yellow;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+          white-space: nowrap;
+
+          // hide the scroll bar
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       }
     }

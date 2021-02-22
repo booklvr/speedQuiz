@@ -78,9 +78,9 @@ const SettingsForm = () => {
               </Col>
             </Form.Group>
           </Col>
-          <Col lg={6} xl={12} className='p-md-2 p-xl-3 pb-0 pb-md-0'>
+          <Col lg={6} xl={12} className='p-md-2 pb-md-0 mb-0 pb-md-0'>
             <Form.Group as={Row} className='d-flex align-items-center'>
-              <Col md={4} className='pl-1'>
+              <Col md={4} className='pl-1 pb-0'>
                 <Form.Label className='settings-label'>Teams</Form.Label>
               </Col>
               <Col md={8}>
@@ -96,10 +96,13 @@ const SettingsForm = () => {
               </Col>
             </Form.Group>
           </Col>
-          {teams.length &&
-            teams.map(({ name, id }, index) => (
-              <TeamName key={id} index={index} teamName={name} id={id} />
-            ))}
+          <h1>Teams</h1>
+          <div className='teams-settings-container'>
+            {teams.length &&
+              teams.map(({ name, id }, index) => (
+                <TeamName key={id} index={index} teamName={name} id={id} />
+              ))}
+          </div>
         </Row>
       </Form>
     </Container>

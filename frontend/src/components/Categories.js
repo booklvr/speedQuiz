@@ -138,7 +138,11 @@ const Categories = () => {
                         className='border-bottom'
                         type='checkbox'
                         checked={category.checked}
-                        label={category.category}
+                        label={`${
+                          category.category
+                        } (${category.subcategories
+                          .map((subcategory) => subcategory.list.length)
+                          .reduce((total, acc) => total + acc)})`}
                         id={category.id}
                         value={category.category}
                         onChange={() =>
@@ -169,7 +173,7 @@ const Categories = () => {
                               <Form.Check
                                 type='checkbox'
                                 checked={subcategory.checked}
-                                label={subcategory.subcategory}
+                                label={`${subcategory.subcategory} (${subcategory.list.length})`}
                                 id={subcategory.id}
                                 value={subcategory.subcategory}
                                 onChange={() =>
@@ -234,7 +238,7 @@ const Categories = () => {
                         className='border-bottom'
                         type='checkbox'
                         checked={category.checked}
-                        label={category.category}
+                        label={`${category.category} (${category.list.length})`}
                         id={category.id}
                         value={category.category}
                         onChange={() =>

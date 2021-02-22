@@ -6,6 +6,7 @@ import { endOfRound } from '../actions/gameActions'
 const Timer = () => {
   const dispatch = useDispatch()
   const {
+    startRound,
     startModal,
     timer: { time, start },
   } = useSelector((state) => state.game)
@@ -38,6 +39,10 @@ const Timer = () => {
       setTimeLeft(time)
     }
   }, [time, startModal])
+
+  useEffect(() => {
+    if (startRound) setTimeLeft(time)
+  }, [startRound])
   return (
     <Container className='timer-container'>
       <h3>Timer</h3>
