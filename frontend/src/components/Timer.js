@@ -32,7 +32,7 @@ const Timer = () => {
     return () => clearInterval(intervalId)
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
-  }, [timeLeft, time, start])
+  }, [timeLeft, time, start, dispatch])
 
   useEffect(() => {
     if (startModal) {
@@ -42,7 +42,7 @@ const Timer = () => {
 
   useEffect(() => {
     if (startRound) setTimeLeft(time)
-  }, [startRound])
+  }, [startRound, time])
   return (
     <Container className='timer-container'>
       <h3>Timer</h3>
@@ -51,20 +51,3 @@ const Timer = () => {
   )
 }
 export default Timer
-
-{
-  /* <Row className='timer'>
-        <Col className='d-flex justify-content-center' md={3}>
-          {Math.floor(timeLeft / 60)}
-        </Col>
-        <Col className='d-flex justify-content-center' md={1}>
-          :
-        </Col>
-        <Col className='d-flex justify-content-center' md={3}>
-          {(() => {
-            const time = timeLeft % 60
-            return time.toLocaleString(undefined, { minimumIntegerDigits: 2 })
-          })()}
-        </Col>
-      </Row> */
-}

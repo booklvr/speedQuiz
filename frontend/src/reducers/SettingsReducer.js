@@ -7,7 +7,6 @@ import {
   RESET_POINTS,
 } from '../constants/settingsConstants'
 
-import { SET_CURRENT_TEAM } from '../constants/gameConstants'
 
 export const settingsReducer = (
   state = {

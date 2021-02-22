@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Button, Col, Row } from 'react-bootstrap'
 
@@ -7,7 +7,6 @@ import { correctWord, skipWord, undoWord } from '../actions/gameActions'
 const GameControls = () => {
   const dispatch = useDispatch()
   const {
-    wordIndex,
     skippedWords,
     correctWords,
     timer: { start },

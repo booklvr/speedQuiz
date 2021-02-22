@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { Jumbotron, Button } from 'react-bootstrap'
@@ -47,7 +47,7 @@ const CurrentWord = () => {
     return () => clearInterval(intervalId)
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
-  }, [startRound, startTimer])
+  }, [startRound, startTimer, dispatch])
 
   return (
     <Jumbotron fluid className='current-word-container'>

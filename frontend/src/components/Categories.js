@@ -1,13 +1,7 @@
-import React, {
-  Fragment,
-  useState,
-  useEffect,
-  useRef,
-  useLayoutEffect,
-} from 'react'
+import React, { Fragment, useState, useRef, useLayoutEffect } from 'react'
 import uuid from 'react-uuid'
 import { useDispatch, useSelector } from 'react-redux'
-import { ListGroup, Form, Col, Button } from 'react-bootstrap'
+import { Form, Col, Button } from 'react-bootstrap'
 import {
   toggleCategoryCollapse,
   toggleSubcategoryCollapse,
@@ -86,7 +80,7 @@ const Categories = () => {
       return
     }
     dispatch(toggleAllCheckbox(checkAll))
-  }, [checkAll])
+  }, [checkAll, dispatch])
 
   // useEffect(() => {
   //   dispatch(toggleAllCheckbox(checkAll))

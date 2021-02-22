@@ -1,4 +1,4 @@
-export default [
+const categoryList = [
   {
     category: 'animals',
     subcategories: [
@@ -243,3 +243,5 @@ export default [
     ],
   },
 ]
+
+export default categoryList
