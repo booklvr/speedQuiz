@@ -1,10 +1,9 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row, Col } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import TeamPoints from './TeamPoints'
 
 const Teams = () => {
-  const { teams, teamIndex } = useSelector((state) => state.game)
+  const { teams } = useSelector((state) => state.game)
 
   return (
     <div className='team-points-container'>

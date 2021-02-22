@@ -20,7 +20,7 @@ const TeamPoints = ({ team: { id, points, name }, index }) => {
       return
     }
     dispatch(editTeamPoints(+teamPoints, id))
-  }, [teamPoints])
+  }, [teamPoints, dispatch, id])
 
   useEffect(() => {
     setTeamPoints(points)
@@ -45,13 +45,3 @@ const TeamPoints = ({ team: { id, points, name }, index }) => {
 }
 
 export default TeamPoints
-
-{
-  /* <div
-className={
-  index === teamIndex ? 'game-team-name current' : 'game-team-name'
-}
->
-{name} <span className='team-points'>{points}</span>
-</div> */
-}

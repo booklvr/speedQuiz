@@ -1,12 +1,6 @@
 import React from 'react'
 import { Col, Row, Button, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useDispatch } from 'react-redux'
-import PropTypes from 'prop-types'
-// import { resetTeams } from '../actions/teamActions'
-// import { resetCategories } from '../actions/categoryActions'
-// import { resetTime } from '../actions/timerActions'
-// import { loadLetters } from '../actions/alphabetActions'
 
 const PlayGameButtons = () => {
   return (

@@ -35,7 +35,7 @@ const SettingsForm = () => {
   }
 
   const handleTeamBlurEvent = () => {
-    if (numberOfTeams == '' || numberOfTeams == 0) {
+    if (numberOfTeams === '' || numberOfTeams === 0) {
       setNumberOfTeams(teams.length)
     }
   }
@@ -44,7 +44,7 @@ const SettingsForm = () => {
     if (seconds !== '' && seconds > 0) {
       dispatch(changeNumberOfSeconds(seconds))
     }
-  }, [seconds])
+  }, [seconds, dispatch])
 
   useEffect(() => {
     if (numberOfTeams !== '' && numberOfTeams > 0) {
@@ -52,7 +52,7 @@ const SettingsForm = () => {
     } else {
       dispatch(changeNumberOfTeams(teams.length))
     }
-  }, [numberOfTeams])
+  }, [numberOfTeams, dispatch, teams.length])
 
   return (
     <Container>

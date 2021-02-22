@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react'
-import { Button, Container, Row, Col } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import Categories from '../components/Categories'
 import WordList from '../components/WordList'
 import Settings from '../components/Settings'

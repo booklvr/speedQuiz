@@ -1,5 +1,4 @@
 import uuid from 'react-uuid'
-import Categories from '../components/Categories'
 import {
   TOGGLE_ALL_CHECKBOX,
   TOGGLE_CATEGORY_CHECKBOX,
@@ -10,7 +9,6 @@ import {
   UNCHECK_WORD,
 } from '../constants/categoryConstants'
 
-import { ADD_WORD_BY_CHECKBOX } from '../constants/wordListConstants'
 import categoryList from '../data/categoryList'
 
 const categoryWordList = categoryList.map((category) => {

@@ -29,8 +29,8 @@ const Modals = () => {
     skippedWords,
     correctWords,
   } = useSelector((state) => state.game)
-  const [startCountdown, setStartCountdown] = useState(0)
   const [teamPoints, setTeamPoints] = useState(points)
+  const [difference, setDifference] = useState(0)
 
   const handleClose = () => {
     dispatch(closeStartModal())
@@ -50,13 +50,14 @@ const Modals = () => {
   const handleChangeTeamPoints = (e) => {
     if (isNaN(e.target.value)) return
     setTeamPoints(e.target.value)
+    setDifference(points - teamPoints)
 
     dispatch(changeTeamPoints(points - teamPoints))
   }
 
   useEffect(() => {
-    dispatch(changeTeamPoints(points - teamPoints))
-  }, [teamPoints])
+    dispatch(changeTeamPoints(difference))
+  }, [dispatch, difference])
 
   useEffect(() => {
     setTeamPoints(points)

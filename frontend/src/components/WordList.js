@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Container, ListGroup } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
 import { removeWord } from '../actions/wordListActions'
 import { uncheckWord } from '../actions/categoryActions'
 

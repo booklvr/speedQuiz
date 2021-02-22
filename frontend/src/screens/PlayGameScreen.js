@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import { Container, Row, Col, Modal } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Teams from '../components/Teams'
 import TeamButtons from '../components/TeamButtons'
@@ -25,7 +25,7 @@ const PlayGameScreen = () => {
     //   return shuffleArray([...wordList])
     // })
     dispatch(loadGame())
-  }, [time])
+  }, [time, dispatch])
 
   return (
     <Container fluid className='play-game-container'>
