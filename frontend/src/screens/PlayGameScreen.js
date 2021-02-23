@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Teams from '../components/Teams'
 import TeamButtons from '../components/TeamButtons'
 import CurrentWord from '../components/CurrentWord'
@@ -15,17 +15,10 @@ import { loadGame } from '../actions/gameActions'
 
 const PlayGameScreen = () => {
   const dispatch = useDispatch()
-  const {
-    timer: { time },
-  } = useSelector((state) => state.game)
 
   useEffect(() => {
-    // dispatch(resetPoints())
-    // setShuffledWordList(() => {
-    //   return shuffleArray([...wordList])
-    // })
     dispatch(loadGame())
-  }, [time, dispatch])
+  }, [dispatch])
 
   return (
     <Container fluid className='play-game-container'>

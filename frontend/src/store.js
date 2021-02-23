@@ -14,7 +14,10 @@ import {
 
 import { categoryListReducer } from './reducers/categoryListReducer'
 
-import { wordListReducer } from './reducers/wordListReducer'
+import {
+  wordListReducer,
+  saveWordListReducer,
+} from './reducers/wordListReducer'
 import { settingsReducer } from './reducers/SettingsReducer'
 import { gameReducer } from './reducers/gameReducer'
 
@@ -28,6 +31,7 @@ const reducer = combineReducers({
   userUpdate: userUpdateReducer,
   categoryList: categoryListReducer,
   wordList: wordListReducer,
+  saveWordList: saveWordListReducer,
   settings: settingsReducer,
   game: gameReducer,
 })

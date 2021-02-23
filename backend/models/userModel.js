@@ -23,6 +23,7 @@ const userSchema = mongoose.Schema(
 )
 
 userSchema.methods.matchPassword = async function (enteredPassword) {
+  console.log('ran the matched password middleware')
   return await bcrypt.compare(enteredPassword, this.password)
 }
 

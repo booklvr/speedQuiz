@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FormControl } from 'react-bootstrap'
 import { editTeamPoints } from '../actions/gameActions'
@@ -6,21 +6,17 @@ import { editTeamPoints } from '../actions/gameActions'
 const TeamPoints = ({ team: { id, points, name }, index }) => {
   const dispatch = useDispatch()
   const { teamIndex } = useSelector((state) => state.game)
-  const [teamPoints, setTeamPoints] = useState('')
-  const firstUpdate = useRef(true)
+  const [teamPoints, setTeamPoints] = useState(points)
 
   const handleEditTeamPoints = (e) => {
     if (isNaN(e.target.value)) return
-    setTeamPoints(e.target.value)
-  }
 
-  useLayoutEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false
-      return
+    if (e.target.value === '') {
+      setTeamPoints(e.target.value)
+    } else {
+      dispatch(editTeamPoints(+e.target.value, id))
     }
-    dispatch(editTeamPoints(+teamPoints, id))
-  }, [teamPoints, dispatch, id])
+  }
 
   useEffect(() => {
     setTeamPoints(points)
