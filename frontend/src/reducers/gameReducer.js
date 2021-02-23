@@ -1,6 +1,5 @@
 import {
   ADD_POINT_TO_CURRENT_TEAM,
-  CHANGE_TEAM_POINTS,
   CLOSE_START_MODAL,
   CORRECT_WORD,
   END_THE_ROUND,
@@ -13,6 +12,7 @@ import {
   START_THE_ROUND,
   START_THE_TIMER,
   EDIT_TEAM_POINTS,
+  EDIT_ROUND_POINTS_MODAL,
 } from '../constants/gameConstants'
 
 export const gameReducer = (
@@ -164,15 +164,15 @@ export const gameReducer = (
           start: true,
         },
       }
-    case CHANGE_TEAM_POINTS:
+    case EDIT_ROUND_POINTS_MODAL:
       return {
         ...state,
-        points: state.points - payload,
+        points: payload,
         teams: [...state.teams].map((team, index) => {
           if (state.teamIndex === index) {
             return {
               ...team,
-              points: team.points - payload,
+              points: team.points + payload - state.points,
             }
           } else {
             return {

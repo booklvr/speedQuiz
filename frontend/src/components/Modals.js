@@ -15,7 +15,7 @@ import {
   nextTeam,
   previousTeam,
   startTheRound,
-  changeTeamPoints,
+  editRoundPointsModal,
 } from '../actions/gameActions'
 
 const Modals = () => {
@@ -30,7 +30,6 @@ const Modals = () => {
     correctWords,
   } = useSelector((state) => state.game)
   const [teamPoints, setTeamPoints] = useState(points)
-  const [difference, setDifference] = useState(0)
 
   const handleClose = () => {
     dispatch(closeStartModal())
@@ -49,15 +48,18 @@ const Modals = () => {
   }
   const handleChangeTeamPoints = (e) => {
     if (isNaN(e.target.value)) return
-    setTeamPoints(e.target.value)
-    setDifference(points - teamPoints)
 
-    dispatch(changeTeamPoints(points - teamPoints))
+    if (!e.target.value) {
+      setTeamPoints(e.target.value)
+      return
+    }
+
+    dispatch(editRoundPointsModal(+e.target.value))
   }
 
   useEffect(() => {
-    dispatch(changeTeamPoints(difference))
-  }, [dispatch, difference])
+    setTeamPoints(points)
+  }, [points])
 
   useEffect(() => {
     setTeamPoints(points)

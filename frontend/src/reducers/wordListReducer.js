@@ -5,6 +5,9 @@ import {
   ADD_WORD_BY_CHECKBOX,
   REMOVE_SUBCATEGORY_BY_CHECKBOX,
   REMOVE_WORD,
+  SAVE_WORD_LIST_FAIL,
+  SAVE_WORD_LIST_REQUEST,
+  SAVE_WORD_LIST_SUCCESS,
 } from '../constants/wordListConstants'
 
 export const wordListReducer = (state = [], action) => {
@@ -26,6 +29,20 @@ export const wordListReducer = (state = [], action) => {
       return [...state].filter((word) => !payload.includes(word.id))
     case REMOVE_WORD:
       return [...state].filter((word) => word.id !== payload)
+    default:
+      return state
+  }
+}
+
+export const saveWordListReducer = (state = {}, action) => {
+  const { type, payload } = action
+  switch (type) {
+    case SAVE_WORD_LIST_REQUEST:
+      return { loading: true }
+    case SAVE_WORD_LIST_SUCCESS:
+      return { loading: false, userInfo: payload }
+    case SAVE_WORD_LIST_FAIL:
+      return { loading: false, error: payload }
     default:
       return state
   }

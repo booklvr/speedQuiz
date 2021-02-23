@@ -10,10 +10,10 @@ import {
   START_THE_ROUND_OUTSIDE_MODAL,
   START_THE_TIMER,
   END_THE_ROUND,
-  CHANGE_TEAM_POINTS,
   UNDO_CORRECT,
   UNDO_SKIP,
   EDIT_TEAM_POINTS,
+  EDIT_ROUND_POINTS_MODAL,
 } from '../constants/gameConstants'
 
 const shuffleArray = (array) => {
@@ -149,10 +149,10 @@ export const endOfRound = () => (dispatch) => {
   })
 }
 
-export const changeTeamPoints = (difference) => (dispatch) => {
+export const editRoundPointsModal = (roundPoints) => (dispatch) => {
   dispatch({
-    type: CHANGE_TEAM_POINTS,
-    payload: difference,
+    type: EDIT_ROUND_POINTS_MODAL,
+    payload: roundPoints,
   })
 }
 
