@@ -11,8 +11,6 @@ const Header = () => {
 
   const { userInfo } = userLogin
 
-  console.log('userInfo', userInfo)
-
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -29,7 +27,7 @@ const Header = () => {
             <Nav className='ml-auto'>
               {userInfo ? (
                 <Fragment>
-                  <LinkContainer to='/saved'>
+                  <LinkContainer to='/savedWordLists'>
                     <Nav.Link href='/saved'>
                       <i className='fas fa-list'></i> Saved Lists
                     </Nav.Link>

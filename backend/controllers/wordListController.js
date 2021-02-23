@@ -4,11 +4,7 @@ import WordList from '../models/wordListModel.js'
 // @route   Post  /api/wordList
 // @access  Private
 export const saveWordList = asyncHandler(async (req, res) => {
-  console.log('lets save this mother fucking word list yeah?')
   const { wordList, name } = req.body
-
-  console.log('wordList', wordList)
-  console.log('name', name)
 
   const nameExists = await WordList.findOne({ name })
 
@@ -16,8 +12,8 @@ export const saveWordList = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('That name has already been used')
   } else {
-    console.log('made it to the else :)')
     const savedWordList = await WordList.create({
+      user: req.user._id,
       name,
       wordList,
     })
@@ -30,5 +26,31 @@ export const saveWordList = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error('Invalid user data')
     }
+  }
+})
+
+export const getAllWordLists = asyncHandler(async (req, res) => {
+  const wordLists = await WordList.find({ user: req.user._id })
+
+  if (wordLists) {
+    res.status(200).json(wordLists)
+  } else {
+    res.status(404)
+    throw new Error('Order not found')
+  }
+})
+
+export const deleteWordList = asyncHandler(async (req, res) => {
+  console.log('made it to the delete word list controller')
+  const wordList = await WordList.findById(req.params.id)
+
+  console.log('wordLists', wordList)
+
+  if (wordList) {
+    await wordList.remove()
+    res.json({ message: 'WordList removed' })
+  } else {
+    res.status(404)
+    throw new Error('Order not found')
   }
 })

@@ -3,8 +3,14 @@ import {
   ADD_NEW_WORD,
   ADD_SUBCATEGORY_BY_CHECKBOX,
   ADD_WORD_BY_CHECKBOX,
+  DELETE_WORD_LIST_FAIL,
+  DELETE_WORD_LIST_REQUEST,
+  DELETE_WORD_LIST_SUCCESS,
   REMOVE_SUBCATEGORY_BY_CHECKBOX,
   REMOVE_WORD,
+  SAVED_WORD_LISTS_FAIL,
+  SAVED_WORD_LISTS_REQUEST,
+  SAVED_WORD_LISTS_SUCCESS,
   SAVE_WORD_LIST_FAIL,
   SAVE_WORD_LIST_REQUEST,
   SAVE_WORD_LIST_SUCCESS,
@@ -47,3 +53,32 @@ export const saveWordListReducer = (state = {}, action) => {
       return state
   }
 }
+
+export const savedWordListsReducer = (state = {}, action) => {
+  const { type, payload } = action
+  switch (type) {
+    case SAVED_WORD_LISTS_REQUEST:
+      return { loading: true }
+    case SAVED_WORD_LISTS_SUCCESS:
+      return { loading: false, wordLists: payload }
+    case SAVED_WORD_LISTS_FAIL:
+      return { loading: false, error: payload }
+    default:
+      return state
+  }
+}
+
+export const deleteWordListReducer = (state = {}, action) => {
+  const { type, payload } = action
+  switch (type) {
+    case DELETE_WORD_LIST_REQUEST:
+      return { loading: true }
+    case DELETE_WORD_LIST_SUCCESS:
+      return { loading: false, success: true }
+    case DELETE_WORD_LIST_FAIL:
+      return { loading: false, error: payload }
+    default:
+      return state
+  }
+}
+

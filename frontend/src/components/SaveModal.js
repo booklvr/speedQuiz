@@ -11,8 +11,6 @@ const SaveModal = ({ showModal, setShowModal, handleClose }) => {
     if (!wordListName) return
 
     dispatch(saveWordList(wordListName))
-
-    console.log('wordListName', wordListName)
   }
 
   return (
