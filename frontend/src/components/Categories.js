@@ -57,7 +57,12 @@ const Categories = () => {
     subcategoryId = undefined
   ) => {
     dispatch(
-      toggleWordCheckbox({ categoryId, subcategoryId, itemId: listItem.id })
+      toggleWordCheckbox({
+        categoryId,
+        subcategoryId,
+        itemId: listItem.id,
+        checked: listItem.checked,
+      })
     )
     if (listItem.checked) {
       dispatch(removeWord(listItem.id))

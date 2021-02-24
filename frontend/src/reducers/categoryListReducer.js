@@ -1,11 +1,18 @@
 import uuid from 'react-uuid'
 import {
+  CATEGORY_ALL_SUBCATEGORIES_CHECKED,
+  CHECK_CATEGORY,
+  CHECK_SUBCATEGORY,
+  CHECK_WORD,
+  SUBCATEGORY_ALL_WORDS_CHECKED,
   TOGGLE_ALL_CHECKBOX,
   TOGGLE_CATEGORY_CHECKBOX,
   TOGGLE_CATEGORY_COLLAPSE,
   TOGGLE_SUBCATEGORY_CHECKBOX,
   TOGGLE_SUBCATEGORY_COLLAPSE,
   TOGGLE_WORD_CHECKBOX,
+  UNCHECK_CATEGORY,
+  UNCHECK_SUBCATEGORY,
   UNCHECK_WORD,
 } from '../constants/categoryConstants'
 
@@ -83,7 +90,7 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           return { ...category }
         }
       })
-    case TOGGLE_WORD_CHECKBOX:
+    case CHECK_WORD:
       if (payload.subcategoryId) {
         return [...state].map((category) => {
           if (category.id === payload.categoryId && category.subcategories) {
@@ -97,7 +104,7 @@ export const categoryListReducer = (state = categoryWordList, action) => {
                       if (payload.itemId === listItem.id) {
                         return {
                           ...listItem,
-                          checked: !listItem.checked,
+                          checked: true,
                         }
                       } else {
                         return {
@@ -126,7 +133,7 @@ export const categoryListReducer = (state = categoryWordList, action) => {
                 if (payload.itemId === listItem.id) {
                   return {
                     ...listItem,
-                    checked: !listItem.checked,
+                    checked: true,
                   }
                 } else {
                   return {
@@ -140,7 +147,67 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         })
       }
-    case TOGGLE_SUBCATEGORY_CHECKBOX:
+    case UNCHECK_WORD:
+      if (payload.subcategoryId) {
+        return [...state].map((category) => {
+          if (category.id === payload.categoryId && category.subcategories) {
+            return {
+              ...category,
+              checked: false,
+              subcategories: category.subcategories.map((subcategory) => {
+                if (subcategory.id === payload.subcategoryId) {
+                  return {
+                    ...subcategory,
+                    checked: false,
+                    list: [...subcategory.list].map((listItem) => {
+                      if (payload.itemId === listItem.id) {
+                        return {
+                          ...listItem,
+                          checked: false,
+                        }
+                      } else {
+                        return {
+                          ...listItem,
+                        }
+                      }
+                    }),
+                  }
+                } else {
+                  return {
+                    ...subcategory,
+                  }
+                }
+              }),
+            }
+          } else {
+            return { ...category }
+          }
+        })
+      } else {
+        return [...state].map((category) => {
+          if (category.id === payload.categoryId) {
+            return {
+              ...category,
+              checked: false,
+              list: [...category.list].map((listItem) => {
+                if (payload.itemId === listItem.id) {
+                  return {
+                    ...listItem,
+                    checked: false,
+                  }
+                } else {
+                  return {
+                    ...listItem,
+                  }
+                }
+              }),
+            }
+          } else {
+            return { ...category }
+          }
+        })
+      }
+    case CHECK_SUBCATEGORY:
       return [...state].map((category) => {
         if (category.id === payload.categoryId) {
           return {
@@ -149,10 +216,10 @@ export const categoryListReducer = (state = categoryWordList, action) => {
               if (subcategory.id === payload.subcategoryId) {
                 return {
                   ...subcategory,
-                  checked: !subcategory.checked,
+                  checked: true,
                   list: [...subcategory.list].map((listItem) => ({
                     ...listItem,
-                    checked: !subcategory.checked,
+                    checked: true,
                   })),
                 }
               } else {
@@ -168,19 +235,86 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         }
       })
-    case TOGGLE_CATEGORY_CHECKBOX:
+    case UNCHECK_SUBCATEGORY:
+      return [...state].map((category) => {
+        if (category.id === payload.categoryId) {
+          return {
+            ...category,
+            checked: false,
+            subcategories: [...category.subcategories].map((subcategory) => {
+              if (subcategory.id === payload.subcategoryId) {
+                return {
+                  ...subcategory,
+                  checked: false,
+                  list: [...subcategory.list].map((listItem) => ({
+                    ...listItem,
+                    checked: false,
+                  })),
+                }
+              } else {
+                return {
+                  ...subcategory,
+                }
+              }
+            }),
+          }
+        } else {
+          return {
+            ...category,
+          }
+        }
+      })
+    case CHECK_CATEGORY:
       return [...state].map((category) => {
         if (category.subcategories) {
           if (category.id === payload) {
             return {
               ...category,
-              checked: !category.checked,
+              checked: true,
               subcategories: [...category.subcategories].map((subcategory) => ({
                 ...subcategory,
-                checked: !category.checked,
+                checked: true,
                 list: [...subcategory.list].map((listItem) => ({
                   ...listItem,
-                  checked: !category.checked,
+                  checked: true,
+                })),
+              })),
+            }
+          } else {
+            return {
+              ...category,
+            }
+          }
+        } else {
+          if (category.id === payload) {
+            return {
+              ...category,
+              checked: !category.checked,
+              list: [...category.list].map((listItem) => ({
+                ...listItem,
+                checked: !category.checked,
+              })),
+            }
+          } else {
+            return {
+              ...category,
+            }
+          }
+        }
+      })
+    case UNCHECK_CATEGORY:
+      return [...state].map((category) => {
+        if (category.subcategories) {
+          if (category.id === payload) {
+            return {
+              ...category,
+              checked: false,
+              subcategories: [...category.subcategories].map((subcategory) => ({
+                ...subcategory,
+                checked: false,
+                list: [...subcategory.list].map((listItem) => ({
+                  ...listItem,
+                  checked: false,
                 })),
               })),
             }
@@ -232,42 +366,51 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         }
       })
-    case UNCHECK_WORD:
+    case SUBCATEGORY_ALL_WORDS_CHECKED:
       return [...state].map((category) => {
-        if (category.subcategories) {
+        if (category.id === payload.categoryId) {
           return {
             ...category,
-            subcategories: [...category.subcategories].map((subcategory) => ({
-              ...subcategory,
-              list: [...subcategory.list].map((word) => {
-                if (word.id === payload) {
-                  return {
-                    ...word,
-                    checked: false,
-                  }
-                } else {
-                  return {
-                    ...word,
-                  }
+            subcategories: [...category.subcategories].map((subcategory) => {
+              if (subcategory.id === payload.subcategoryId) {
+                return {
+                  ...subcategory,
+                  checked: subcategory.list.every(
+                    (listItem) => listItem.checked
+                  ),
                 }
-              }),
-            })),
+              } else {
+                return {
+                  ...subcategory,
+                }
+              }
+            }),
           }
         } else {
           return {
             ...category,
-            list: [...category.list].map((word) => {
-              if (word.id === payload) {
-                return {
-                  ...word,
-                  checked: false,
-                }
-              } else {
-                return {
-                  ...word,
-                }
-              }
-            }),
+          }
+        }
+      })
+    case CATEGORY_ALL_SUBCATEGORIES_CHECKED:
+      return [...state].map((category) => {
+        if (category.id === payload) {
+          if (category.subcategories) {
+            return {
+              ...category,
+              checked: category.subcategories.every(
+                (subcategory) => subcategory.checked
+              ),
+            }
+          } else {
+            return {
+              ...category,
+              checked: category.list.every((listItem) => listItem.checked),
+            }
+          }
+        } else {
+          return {
+            ...category,
           }
         }
       })

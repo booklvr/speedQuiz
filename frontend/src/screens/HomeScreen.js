@@ -5,7 +5,7 @@ import WordList from '../components/WordList'
 import Settings from '../components/Settings'
 // import Meta from '../components/Meta'
 
-const HomeScreen = () => {
+const HomeScreen = ({ history }) => {
   return (
     <Container fluid={true}>
       <Row className='d-flex justify-content-around'>
@@ -16,7 +16,7 @@ const HomeScreen = () => {
           <Categories />
         </Col>
         <Col md={6} xl={4}>
-          <WordList />
+          <WordList history={history} />
         </Col>
       </Row>
     </Container>
