@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ListGroup, Button } from 'react-bootstrap'
 import SaveModal from './SaveModal'
 import { removeWord, resetSaveModal } from '../actions/wordListActions'
-import { uncheckWord } from '../actions/categoryActions'
+import { uncheckWordByBtn } from '../actions/categoryActions'
 
 const WordList = ({ history }) => {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const WordList = ({ history }) => {
 
   const deleteBtnHandler = (id) => {
     dispatch(removeWord(id))
-    dispatch(uncheckWord(id))
+    dispatch(uncheckWordByBtn(id))
   }
 
   return (

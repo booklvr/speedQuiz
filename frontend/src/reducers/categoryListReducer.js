@@ -6,14 +6,15 @@ import {
   CHECK_WORD,
   SUBCATEGORY_ALL_WORDS_CHECKED,
   TOGGLE_ALL_CHECKBOX,
-  TOGGLE_CATEGORY_CHECKBOX,
+  // TOGGLE_CATEGORY_CHECKBOX,
   TOGGLE_CATEGORY_COLLAPSE,
-  TOGGLE_SUBCATEGORY_CHECKBOX,
+  // TOGGLE_SUBCATEGORY_CHECKBOX,
   TOGGLE_SUBCATEGORY_COLLAPSE,
-  TOGGLE_WORD_CHECKBOX,
+  // TOGGLE_WORD_CHECKBOX,
   UNCHECK_CATEGORY,
   UNCHECK_SUBCATEGORY,
   UNCHECK_WORD,
+  UNCHECK_WORD_BY_BUTTON,
 } from '../constants/categoryConstants'
 
 import categoryList from '../data/categoryList'
@@ -207,6 +208,43 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         })
       }
+    case UNCHECK_WORD_BY_BUTTON:
+      return [...state].map((category) => {
+        if (category.subcategories) {
+          return {
+            ...category,
+            subcategories: [...category.subcategories].map((subcategory) => ({
+              ...subcategory,
+              list: [...subcategory.list].map((listItem) => {
+                if (listItem.id === payload) {
+                  return {
+                    ...listItem,
+                    checked: false,
+                  }
+                } else {
+                  return { ...listItem }
+                }
+              }),
+            })),
+          }
+        } else {
+          return {
+            ...category,
+            list: [...category.list].map((listItem) => {
+              if (listItem.id === payload) {
+                return {
+                  ...listItem,
+                  checked: false,
+                }
+              } else {
+                return {
+                  ...listItem,
+                }
+              }
+            }),
+          }
+        }
+      })
     case CHECK_SUBCATEGORY:
       return [...state].map((category) => {
         if (category.id === payload.categoryId) {
@@ -368,23 +406,29 @@ export const categoryListReducer = (state = categoryWordList, action) => {
       })
     case SUBCATEGORY_ALL_WORDS_CHECKED:
       return [...state].map((category) => {
-        if (category.id === payload.categoryId) {
-          return {
-            ...category,
-            subcategories: [...category.subcategories].map((subcategory) => {
-              if (subcategory.id === payload.subcategoryId) {
-                return {
-                  ...subcategory,
-                  checked: subcategory.list.every(
-                    (listItem) => listItem.checked
-                  ),
+        if (category.subcategories) {
+          if (category.id === payload.categoryId) {
+            return {
+              ...category,
+              subcategories: [...category.subcategories].map((subcategory) => {
+                if (subcategory.id === payload.subcategoryId) {
+                  return {
+                    ...subcategory,
+                    checked: subcategory.list.every(
+                      (listItem) => listItem.checked
+                    ),
+                  }
+                } else {
+                  return {
+                    ...subcategory,
+                  }
                 }
-              } else {
-                return {
-                  ...subcategory,
-                }
-              }
-            }),
+              }),
+            }
+          } else {
+            return {
+              ...category,
+            }
           }
         } else {
           return {

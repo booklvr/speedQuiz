@@ -1,11 +1,9 @@
 import {
   TOGGLE_CATEGORY_COLLAPSE,
   TOGGLE_SUBCATEGORY_COLLAPSE,
-  // TOGGLE_WORD_CHECKBOX,
-  // TOGGLE_SUBCATEGORY_CHECKBOX,
-  // TOGGLE_CATEGORY_CHECKBOX,
   CHECK_WORD,
   UNCHECK_WORD,
+  UNCHECK_WORD_BY_BUTTON,
   CHECK_SUBCATEGORY,
   UNCHECK_SUBCATEGORY,
   CHECK_CATEGORY,
@@ -39,7 +37,6 @@ export const toggleWordCheckbox = ({
   itemId,
   checked,
 }) => (dispatch, getState) => {
-  console.log('checked', checked)
   if (!checked) {
     dispatch({
       type: CHECK_WORD,
@@ -62,12 +59,48 @@ export const toggleWordCheckbox = ({
   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
 
+export const uncheckWordByBtn = (id) => (dispatch, getState) => {
+  const categoryList = getState().categoryList
+
+  categoryList.forEach((category) => {
+    if (category.subcategories) {
+      category.subcategories.forEach((subcategory) => {
+        subcategory.list.forEach((listItem) => {
+          if (listItem.id === id) {
+            dispatch({
+              type: UNCHECK_WORD,
+              payload: {
+                categoryId: category.id,
+                subcategoryId: subcategory.id,
+                itemId: id,
+              },
+            })
+            return
+          }
+        })
+      })
+    } else {
+      category.list.forEach((listItem) => {
+        if (listItem.id === id) {
+          dispatch({
+            type: UNCHECK_WORD,
+            payload: {
+              categoryId: category.id,
+              itemId: id,
+            },
+          })
+          return
+        }
+      })
+    }
+  })
+}
+
 export const toggleSubcategoryCheckbox = (
   categoryId,
   subcategoryId,
   checked
 ) => (dispatch, getState) => {
-  console.log('checked', checked)
   if (!checked) {
     dispatch({
       type: CHECK_SUBCATEGORY,
@@ -83,10 +116,6 @@ export const toggleSubcategoryCheckbox = (
       payload: { categoryId, subcategoryId },
     })
   }
-  // dispatch({
-  //   type: TOGGLE_SUBCATEGORY_CHECKBOX,
-  //   payload: { categoryId, subcategoryId, checked },
-  // })
 
   const categories = getState().categoryList
   const wordList = getState().wordList
@@ -118,7 +147,10 @@ export const toggleSubcategoryCheckbox = (
   localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
-export const toggleCategoryCheckbox = (categoryId, checked) => (dispatch) => {
+export const toggleCategoryCheckbox = (categoryId, checked) => (
+  dispatch,
+  getState
+) => {
   if (!checked) {
     dispatch({
       type: CHECK_CATEGORY,
@@ -133,6 +165,50 @@ export const toggleCategoryCheckbox = (categoryId, checked) => (dispatch) => {
       payload: categoryId,
     })
   }
+
+  const categories = getState().categoryList
+  const wordList = getState().wordList
+  categories.forEach((category) => {
+    if (category.id === categoryId) {
+      if (category.subcategories) {
+        category.subcategories.forEach((subcategory) => {
+          if (checked) {
+            let listItemIds = subcategory.list.map((listItem) => listItem.id)
+            dispatch({
+              type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+              payload: listItemIds,
+            })
+          } else {
+            let wordListIds = wordList.map((word) => word.id)
+            let newArray = subcategory.list.filter(
+              (listItem) => !wordListIds.includes(listItem.id)
+            )
+            dispatch({
+              type: ADD_SUBCATEGORY_BY_CHECKBOX,
+              payload: newArray,
+            })
+          }
+        })
+      } else {
+        if (checked) {
+          let listItemIds = category.list.map((listItem) => listItem.id)
+          dispatch({
+            type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
+            payload: listItemIds,
+          })
+        } else {
+          let wordListIds = wordList.map((word) => word.id)
+          let newArray = category.list.filter(
+            (listItem) => !wordListIds.includes(listItem.id)
+          )
+          dispatch({
+            type: ADD_SUBCATEGORY_BY_CHECKBOX,
+            payload: newArray,
+          })
+        }
+      }
+    }
+  })
 }
 
 // export const toggleCategoryCheckbox = (categoryId, checked) => (
@@ -194,7 +270,7 @@ export const toggleCategoryCheckbox = (categoryId, checked) => (dispatch) => {
 export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
   dispatch({
     type: TOGGLE_ALL_CHECKBOX,
-    payload: checked,
+    payload: !checked,
   })
 
   const categories = getState().categoryList
@@ -202,7 +278,7 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
   categories.forEach((category) => {
     if (category.subcategories) {
       category.subcategories.forEach((subcategory) => {
-        if (!checked) {
+        if (checked) {
           let listItemIds = subcategory.list.map((listItem) => listItem.id)
           dispatch({
             type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
@@ -220,7 +296,7 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
         }
       })
     } else {
-      if (!checked) {
+      if (checked) {
         let listItemIds = category.list.map((listItem) => listItem.id)
         dispatch({
           type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
@@ -242,10 +318,10 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
   localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
-export const uncheckWord = (id) => (dispatch, getState) => {
-  dispatch({
-    type: UNCHECK_WORD,
-    payload: id,
-  })
-  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
-}
+// export const uncheckWord = (id) => (dispatch, getState) => {
+//   dispatch({
+//     type: UNCHECK_WORD,
+//     payload: id,
+//   })
+//   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+// }

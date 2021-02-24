@@ -1,4 +1,10 @@
-import React, { Fragment, useState, useRef, useLayoutEffect } from 'react'
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import uuid from 'react-uuid'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Button } from 'react-bootstrap'
@@ -20,10 +26,12 @@ import {
 const Categories = () => {
   const dispatch = useDispatch()
   const categoryList = useSelector((state) => state.categoryList)
-  const [checkAll, setCheckAll] = useState(false)
+  const [checkAll, setCheckAll] = useState(
+    categoryList.every((category) => category.checked)
+  )
   const [newWord, setNewWord] = useState('')
 
-  const firstUpdate = useRef(true)
+  // const firstUpdate = useRef(true)
 
   const handleAddButtonClick = () => {
     if (newWord !== '') {
@@ -40,7 +48,7 @@ const Categories = () => {
   }
 
   const allCheckHandler = () => {
-    setCheckAll(!checkAll)
+    dispatch(toggleAllCheckbox(checkAll))
   }
 
   const categoryCheckHandler = (categoryId, checked) => {
@@ -79,13 +87,18 @@ const Categories = () => {
     dispatch(toggleSubcategoryCollapse(categoryId, subcategoryId))
   }
 
-  useLayoutEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false
-      return
-    }
-    dispatch(toggleAllCheckbox(checkAll))
-  }, [checkAll, dispatch])
+  // useLayoutEffect(() => {
+  //   if (firstUpdate.current) {
+  //     firstUpdate.current = false
+  //     return
+  //   }
+  //   dispatch(toggleAllCheckbox(checkAll))
+  // }, [checkAll, dispatch])
+
+  // always set all checked when all categories are checked :)
+  useEffect(() => {
+    setCheckAll(categoryList.every((category) => category.checked))
+  }, [categoryList])
 
   // useEffect(() => {
   //   dispatch(toggleAllCheckbox(checkAll))
@@ -120,7 +133,7 @@ const Categories = () => {
               checked={checkAll}
               label='all'
               value='all'
-              onChange={(e) => allCheckHandler(e)}
+              onChange={() => allCheckHandler()}
             ></Form.Check>
           </Form.Group>
           {categoryList &&
