@@ -11,6 +11,7 @@ import {
   SAVED_WORD_LISTS_SUCCESS,
   SAVE_WORD_LIST_FAIL,
   SAVE_WORD_LIST_REQUEST,
+  SAVE_WORD_LIST_RESET,
   SAVE_WORD_LIST_SUCCESS,
 } from '../constants/wordListConstants'
 
@@ -61,15 +62,22 @@ export const saveWordList = (wordListName) => async (dispatch, getState) => {
       { wordList, name: wordListName },
       config
     )
+
+    console.log('data', data)
     dispatch({
       type: SAVE_WORD_LIST_SUCCESS,
-      payload: data,
     })
   } catch (error) {
     dispatch({
       type: SAVE_WORD_LIST_FAIL,
     })
   }
+}
+
+export const resetSaveModal = () => (dispatch) => {
+  dispatch({
+    type: SAVE_WORD_LIST_RESET,
+  })
 }
 
 export const getAllWordLists = () => async (dispatch, getState) => {

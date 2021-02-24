@@ -13,6 +13,7 @@ import {
   SAVED_WORD_LISTS_SUCCESS,
   SAVE_WORD_LIST_FAIL,
   SAVE_WORD_LIST_REQUEST,
+  SAVE_WORD_LIST_RESET,
   SAVE_WORD_LIST_SUCCESS,
 } from '../constants/wordListConstants'
 
@@ -44,11 +45,13 @@ export const saveWordListReducer = (state = {}, action) => {
   const { type, payload } = action
   switch (type) {
     case SAVE_WORD_LIST_REQUEST:
-      return { loading: true }
+      return { loading: true, success: false }
     case SAVE_WORD_LIST_SUCCESS:
-      return { loading: false, userInfo: payload }
+      return { loading: false, success: true }
     case SAVE_WORD_LIST_FAIL:
       return { loading: false, error: payload }
+    case SAVE_WORD_LIST_RESET:
+      return { loading: false, success: false }
     default:
       return state
   }
@@ -81,4 +84,3 @@ export const deleteWordListReducer = (state = {}, action) => {
       return state
   }
 }
-

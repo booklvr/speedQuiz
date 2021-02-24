@@ -3,16 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { ListGroup, Button } from 'react-bootstrap'
 import SaveModal from './SaveModal'
-import { removeWord } from '../actions/wordListActions'
+import { removeWord, resetSaveModal } from '../actions/wordListActions'
 import { uncheckWord } from '../actions/categoryActions'
 
-const WordList = () => {
+const WordList = ({ history }) => {
   const dispatch = useDispatch()
   const wordList = useSelector((state) => state.wordList)
   const [showModal, setShowModal] = useState(false)
 
   const handleClose = () => setShowModal(false)
-  const handleShow = () => setShowModal(true)
+  const handleShow = () => {
+    dispatch(resetSaveModal())
+    setShowModal(true)
+  }
 
   const deleteBtnHandler = (id) => {
     dispatch(removeWord(id))
@@ -25,6 +28,7 @@ const WordList = () => {
         setShowModal={setShowModal}
         handleClose={handleClose}
         showModal={showModal}
+        history={history}
       />
       <h1 className='list-title'>WordList</h1>
       <div className='p-5 categories-container bg-info'>

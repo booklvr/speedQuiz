@@ -62,7 +62,7 @@ const SavedWordListsScreen = ({ history }) => {
                     variant='danger'
                     onClick={(e) => handleDelete(e, wordList._id)}
                   >
-                    Delete
+                    <i className='fas fa-trash-alt'></i> Delete
                   </Button>
                 </td>
               </tr>
