@@ -16,6 +16,7 @@ import {
   UNCHECK_WORD,
   UNCHECK_WORD_BY_BUTTON,
 } from '../constants/categoryConstants'
+import { REPLACE_WORD_LIST, RESET_LISTS } from '../constants/wordListConstants'
 
 import categoryList from '../data/categoryList'
 
@@ -458,6 +459,10 @@ export const categoryListReducer = (state = categoryWordList, action) => {
           }
         }
       })
+    case REPLACE_WORD_LIST:
+      return payload.categoryList
+    case RESET_LISTS:
+      return categoryWordList
     default:
       return state
   }
