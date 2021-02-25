@@ -94,6 +94,8 @@ export const uncheckWordByBtn = (id) => (dispatch, getState) => {
       })
     }
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
 
 export const toggleSubcategoryCheckbox = (
@@ -209,63 +211,9 @@ export const toggleCategoryCheckbox = (categoryId, checked) => (
       }
     }
   })
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
-
-// export const toggleCategoryCheckbox = (categoryId, checked) => (
-//   dispatch,
-//   getState
-// ) => {
-//   dispatch({
-//     type: TOGGLE_CATEGORY_CHECKBOX,
-//     payload: categoryId,
-//   })
-
-//   const categories = getState().categoryList
-//   const wordList = getState().wordList
-//   categories.forEach((category) => {
-//     if (category.id === categoryId) {
-//       if (category.subcategories) {
-//         category.subcategories.forEach((subcategory) => {
-//           if (checked) {
-//             let listItemIds = subcategory.list.map((listItem) => listItem.id)
-//             dispatch({
-//               type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
-//               payload: listItemIds,
-//             })
-//           } else {
-//             let wordListIds = wordList.map((word) => word.id)
-//             let newArray = subcategory.list.filter(
-//               (listItem) => !wordListIds.includes(listItem.id)
-//             )
-//             dispatch({
-//               type: ADD_SUBCATEGORY_BY_CHECKBOX,
-//               payload: newArray,
-//             })
-//           }
-//         })
-//       } else {
-//         if (checked) {
-//           let listItemIds = category.list.map((listItem) => listItem.id)
-//           dispatch({
-//             type: REMOVE_SUBCATEGORY_BY_CHECKBOX,
-//             payload: listItemIds,
-//           })
-//         } else {
-//           let wordListIds = wordList.map((word) => word.id)
-//           let newArray = category.list.filter(
-//             (listItem) => !wordListIds.includes(listItem.id)
-//           )
-//           dispatch({
-//             type: ADD_SUBCATEGORY_BY_CHECKBOX,
-//             payload: newArray,
-//           })
-//         }
-//       }
-//     }
-//   })
-//   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
-//   localStorage.setItem('wordList', JSON.stringify(getState().wordList))
-// }
 
 export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
   dispatch({
@@ -317,11 +265,3 @@ export const toggleAllCheckbox = (checked) => (dispatch, getState) => {
   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
   localStorage.setItem('wordList', JSON.stringify(getState().wordList))
 }
-
-// export const uncheckWord = (id) => (dispatch, getState) => {
-//   dispatch({
-//     type: UNCHECK_WORD,
-//     payload: id,
-//   })
-//   localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
-// }

@@ -6,8 +6,13 @@ import {
   DELETE_WORD_LIST_FAIL,
   DELETE_WORD_LIST_REQUEST,
   DELETE_WORD_LIST_SUCCESS,
+  GET_SAVED_LIST_FAIL,
+  GET_SAVED_LIST_REQUEST,
+  GET_SAVED_LIST_SUCCESS,
   REMOVE_SUBCATEGORY_BY_CHECKBOX,
   REMOVE_WORD,
+  REPLACE_WORD_LIST,
+  RESET_LISTS,
   SAVED_WORD_LISTS_FAIL,
   SAVED_WORD_LISTS_REQUEST,
   SAVED_WORD_LISTS_SUCCESS,
@@ -36,6 +41,10 @@ export const wordListReducer = (state = [], action) => {
       return [...state].filter((word) => !payload.includes(word.id))
     case REMOVE_WORD:
       return [...state].filter((word) => word.id !== payload)
+    case REPLACE_WORD_LIST:
+      return payload.wordList
+    case RESET_LISTS:
+      return []
     default:
       return state
   }
@@ -80,6 +89,22 @@ export const deleteWordListReducer = (state = {}, action) => {
       return { loading: false, success: true }
     case DELETE_WORD_LIST_FAIL:
       return { loading: false, error: payload }
+    default:
+      return state
+  }
+}
+
+export const getSavedWordListByIdReducer = (state = {}, action) => {
+  const { type, payload } = action
+  switch (type) {
+    case GET_SAVED_LIST_REQUEST:
+      return { loading: true }
+    case GET_SAVED_LIST_SUCCESS:
+      return { loading: false, savedLists: payload }
+    case GET_SAVED_LIST_FAIL:
+      return { loading: false, error: payload }
+    case RESET_LISTS:
+      return { loading: false }
     default:
       return state
   }

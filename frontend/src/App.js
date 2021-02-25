@@ -21,6 +21,7 @@ const App = () => {
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/play' component={PlayGameScreen} />
           <Route path='/savedWordLists' component={SavedWordLists} />
+          <Route path='/savedGame/:id' component={HomeScreen} />
           <Route path='/' component={HomeScreen} exact />
         </Container>
       </main>

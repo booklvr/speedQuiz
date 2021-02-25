@@ -13,6 +13,7 @@ const wordListSchema = mongoose.Schema(
       unique: true,
     },
     wordList: [],
+    categoryList: [],
   },
   {
     timestamps: true,

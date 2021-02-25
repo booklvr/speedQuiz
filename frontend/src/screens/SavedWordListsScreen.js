@@ -18,7 +18,7 @@ const SavedWordListsScreen = ({ history }) => {
   const { userInfo } = useSelector((state) => state.userLogin)
 
   const handleRowClick = (id) => {
-    console.log('clicked the row with id', id)
+    history.push(`/savedGame/${id}`)
   }
 
   const handleDelete = (e, id) => {

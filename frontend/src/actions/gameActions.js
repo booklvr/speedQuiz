@@ -65,34 +65,30 @@ export const loadGame = () => (dispatch, getState) => {
 }
 
 export const correctWord = () => (dispatch, getState) => {
+  dispatch({
+    type: CORRECT_WORD,
+  })
+
   const { wordList, wordIndex } = getState().game
 
   // if you reach the end of the word list shuffle and rest index to 0
-  if (wordIndex === wordList.length - 1) {
+  if (wordIndex === wordList.length) {
     dispatch({
       type: SHUFFLE_AND_ADD_TO_WORD_LIST,
       payload: shuffleArray(wordList),
-    })
-    dispatch({
-      type: ADD_POINT_TO_CURRENT_TEAM,
-    })
-  } else {
-    dispatch({
-      type: CORRECT_WORD,
     })
   }
 }
 
 export const skipWord = () => (dispatch, getState) => {
+  dispatch({
+    type: SKIP_WORD,
+  })
   const { wordIndex, wordList } = getState().game
-  if (wordIndex === wordList.length - 1) {
+  if (wordIndex === wordList.length) {
     dispatch({
       type: SHUFFLE_AND_ADD_TO_WORD_LIST,
       payload: shuffleArray(wordList),
-    })
-  } else {
-    dispatch({
-      type: SKIP_WORD,
     })
   }
 }
