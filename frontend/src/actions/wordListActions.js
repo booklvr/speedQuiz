@@ -54,36 +54,35 @@ export const saveWordList = (wordListName, id) => async (
   console.log('wordListName', wordListName)
   console.log('id', id)
 
-  // try {
-  //   dispatch({
-  //     type: SAVE_WORD_LIST_REQUEST,
-  //   })
+  try {
+    dispatch({
+      type: SAVE_WORD_LIST_REQUEST,
+    })
 
-  //   const {
-  //     userLogin: { userInfo },
-  //   } = getState()
+    const {
+      userLogin: { userInfo },
+    } = getState()
 
-  //   const config = {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${userInfo.token}`,
-  //     },
-  //   }
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+    const { data } = await axios.post(
+      '/api/wordList',
+      { wordList, name: wordListName, categoryList, id },
+      config
+    )
 
-  //   const { data } = await axios.post(
-  //     '/api/wordList',
-  //     { wordList, name: wordListName, categoryList },
-  //     config
-  //   )
-
-  //   dispatch({
-  //     type: SAVE_WORD_LIST_SUCCESS,
-  //   })
-  // } catch (error) {
-  //   dispatch({
-  //     type: SAVE_WORD_LIST_FAIL,
-  //   })
-  // }
+    dispatch({
+      type: SAVE_WORD_LIST_SUCCESS,
+    })
+  } catch (error) {
+    dispatch({
+      type: SAVE_WORD_LIST_FAIL,
+    })
+  }
 }
 
 export const resetSaveModal = () => (dispatch) => {

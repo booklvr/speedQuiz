@@ -1,26 +1,31 @@
 import asyncHandler from 'express-async-handler'
+import mongoose from 'mongoose'
 import WordList from '../models/wordListModel.js'
 // @desc    Save a new Word List
 // @route   Post  /api/wordList
 // @access  Private
 export const saveWordList = asyncHandler(async (req, res) => {
-  const id = req.params.id
-  const { wordList, name, categoryList } = req.body
+  let newObject = req.body
+  let { id, name } = newObject
 
+  // delete the id from the object if it exists
+  delete newObject.id
+
+  // if id is undefined create new id for upsert
+  if (!id) {
+    id = mongoose.Types.ObjectId()
+  }
+
+  // only allow unique names
   const nameExists = await WordList.findOne({ name })
 
-  if (nameExists && id) {
+  if (nameExists) {
     res.status(400)
     throw new Error('That name has already been used')
   } else {
-    const newWordList = {
-      user: req.user._id,
-      name,
-      wordList,
-      categoryList,
-    }
+    newObject.user = req.user._id
 
-    let doc = await WordList.findOneAndUpdate({ _id: id }, newWordList, {
+    let doc = await WordList.findByIdAndUpdate(id, newObject, {
       new: true,
       upsert: true,
     })

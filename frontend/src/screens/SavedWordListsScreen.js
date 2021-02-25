@@ -12,6 +12,8 @@ const SavedWordListsScreen = ({ history }) => {
     (state) => state.savedWordLists
   )
 
+  console.log('wordLists', wordLists)
+
   const wordListDelete = useSelector((state) => state.deleteWordList)
   const { loading: loadingDelete, error: errorDelete, success } = wordListDelete
 
