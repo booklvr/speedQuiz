@@ -9,6 +9,7 @@ const GameControls = () => {
   const {
     skippedWords,
     correctWords,
+    insideInstructionModal,
     timer: { start },
   } = useSelector((state) => state.game)
 
@@ -29,7 +30,7 @@ const GameControls = () => {
       className='game-controls-container d-flex justify-content-center'
       fluid
     >
-      {start && (
+      {(start || insideInstructionModal) && (
         <Row className='d-flex justify-content-center'>
           <Col lg={12} xl={4} className='my-2 d-flex justify-content-center'>
             <Button

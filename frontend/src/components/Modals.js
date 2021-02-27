@@ -18,7 +18,7 @@ import {
   editRoundPointsModal,
 } from '../actions/gameActions'
 
-const Modals = () => {
+const Modals = ({ insideInstructionModal }) => {
   const dispatch = useDispatch()
   const {
     showModal,
@@ -30,6 +30,8 @@ const Modals = () => {
     correctWords,
   } = useSelector((state) => state.game)
   const [teamPoints, setTeamPoints] = useState(points)
+
+  console.log('insideInstructionModal', insideInstructionModal)
 
   const handleClose = () => {
     dispatch(closeStartModal())
@@ -73,7 +75,7 @@ const Modals = () => {
           centered
           backdrop='static'
           className='modal'
-          size='xl'
+          size={'xl'}
         >
           <Modal.Header>
             <Modal.Title>{teams && teams[teamIndex].name}</Modal.Title>

@@ -20,6 +20,8 @@ import {
   SAVE_WORD_LIST_SUCCESS,
 } from '../constants/wordListConstants'
 
+import { USER_LOGOUT } from '../constants/userConstants'
+
 export const addWordByCheckbox = ({ id, word }) => (dispatch, getState) => {
   dispatch({
     type: ADD_WORD_BY_CHECKBOX,
@@ -51,9 +53,6 @@ export const saveWordList = (wordListName, id) => async (
   const wordList = getState().wordList
   const categoryList = getState().categoryList
 
-  console.log('wordListName', wordListName)
-  console.log('id', id)
-
   try {
     dispatch({
       type: SAVE_WORD_LIST_REQUEST,
@@ -69,7 +68,7 @@ export const saveWordList = (wordListName, id) => async (
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    const { data } = await axios.post(
+    await axios.post(
       '/api/wordList',
       { wordList, name: wordListName, categoryList, id },
       config
@@ -79,8 +78,17 @@ export const saveWordList = (wordListName, id) => async (
       type: SAVE_WORD_LIST_SUCCESS,
     })
   } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch({ type: USER_LOGOUT })
+    }
+
     dispatch({
       type: SAVE_WORD_LIST_FAIL,
+      payload: message,
     })
   }
 }
@@ -113,8 +121,16 @@ export const getAllWordLists = () => async (dispatch, getState) => {
       payload: data,
     })
   } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch({ type: USER_LOGOUT })
+    }
     dispatch({
       type: SAVED_WORD_LISTS_FAIL,
+      payload: message,
     })
   }
 }
@@ -184,8 +200,6 @@ export const replaceLists = ({ wordList, categoryList }) => (
   dispatch,
   getState
 ) => {
-  console.log('wordList in replace', wordList)
-  console.log('category list in replace', categoryList)
   dispatch({
     type: REPLACE_WORD_LIST,
     payload: {

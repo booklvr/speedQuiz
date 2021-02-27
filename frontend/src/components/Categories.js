@@ -1,13 +1,8 @@
-import React, {
-  Fragment,
-  useState,
-  useEffect,
-  useRef,
-  useLayoutEffect,
-} from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import uuid from 'react-uuid'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Button } from 'react-bootstrap'
+import Loader from './Loader'
 import {
   toggleCategoryCollapse,
   toggleSubcategoryCollapse,
@@ -23,15 +18,13 @@ import {
   addNewWord,
 } from '../actions/wordListActions'
 
-const Categories = () => {
+const Categories = ({ loading }) => {
   const dispatch = useDispatch()
   const categoryList = useSelector((state) => state.categoryList)
   const [checkAll, setCheckAll] = useState(
     categoryList.every((category) => category.checked)
   )
   const [newWord, setNewWord] = useState('')
-
-  // const firstUpdate = useRef(true)
 
   const handleAddButtonClick = () => {
     if (newWord !== '') {
@@ -87,22 +80,10 @@ const Categories = () => {
     dispatch(toggleSubcategoryCollapse(categoryId, subcategoryId))
   }
 
-  // useLayoutEffect(() => {
-  //   if (firstUpdate.current) {
-  //     firstUpdate.current = false
-  //     return
-  //   }
-  //   dispatch(toggleAllCheckbox(checkAll))
-  // }, [checkAll, dispatch])
-
   // always set all checked when all categories are checked :)
   useEffect(() => {
     setCheckAll(categoryList.every((category) => category.checked))
   }, [categoryList])
-
-  // useEffect(() => {
-  //   dispatch(toggleAllCheckbox(checkAll))
-  // }, [checkAll])
 
   return (
     <Fragment>
@@ -127,6 +108,7 @@ const Categories = () => {
               </Button>
             </Col>
           </Form.Row>
+
           <Form.Group className='pl-1' controlId='formBasicCheckbox'>
             <Form.Check
               type='checkbox'
@@ -136,7 +118,10 @@ const Categories = () => {
               onChange={() => allCheckHandler()}
             ></Form.Check>
           </Form.Group>
-          {categoryList &&
+          {loading ? (
+            <Loader />
+          ) : (
+            categoryList &&
             categoryList.map((category) => {
               if (category.subcategories) {
                 return (
@@ -288,7 +273,8 @@ const Categories = () => {
                   </div>
                 )
               }
-            })}
+            })
+          )}
         </Form>
       </div>
     </Fragment>

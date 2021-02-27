@@ -38,7 +38,8 @@ export const gameReducer = (
         ...state,
         teams: [...payload.teams],
         wordList: [...payload.wordList],
-        showModal: true,
+        showModal: payload.showModal,
+        insideInstructionModal: payload.insideInstructionModal,
         startModal: true,
         startRound: false,
         timer: {
@@ -46,17 +47,20 @@ export const gameReducer = (
           time: payload.timer.time,
           start: false,
         },
+        points: 0,
       }
     case SET_CURRENT_TEAM:
       return {
         ...state,
         points: 0,
         teamIndex: payload,
-        showModal: true,
+        showModal: state.insideInstructionModal ? false : true,
         startModal: true,
+        startRound: false,
         timer: {
           ...state.timer,
           time: state.timer.time,
+          start: false,
         },
       }
     case CORRECT_WORD:
@@ -147,7 +151,7 @@ export const gameReducer = (
     case END_THE_ROUND:
       return {
         ...state,
-        showModal: true,
+        showModal: state.insideInstructionModal ? false : true,
         startModal: false,
         startRound: false,
         timer: {

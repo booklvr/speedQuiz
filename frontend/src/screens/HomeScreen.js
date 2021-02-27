@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Categories from '../components/Categories'
 import WordList from '../components/WordList'
 import Settings from '../components/Settings'
+import Message from '../components/Message'
+import InstructionModal from '../components/InstructionModal'
 // import Meta from '../components/Meta'
 
 import {
@@ -18,11 +20,14 @@ const HomeScreen = ({ history, match }) => {
 
   const getSavedLists = useSelector((state) => state.getSavedWordListById)
   const { loading, error, savedLists } = getSavedLists
+  const [showModal, setShowModal] = useState(false)
 
   if (!savedWordListId && savedLists) {
-    console.log('reset the fucker')
     dispatch(resetLists())
   }
+
+  const handleCloseModal = () => setShowModal(false)
+  const handleShowModal = () => setShowModal(true)
 
   useEffect(() => {
     if (savedWordListId) {
@@ -34,20 +39,37 @@ const HomeScreen = ({ history, match }) => {
     if (savedLists && savedWordListId) {
       dispatch(replaceLists(savedLists))
     }
-  }, [dispatch, savedLists])
+  }, [dispatch, savedLists, savedWordListId])
 
   return (
     <Container fluid={true}>
+      <InstructionModal
+        handleCloseModal={handleCloseModal}
+        handleShowModal={handleShowModal}
+        showModal={showModal}
+      />
       <Row className='d-flex justify-content-around'>
         <Col md={12} xl={4} className='order-xl-last mb-lg-4'>
-          <Settings />
+          <Settings handleShowModal={handleShowModal}/>
         </Col>
-        <Col md={6} xl={4}>
-          <Categories />
-        </Col>
-        <Col md={6} xl={4}>
-          <WordList savedWordListId={savedWordListId} history={history} />
-        </Col>
+        {error ? (
+          <Col md={8}>
+            <Message variant='danger'>{error}</Message>
+          </Col>
+        ) : (
+          <Fragment>
+            <Col md={6} xl={4}>
+              <Categories loading={loading} />
+            </Col>
+            <Col md={6} xl={4}>
+              <WordList
+                loading={loading}
+                savedWordListId={savedWordListId}
+                history={history}
+              />
+            </Col>
+          </Fragment>
+        )}
       </Row>
     </Container>
   )

@@ -3,6 +3,8 @@ import uuid from 'react-uuid'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Table, Button } from 'react-bootstrap'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 import { getAllWordLists, deleteWordList } from '../actions/wordListActions'
 
 const SavedWordListsScreen = ({ history }) => {
@@ -12,7 +14,6 @@ const SavedWordListsScreen = ({ history }) => {
     (state) => state.savedWordLists
   )
 
-  console.log('wordLists', wordLists)
 
   const wordListDelete = useSelector((state) => state.deleteWordList)
   const { loading: loadingDelete, error: errorDelete, success } = wordListDelete
@@ -41,36 +42,44 @@ const SavedWordListsScreen = ({ history }) => {
   return (
     <Container>
       <h1>Saved Word Lists</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Created At</th>
-            <th># of words</th>
-            <th>delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {wordLists &&
-            wordLists.map((wordList, index) => (
-              <tr key={uuid()} onClick={() => handleRowClick(wordList._id)}>
-                <td>{index + 1}</td>
-                <td>{wordList.name}</td>
-                <td>{moment(wordList.createdAt).format('YYYY-MM-DD HH:mm')}</td>
-                <td>{wordList.wordList.length}</td>
-                <td>
-                  <Button
-                    variant='danger'
-                    onClick={(e) => handleDelete(e, wordList._id)}
-                  >
-                    <i className='fas fa-trash-alt'></i> Delete
-                  </Button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </Table>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant='danger' message={error} />
+      ) : (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Created At</th>
+              <th># of words</th>
+              <th>delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {wordLists &&
+              wordLists.map((wordList, index) => (
+                <tr key={uuid()} onClick={() => handleRowClick(wordList._id)}>
+                  <td>{index + 1}</td>
+                  <td>{wordList.name}</td>
+                  <td>
+                    {moment(wordList.createdAt).format('YYYY-MM-DD HH:mm')}
+                  </td>
+                  <td>{wordList.wordList.length}</td>
+                  <td>
+                    <Button
+                      variant='danger'
+                      onClick={(e) => handleDelete(e, wordList._id)}
+                    >
+                      <i className='fas fa-trash-alt'></i> Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </Table>
+      )}
     </Container>
   )
 }

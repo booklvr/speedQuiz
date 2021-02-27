@@ -4,7 +4,6 @@ import {
   CORRECT_WORD,
   SKIP_WORD,
   SHUFFLE_AND_ADD_TO_WORD_LIST,
-  ADD_POINT_TO_CURRENT_TEAM,
   CLOSE_START_MODAL,
   START_THE_ROUND,
   START_THE_ROUND_OUTSIDE_MODAL,
@@ -43,14 +42,17 @@ export const previousTeam = () => (dispatch, getState) => {
   })
 }
 
-export const loadGame = () => (dispatch, getState) => {
+export const loadGame = (insideInstructionModal) => (dispatch, getState) => {
   const { teams, timer } = getState().settings
   const wordList = getState().wordList
+  console.log('action insideInstructionModal', insideInstructionModal)
 
   dispatch({
     type: LOAD_GAME,
     payload: {
       teams,
+      showModal: insideInstructionModal ? false : true,
+      insideInstructionModal: insideInstructionModal ? true : false,
       // teamIndex: 0,
       timer: {
         time: timer,
@@ -139,7 +141,7 @@ export const startTheTimer = () => (dispatch) => {
   })
 }
 
-export const endOfRound = () => (dispatch) => {
+export const endOfRound = (insideInstructionModal) => (dispatch) => {
   dispatch({
     type: END_THE_ROUND,
   })

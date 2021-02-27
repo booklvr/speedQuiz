@@ -3,11 +3,11 @@ import React, { Fragment } from 'react'
 import PlayGameButtons from './PlayGameButtons'
 import SettingsForm from './SettingsForm'
 
-const Settings = () => {
+const Settings = ({ handleShowModal }) => {
   return (
     <Fragment>
       <h1 className='list-title'>Settings</h1>
-      <PlayGameButtons />
+      <PlayGameButtons handleShowModal={handleShowModal} />
       <SettingsForm />
     </Fragment>
   )

@@ -4,9 +4,9 @@ import {
   CHANGE_NUMBER_OF_SECONDS,
   CHANGE_TEAM_NAME,
   REMOVE_TEAMS,
+  RESET_ALL,
   RESET_POINTS,
 } from '../constants/settingsConstants'
-
 
 export const settingsReducer = (
   state = {
@@ -72,7 +72,30 @@ export const settingsReducer = (
           points: 0,
         })),
       }
-    
+    case RESET_ALL:
+      return {
+        timer: 30,
+        teams: [
+          {
+            name: 'team 1',
+            id: uuid(),
+            current: true,
+            points: 0,
+          },
+          {
+            name: 'team 2',
+            id: uuid(),
+            current: false,
+            points: 0,
+          },
+          {
+            name: 'team 3',
+            id: uuid(),
+            current: false,
+            points: 0,
+          },
+        ],
+      }
     default:
       return state
   }
