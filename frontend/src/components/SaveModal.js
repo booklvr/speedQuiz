@@ -10,17 +10,12 @@ const SaveModal = ({ showModal, setShowModal, handleClose, history }) => {
   const dispatch = useDispatch()
   const { userInfo } = useSelector((state) => state.userLogin)
   const [wordListName, setWordListName] = useState('')
-  const { loading, error, success } = useSelector((state) => state.saveWordList)
-
+  const response = useSelector((state) => state.saveWordList)
+  const { loading, error, success } = response
   const handleSave = () => {
     if (!wordListName) return
 
     dispatch(saveWordList(wordListName))
-
-    setTimeout(() => {
-      setWordListName('')
-      handleClose()
-    }, 2000)
   }
 
   const handleKeyEnter = (event) => {
@@ -35,6 +30,15 @@ const SaveModal = ({ showModal, setShowModal, handleClose, history }) => {
     }
   }, [history, userInfo, showModal])
 
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => {
+        setWordListName('')
+        handleClose()
+      }, 2000)
+    }
+  }, [success, handleClose])
+
   return (
     <Fragment>
       <Modal
@@ -47,10 +51,9 @@ const SaveModal = ({ showModal, setShowModal, handleClose, history }) => {
           <Modal.Title>Save Your Word List</Modal.Title>
         </Modal.Header>
         <Modal.Body className='save-modal-body'>
+          {error && <Message variant='danger'>{error} </Message>}
           {loading ? (
             <Loader />
-          ) : error ? (
-            <Message variant='danger'>{error} </Message>
           ) : success ? (
             <Message variant='success'>
               Word list successfully saved as {wordListName}

@@ -5,11 +5,6 @@ import { Form, Row, Col, Container } from 'react-bootstrap'
 
 import TeamName from './TeamName'
 
-// Actions
-// import { changeNumberOfTeams } from '../actions/teamActions'
-// import { loadSeconds, toggleShowTimer } from '../actions/timerActions'
-// import { changeNumberOfTeams } from '../actions/teamActions'
-
 import {
   changeNumberOfSeconds,
   changeNumberOfTeams,
@@ -18,7 +13,8 @@ import {
 const SettingsForm = () => {
   const dispatch = useDispatch()
 
-  const { timer, teams } = useSelector((state) => state.settings)
+  const settings = useSelector((state) => state.settings)
+  const { timer, teams } = settings
   // const timer = useSelector((state) => state.timer)
   // const [minutes, setMinutes] = useState(Math.floor(timer.timeLeft / 60))
   const [seconds, setSeconds] = useState(timer)
@@ -49,10 +45,13 @@ const SettingsForm = () => {
   useEffect(() => {
     if (numberOfTeams !== '' && numberOfTeams > 0) {
       dispatch(changeNumberOfTeams(numberOfTeams))
-    } else {
-      dispatch(changeNumberOfTeams(teams.length))
     }
-  }, [numberOfTeams, dispatch, teams.length])
+  }, [numberOfTeams, dispatch])
+
+  useEffect(() => {
+    setSeconds(timer)
+    setNumberOfTeams(teams.length)
+  }, [timer, teams.length])
 
   return (
     <Container>

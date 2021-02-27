@@ -31,3 +31,36 @@
   background-color: #343a40;
   color: white;
 }
+
+.instruction-modal {
+  .individual-team-point-container {
+    width: 150px;
+    border: 1px solid #343a40;
+    margin-bottom: 2px;
+    margin-right: 2px;
+
+    .team-name {
+      width: 160px;
+      padding-left: 5px;
+      font-size: 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .team-points {
+      text-align: center;
+      width: 50px;
+      font-size: 20px;
+      padding: 0 2px;
+      margin: 1px;
+      background-color: #f7f7f9;
+    }
+  }
+
+  .individual-team-point-container.current {
+    border: 2px solid #343a40;
+    background-color: #343a40;
+    color: white;
+  }
+}

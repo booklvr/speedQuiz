@@ -1,8 +1,15 @@
 import React from 'react'
 import { Col, Row, Button, Container } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
+import { resetAll } from '../actions/settingsActions'
 
-const PlayGameButtons = () => {
+const PlayGameButtons = ({ handleShowModal }) => {
+  const dispatch = useDispatch()
+  const handleReset = () => {
+    dispatch(resetAll())
+  }
+
   return (
     <Container className=''>
       <Row>
@@ -16,10 +23,17 @@ const PlayGameButtons = () => {
         </Col>
 
         <Col lg={4} xl={12} className='py-2 d-flex'>
-          <Button className='flex-grow-1 btn-info'>how to play</Button>
+          <Button className='flex-grow-1 btn-info' onClick={handleShowModal}>
+            how to play
+          </Button>
         </Col>
         <Col lg={4} xl={12} className='py-2 d-flex'>
-          <Button className='flex-grow-1 btn-danger'>Reset</Button>
+          <Button
+            className='flex-grow-1 btn-danger'
+            onClick={() => handleReset()}
+          >
+            Reset
+          </Button>
         </Col>
       </Row>
     </Container>

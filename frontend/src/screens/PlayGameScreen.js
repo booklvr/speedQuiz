@@ -13,16 +13,16 @@ import Modals from '../components/Modals'
 
 import { loadGame } from '../actions/gameActions'
 
-const PlayGameScreen = () => {
+const PlayGameScreen = ({ insideInstructionModal }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(loadGame())
-  }, [dispatch])
+    dispatch(loadGame(insideInstructionModal))
+  }, [dispatch, insideInstructionModal])
 
   return (
     <Container fluid className='play-game-container'>
-      <Modals />
+      <Modals insideInstructionModal={insideInstructionModal} />
       <Teams />
       <TeamButtons />
 

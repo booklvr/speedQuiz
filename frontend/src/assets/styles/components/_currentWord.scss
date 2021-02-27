@@ -20,3 +20,21 @@
     font-size: 100px;
   }
 }
+
+.instruction-modal {
+  .current-word-container {
+    height: 100px;
+    .current-word {
+      font-size: 20px;
+    }
+
+    .btn {
+      height: 60px;
+      width: 120px;
+      font-size: 20px;
+    }
+  }
+  .start-timer {
+    font-size: 30px;
+  }
+}

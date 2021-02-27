@@ -13,3 +13,21 @@
     margin: 0;
   }
 }
+
+.instruction-modal {
+  .game-controls-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    button {
+      font-size: 15px;
+      padding: 5px;
+      min-width: 100px;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.instruction-modal {
+  padding: 50px;
+  font-size: 20px;
+  // h3 {
+  //   margin: 60px 0;
+  // }
+
+  .modal-body {
+    min-width: 100%;
+    overflow-y: scroll;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+  .instruction-group {
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 40px;
+    padding: 0 40px;
+
+    .step-two-title {
+      margin-top: 100px;
+    }
+
+    .save-modal {
+      cursor: default;
+    }
+
+    // .btn {
+    //   display: inline-block;
+    //   cursor: default;
+    //   margin: 0 20px;
+    // }
+
+    // .header-container {
+    //   display: flex !important;
+    //   align-items: center;
+    //   justify-content: space-around;
+    //   width: 100%;
+    //   margin-bottom: 10px;
+    // }
+
+    span {
+      background-color: lightgrey;
+      // padding: 5px 10px;
+    }
+  }
+}

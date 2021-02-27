@@ -5,7 +5,9 @@ import {
   ADD_TEAMS,
   CHANGE_TEAM_NAME,
   RESET_POINTS,
+  RESET_ALL,
 } from '../constants/settingsConstants'
+import { RESET_LISTS } from '../constants/wordListConstants'
 
 export const changeNumberOfSeconds = (seconds) => (dispatch, getState) => {
   dispatch({
@@ -26,7 +28,7 @@ export const changeNumberOfTeams = (numberOfTeams) => (dispatch, getState) => {
     const newTeams = []
     for (let i = 0; i < numberOfTeams - teams.length; i++) {
       newTeams.push({
-        name: `team ${parseInt(i + numberOfTeams)}`,
+        name: `team ${i + teams.length + 1}`,
         id: uuid(),
         current: false,
         points: 0,
@@ -53,4 +55,13 @@ export const resetPoints = () => (dispatch, getState) => {
     type: RESET_POINTS,
   })
   localStorage.setItem('settings', JSON.stringify(getState().settings))
+}
+
+export const resetAll = () => (dispatch) => {
+  dispatch({
+    type: RESET_ALL,
+  })
+  dispatch({
+    type: RESET_LISTS,
+  })
 }
