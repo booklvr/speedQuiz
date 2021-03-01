@@ -8,7 +8,9 @@ import userRoutes from './routes/userRoutes.js'
 import wordListRoutes from './routes/wordListRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
-dotenv.config()
+// dirname doesn't work normally with es6 syntax (require) so use below workaround
+const __dirname = path.resolve()
+dotenv.config({ path: path.join(__dirname, '.env') })
 
 connectDB()
 
