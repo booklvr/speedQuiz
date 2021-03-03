@@ -1,10 +1,11 @@
 import React from 'react'
 import { Col, Row, Button, Container } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { resetAll } from '../actions/settingsActions'
 
 const PlayGameButtons = ({ handleShowModal }) => {
+  const wordList = useSelector((state) => state.wordList)
   const dispatch = useDispatch()
   const handleReset = () => {
     dispatch(resetAll())
@@ -14,11 +15,13 @@ const PlayGameButtons = ({ handleShowModal }) => {
     <Container className=''>
       <Row>
         <Col lg={4} xl={12} className='py-2 d-flex'>
-          <LinkContainer
-            to={`/play`}
-            className='d-flex justify-content-center align-items-center'
-          >
-            <Button className='flex-grow-1 bg-success'>Play</Button>
+          <LinkContainer to='/play'>
+            <Button
+              className='flex-grow-1 bg-success'
+              disabled={wordList.length ? false : true}
+            >
+              Play
+            </Button>
           </LinkContainer>
         </Col>
 
