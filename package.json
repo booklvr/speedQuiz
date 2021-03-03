@@ -20,9 +20,9 @@
     "parcel-bundler": "^1.12.4"
   },
   "scripts": {
-    "server": "nodemon server.mjs",
-    "start": "node server.mjs",
-    "safestart": "node --experimental-modules server.mjs",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "safestart": "node --experimental-modules server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "data:import": "node backend/seeder",
