@@ -57,11 +57,13 @@ export const resetPoints = () => (dispatch, getState) => {
   localStorage.setItem('settings', JSON.stringify(getState().settings))
 }
 
-export const resetAll = () => (dispatch) => {
+export const resetAll = () => (dispatch, getState) => {
   dispatch({
     type: RESET_ALL,
   })
   dispatch({
     type: RESET_LISTS,
   })
+  localStorage.setItem('wordList', JSON.stringify(getState().wordList))
+  localStorage.setItem('categoryList', JSON.stringify(getState().categoryList))
 }
