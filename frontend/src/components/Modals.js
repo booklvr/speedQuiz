@@ -31,22 +31,26 @@ const Modals = ({ insideInstructionModal }) => {
   } = useSelector((state) => state.game)
   const [teamPoints, setTeamPoints] = useState(points)
 
-  console.log('insideInstructionModal', insideInstructionModal)
-
-  const handleClose = () => {
-    dispatch(closeStartModal())
-  }
-
-  const handlePreviousButton = () => {
-    dispatch(previousTeam())
-  }
+  const nextTeamSound = new Audio('../audio/next.wav')
+  const exitSound = new Audio('../audio/exit.wav')
 
   const handleStart = () => {
     dispatch(startTheRound())
   }
 
+  const handlePreviousButton = () => {
+    nextTeamSound.play()
+    dispatch(previousTeam())
+  }
+
   const handleNextButton = () => {
+    nextTeamSound.play()
     dispatch(nextTeam())
+  }
+
+  const handleClose = () => {
+    exitSound.play()
+    dispatch(closeStartModal())
   }
   const handleChangeTeamPoints = (e) => {
     if (isNaN(e.target.value)) return

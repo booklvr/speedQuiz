@@ -13,14 +13,27 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(time)
   // const [timerFinished, setTimerFinished] = useState(false)
 
+  if (time < 20) {
+    console.log('we have a fucking problem with the time')
+  }
+
+  const outOfTimeSound = new Audio('../audio/timesUp.flac')
+  outOfTimeSound.volume = 0.1
+  const endSound = new Audio('../audio/end.wav')
+
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
+      endSound.play()
       dispatch(endOfRound())
       return
     }
     // wait for start button
     if (!start) return
+
+    if (timeLeft === 20) {
+      outOfTimeSound.play()
+    }
 
     // save intervalId to clear the interval when the
     // component re-renders

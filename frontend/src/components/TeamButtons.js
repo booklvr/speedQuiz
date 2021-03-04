@@ -5,11 +5,16 @@ import { nextTeam, previousTeam } from '../actions/gameActions'
 
 const TeamButtons = () => {
   const dispatch = useDispatch()
+
+  const nextTeamSound = new Audio('../audio/next.wav')
+
   const handlePreviousButton = () => {
+    nextTeamSound.play()
     dispatch(previousTeam())
   }
 
   const handleNextButton = () => {
+    nextTeamSound.play()
     dispatch(nextTeam())
   }
 
