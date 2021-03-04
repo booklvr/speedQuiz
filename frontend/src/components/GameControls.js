@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Button, Col, Row } from 'react-bootstrap'
 
 import { correctWord, skipWord, undoWord } from '../actions/gameActions'
+import { correctSound } from '../../assets/audio'
 
 const GameControls = () => {
   const dispatch = useDispatch()
@@ -13,15 +14,22 @@ const GameControls = () => {
     timer: { start },
   } = useSelector((state) => state.game)
 
+  // const correctSound = new Audio('../audio/correct.wav')
+  const backSound = new Audio('../audio/back.wav')
+  const skipSound = new Audio('../audio/skip.mp3')
+
   const handleCorrectWord = () => {
+    correctSound.play()
     dispatch(correctWord())
   }
 
   const handleSkipWord = () => {
+    skipSound.play()
     dispatch(skipWord())
   }
 
   const handleUndoWord = () => {
+    backSound.play()
     dispatch(undoWord())
   }
 
