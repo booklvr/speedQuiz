@@ -13,9 +13,9 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(time)
   // const [timerFinished, setTimerFinished] = useState(false)
 
-  if (time < 20) {
-    console.log('we have a fucking problem with the time')
-  }
+  // if (time < 20) {
+  //   console.log('we have a fucking problem with the time')
+  // }
 
   const outOfTimeSound = new Audio('../audio/timesUp.flac')
   outOfTimeSound.volume = 0.1

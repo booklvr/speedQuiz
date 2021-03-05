@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal, Container, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useSelector } from 'react-redux'
 
 import PropTypes from 'prop-types'
 
