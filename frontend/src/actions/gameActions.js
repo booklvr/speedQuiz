@@ -45,7 +45,6 @@ export const previousTeam = () => (dispatch, getState) => {
 export const loadGame = (insideInstructionModal) => (dispatch, getState) => {
   const { teams, timer } = getState().settings
   const wordList = getState().wordList
-  console.log('action insideInstructionModal', insideInstructionModal)
 
   dispatch({
     type: LOAD_GAME,
