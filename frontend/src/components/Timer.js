@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'react-bootstrap'
 import { endOfRound } from '../actions/gameActions'
-import { correctSound, skipSound, backSound } from '../assets/sounds/audio.js'
-import {timesUpSound, endSound} from '../'
+import { timesUpSound, endSound } from '../assets/sounds/audio.js'
 
 const Timer = () => {
   const dispatch = useDispatch()
@@ -15,13 +14,8 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(time)
   // const [timerFinished, setTimerFinished] = useState(false)
 
-  if (time < 20) {
-    console.log('we have a fucking problem with the time')
-  }
+  
 
-  const outOfTimeSound = new Audio('../audio/timesUp.flac')
-  outOfTimeSound.volume = 0.1
-  const endSound = new Audio('../audio/end.wav')
 
   useEffect(() => {
     // exit early when we reach 0
@@ -34,8 +28,10 @@ const Timer = () => {
     if (!start) return
 
     if (timeLeft === 20) {
-      outOfTimeSound.play()
+      timesUpSound.fade(.01, 4, 20000)
+      timesUpSound.play();
     }
+    
 
     // save intervalId to clear the interval when the
     // component re-renders
@@ -53,10 +49,16 @@ const Timer = () => {
     if (startModal) {
       setTimeLeft(time)
     }
+    
   }, [time, startModal])
 
   useEffect(() => {
-    if (startRound) setTimeLeft(time)
+    if (startRound) {
+      setTimeLeft(time)
+      
+    }
+
+    
   }, [startRound, time])
   return (
     <Container className='timer-container'>

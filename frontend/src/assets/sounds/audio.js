@@ -12,6 +12,7 @@ const correctSound = new Howl({
 const skipSound = new Howl({
   src: ['../../audio/skip.mp3'],
   volume: 0.5,
+  rate: 1.5,
 })
 
 const backSound = new Howl({
@@ -21,25 +22,36 @@ const backSound = new Howl({
 
 const endSound = new Howl({
   src: ['../../audio/end.wav'],
-  volume: 0.5,
+  volume: 5,
 })
 
-const nextSound = new Howl({
+const nextTeamSound = new Howl({
   src: ['../../audio/next.wav'],
-  volume: 0.5,
+  volume: 0.7,
 })
 
 const timesUpSound = new Howl({
   src: ['../../audio/timesUp.flac'],
-  volume: 0.2,
+  volume: 0.1,
 })
 
 const exitSound = new Howl({
-  src: ['../../auido/exit.wav'],
-  volume: 0.5,
+  src: ['../../audio/exit.wav'],
+  volume: 0.2,
+})
+
+const startSound = new Howl({
+  src: ['../../audio/start.wav'],
+  rate: 0.9,
+  volume: .8,
+})
+
+const startBellSound = new Howl({
+  src: ['../../audio/startBell.flac'],
+  volume: 1,
 })
 
 // const correctSound = new Audio('../../audio/correct.wav')
 
 
-export { correctSound, skipSound, backSound, endSound, nextSound, timesUpSound, exitSound }
+export { correctSound, skipSound, backSound, endSound, nextTeamSound, timesUpSound, exitSound, startSound, startBellSound }
