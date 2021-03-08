@@ -8,6 +8,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: calc(100vh - 150px);
+  position: relative;
+  background-color: pink;
 }
 
 .instruction-modal {

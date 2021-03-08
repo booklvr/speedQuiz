@@ -18,6 +18,10 @@ import {
   editRoundPointsModal,
 } from '../actions/gameActions'
 
+// sounds 
+import { nextTeamSound, exitSound } from '../assets/sounds/audio.js'
+
+
 const Modals = ({ insideInstructionModal }) => {
   const dispatch = useDispatch()
   const {
@@ -31,8 +35,7 @@ const Modals = ({ insideInstructionModal }) => {
   } = useSelector((state) => state.game)
   const [teamPoints, setTeamPoints] = useState(points)
 
-  const nextTeamSound = new Audio('../audio/next.wav')
-  const exitSound = new Audio('../audio/exit.wav')
+ 
 
   const handleStart = () => {
     dispatch(startTheRound())

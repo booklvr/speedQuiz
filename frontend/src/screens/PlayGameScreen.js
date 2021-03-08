@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import Teams from '../components/Teams'
 import TeamButtons from '../components/TeamButtons'
@@ -8,6 +8,7 @@ import GameControls from '../components/GameControls'
 import Timer from '../components/Timer'
 import Points from '../components/Points'
 import Modals from '../components/Modals'
+import MuteButton from '../components/MuteButton'
 
 // import { resetPoints } from '../actions/settingsActions'
 
@@ -22,9 +23,12 @@ const PlayGameScreen = ({ insideInstructionModal }) => {
 
   return (
     <Container fluid className='play-game-container'>
+      
       <Modals insideInstructionModal={insideInstructionModal} />
       <Teams />
+      <MuteButton />
       <TeamButtons />
+      
 
       <CurrentWord />
 

@@ -3,18 +3,21 @@ import { useDispatch } from 'react-redux'
 import { Container, Button } from 'react-bootstrap'
 import { nextTeam, previousTeam } from '../actions/gameActions'
 
+// sounds
+import { timesUpSound, nextTeamSound } from '../assets/sounds/audio.js'
+
 const TeamButtons = () => {
   const dispatch = useDispatch()
 
-  const nextTeamSound = new Audio('../audio/next.wav')
-
   const handlePreviousButton = () => {
     nextTeamSound.play()
+    timesUpSound.stop();
     dispatch(previousTeam())
   }
 
   const handleNextButton = () => {
     nextTeamSound.play()
+    timesUpSound.stop();
     dispatch(nextTeam())
   }
 
