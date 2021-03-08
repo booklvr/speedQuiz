@@ -24,7 +24,6 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
 
-
   useEffect(() => {
     if (!userInfo) {
       history.push('/login')
@@ -51,7 +50,7 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <Row>
-      <Col md={3}>
+      <Col md={6} className='offset-md-3'>
         <h2>User Profile</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
@@ -102,10 +101,6 @@ const ProfileScreen = ({ location, history }) => {
             Update
           </Button>
         </Form>
-      </Col>
-      <Col md={9}>
-        <h2> Column 2</h2>
-        <div> Code goes here</div>
       </Col>
     </Row>
   )

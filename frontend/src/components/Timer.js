@@ -14,9 +14,6 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(time)
   // const [timerFinished, setTimerFinished] = useState(false)
 
-  
-
-
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
@@ -28,10 +25,9 @@ const Timer = () => {
     if (!start) return
 
     if (timeLeft === 20) {
-      timesUpSound.fade(.01, 4, 20000)
-      timesUpSound.play();
+      timesUpSound.fade(0.01, 0.25, 20000)
+      timesUpSound.play()
     }
-    
 
     // save intervalId to clear the interval when the
     // component re-renders
@@ -49,16 +45,12 @@ const Timer = () => {
     if (startModal) {
       setTimeLeft(time)
     }
-    
   }, [time, startModal])
 
   useEffect(() => {
     if (startRound) {
       setTimeLeft(time)
-      
     }
-
-    
   }, [startRound, time])
   return (
     <Container className='timer-container'>
