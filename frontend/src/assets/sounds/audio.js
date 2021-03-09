@@ -1,4 +1,4 @@
-import {Howl, howler} from 'howler'
+import {Howl} from 'howler'
 // import {useSelector} from 'react-redux'
 // const startSound = new Audio('../../audio/start')
 

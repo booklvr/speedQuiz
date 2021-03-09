@@ -1,5 +1,4 @@
 import React from 'react'
-import {howl, howler} from 'howler'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Button, Col, Row } from 'react-bootstrap'
 
