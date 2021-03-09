@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Jumbotron, Button } from 'react-bootstrap'
 import { startTheRound, startTheTimer } from '../actions/gameActions'
-import { timesUpSound, startSound, startBellSound } from '../assets/sounds/audio.js'
-
+import {
+  timesUpSound,
+  startSound,
+  startBellSound,
+} from '../assets/sounds/audio.js'
 
 const CurrentWord = () => {
   const dispatch = useDispatch()
@@ -26,7 +29,7 @@ const CurrentWord = () => {
     setStartTimer(3)
 
     if (startRound) {
-      startSound.play();
+      startSound.play()
     }
   }, [startRound])
 
@@ -36,18 +39,15 @@ const CurrentWord = () => {
     }
 
     if (startTimer === 0) {
-
       setTimeout(() => {
-        
         if (time < 20) {
-          timesUpSound.seek(20-time);
-          timesUpSound.fade(0.01, .4, 20-time)
-          timesUpSound.play();
+          timesUpSound.seek(20 - time)
+          timesUpSound.fade(0.01, 0.25, 20 - time)
+          timesUpSound.play()
         }
-        startBellSound.play();
+        startBellSound.play()
         dispatch(startTheTimer())
       }, 1000)
-      
 
       return
     }
