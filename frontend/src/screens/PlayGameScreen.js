@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { Container, Row, Col } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import Teams from '../components/Teams'
 import TeamButtons from '../components/TeamButtons'
 import CurrentWord from '../components/CurrentWord'
@@ -14,12 +14,18 @@ import MuteButton from '../components/MuteButton'
 
 import { loadGame } from '../actions/gameActions'
 
-const PlayGameScreen = ({ insideInstructionModal }) => {
+const PlayGameScreen = ({ insideInstructionModal, history }) => {  
   const dispatch = useDispatch()
+  const wordList = useSelector(state => state.wordList)
+  console.log(wordList);
+  
 
   useEffect(() => {
+    if (wordList.length === 0) {
+      history.push('/')
+    }
     dispatch(loadGame(insideInstructionModal))
-  }, [dispatch, insideInstructionModal])
+  }, [dispatch, insideInstructionModal, history])
 
   return (
     <Container fluid className='play-game-container'>

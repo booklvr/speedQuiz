@@ -62,7 +62,7 @@ const CurrentWord = () => {
     return () => clearInterval(intervalId)
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
-  }, [startRound, startTimer, dispatch])
+  }, [startRound, startTimer, dispatch, time])
 
   return (
     <Jumbotron fluid className='current-word-container'>
