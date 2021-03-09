@@ -1,17 +1,15 @@
-import {Howl} from 'howler'
+import { Howl } from 'howler'
 // import {useSelector} from 'react-redux'
 // const startSound = new Audio('../../audio/start')
-
-
 
 const correctSound = new Howl({
   src: ['../../audio/correct.wav'],
   volume: 0.5,
-});
+})
 
 const skipSound = new Howl({
   src: ['../../audio/skip.mp3'],
-  volume: 0.5,
+  volume: 0.7,
   rate: 1.5,
 })
 
@@ -43,7 +41,7 @@ const exitSound = new Howl({
 const startSound = new Howl({
   src: ['../../audio/start.wav'],
   rate: 0.9,
-  volume: .8,
+  volume: 0.6,
 })
 
 const startBellSound = new Howl({
@@ -53,5 +51,14 @@ const startBellSound = new Howl({
 
 // const correctSound = new Audio('../../audio/correct.wav')
 
-
-export { correctSound, skipSound, backSound, endSound, nextTeamSound, timesUpSound, exitSound, startSound, startBellSound }
+export {
+  correctSound,
+  skipSound,
+  backSound,
+  endSound,
+  nextTeamSound,
+  timesUpSound,
+  exitSound,
+  startSound,
+  startBellSound,
+}

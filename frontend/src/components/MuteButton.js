@@ -1,26 +1,33 @@
-import React, {Fragment, useState} from 'react'
-import {Button} from 'react-bootstrap'
+import React, { Fragment, useState, useEffect } from 'react'
+import { Howler } from 'howler'
+import { Button } from 'react-bootstrap'
 
 const MuteButton = () => {
-
-  const [mute, setMute] = useState(false);
+  const [mute, setMute] = useState(false)
 
   const handleVolumeClick = () => {
-    setMute(!mute);
+    setMute(!mute)
   }
 
+  useEffect(() => {
+    if (mute) {
+      Howler.mute(true)
+    } else {
+      Howler.mute(false)
+    }
+  }, [mute])
 
   return (
     <Fragment>
-    {mute === true ? (
-      <Button className="mute-btn" onClick={() => handleVolumeClick()}><i className="fas fa-volume"></i></Button>
+      {mute === true ? (
+        <div className='mute-btn' onClick={() => handleVolumeClick()}>
+          <i className='fas fa-volume-mute'></i>
+        </div>
       ) : (
-        <Button className="mute-btn" onClick={() => handleVolumeClick()}><i className="fas fa-volume-mute"></i></Button>
-        
-      )
-    }
-    
-    
+        <div className='mute-btn' onClick={() => handleVolumeClick()}>
+          <i className='fas fa-volume-up'></i>
+        </div>
+      )}
     </Fragment>
   )
 }
