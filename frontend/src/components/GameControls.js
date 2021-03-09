@@ -15,12 +15,6 @@ const GameControls = () => {
     timer: { start },
   } = useSelector((state) => state.game)
 
-  // const correctSound = new Audio('../audio/correct.wav')
-  // const backSound = new Audio('../audio/back.wav')
-  // const skipSound = new Audio('../audio/skip.mp3')
-  // const correctSound = new Audio('../audio/correct.wav')
-
-  console.log(correctSound.canplaythrough)
 
   const handleCorrectWord = () => {
     correctSound.play()

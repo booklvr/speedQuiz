@@ -17,7 +17,6 @@ import { loadGame } from '../actions/gameActions'
 const PlayGameScreen = ({ insideInstructionModal, history }) => {  
   const dispatch = useDispatch()
   const wordList = useSelector(state => state.wordList)
-  console.log(wordList);
   
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const PlayGameScreen = ({ insideInstructionModal, history }) => {
       history.push('/')
     }
     dispatch(loadGame(insideInstructionModal))
-  }, [dispatch, insideInstructionModal, history])
+  }, [dispatch, insideInstructionModal, history, wordList.length])
 
   return (
     <Container fluid className='play-game-container'>
