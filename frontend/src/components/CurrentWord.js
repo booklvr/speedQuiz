@@ -72,7 +72,7 @@ const CurrentWord = () => {
         (startRound && <h1 className='start-timer'>{startTimer}</h1>) ||
         (wordList.length && (
           <h1 className='current-word text-center'>
-            {wordList[wordIndex].word}
+          {wordList[wordIndex].word}
           </h1>
         ))}
     </Jumbotron>

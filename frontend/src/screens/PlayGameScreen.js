@@ -14,26 +14,23 @@ import MuteButton from '../components/MuteButton'
 
 import { loadGame } from '../actions/gameActions'
 
-const PlayGameScreen = ({ insideInstructionModal, history }) => {  
+const PlayGameScreen = ({ insideInstructionModal }) => {
   const dispatch = useDispatch()
-  const wordList = useSelector(state => state.wordList)
-  
+  const wordList = useSelector((state) => state.wordList)
 
   useEffect(() => {
-    if (wordList.length === 0) {
-      history.push('/')
-    }
+    // if (wordList.length === 0) {
+    //   history.push('/')
+    // }
     dispatch(loadGame(insideInstructionModal))
-  }, [dispatch, insideInstructionModal, history, wordList.length])
+  }, [dispatch, insideInstructionModal, wordList.length])
 
   return (
     <Container fluid className='play-game-container'>
-      
       <Modals insideInstructionModal={insideInstructionModal} />
       <Teams />
       <MuteButton />
       <TeamButtons />
-      
 
       <CurrentWord />
 
