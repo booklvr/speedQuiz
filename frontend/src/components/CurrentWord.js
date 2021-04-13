@@ -70,11 +70,12 @@ const CurrentWord = () => {
         <Button onClick={handleStartButton}>Start</Button>
       )) ||
         (startRound && <h1 className='start-timer'>{startTimer}</h1>) ||
-        (wordList.length && (
+        (wordList.length !== 0 && (
           <h1 className='current-word text-center'>
-          {wordList[wordIndex].word}
+            {wordList[wordIndex].word}
           </h1>
-        ))}
+        )) ||
+        'Please add to the word list.'}
     </Jumbotron>
   )
 }
