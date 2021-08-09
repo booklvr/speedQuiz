@@ -1,6 +1,6 @@
 # speedQuiz
 
-# Description
+ Description
 
 Speed Quiz is a charades type game meant to be used in the classroom.  It is a fun, effective way for students to practice new vocabulary.  The main page is the settings page where teachers can choose the number of teams, and the time limit for each round.  The teacher can make a word list by choosing words from the provided categories or add their own words using a simple form.  If the teacher logs in these word lists can be saved and used again later.  Clicking the play buttons brings you to the game screen.  The game screen opens with modal that shows what team is next with a start button.  When the start button is clicked a three second timer counts down and then students are shown a word on the screen.  Students in a team are split into two groups, have the students can see the word and the other half cannot.  The students who can see the word must help the students who cannot guess the word using actions or descriptive students.  If a word is too challenging they can say skip, and the teacher goes onto the next word without giving a point.  When the round time is up an end of round modal pops up showing the previous teams total points, as well as the words they got correct and what words they skipped.  The points are editable in case any mistakes were made by the teacher.  
 
